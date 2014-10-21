@@ -14,7 +14,7 @@ Geralmente sistemas computacionais são feitos para resolver tarefas computacion
 
 Para esse tipo de trabalho é que o Aprendizado de Máquina nasceu para solucionar, em vez de programar cada etapa de forma exaustiva a ideia é ensinar o computador a aprender sozinho as etapas de resolução do problema. Isso geralmente se dá quando é aprensentado ao computador um conjunto de dados de determinado contexto, nesses dados estão contidos todos os relaciomentos implícitos que compõem a solução, a tarefa do computador é extrair esses relaciomentos para ser capaz de generalizar uma solução. Sistemas de AM são capazes de aprender, crescer e se modificar quando apresentados a novos conjuntos de dados, por isso muitas definições de AM estão relacionadas aos dados.
 
-Financeiramente, Aprendizado de Máquina é um campo que vem obtendo ascendente crescimento de investimento. Citando novamente o relatório da UE \cite{eu2013}, somente na Europa estima-se que o mercado de sistemas especialistas gerou um total de 700 milhões de euros em 2013 e as previsões são de que esse número chegue a 27 bilhões de euros no ano de 2015. De acordo com as suposições dos autores deste relatório, os trabalhos na área de AM irão impulsionar uma grande demanda por profissionais altamente capacitados, além de incentivar pesquisas em diversas áreas do conhecimento, como na forma como compreende-se o cérebro humano. Isto tudo gerando expansões e investimentos, tanto nos Estados Unidos, quanto nos países que compõem o BRIC (Brasil, Rússia, Índia e China). 
+Financeiramente, Aprendizado de Máquina é um campo que vem obtendo ascendente crescimento de investimento. Citando novamente o relatório da UE, \citeonline{eu2013}, somente na Europa estima-se que o mercado de sistemas especialistas gerou um total de 700 milhões de euros em 2013 e as previsões são de que esse número chegue a 27 bilhões de euros no ano de 2015. De acordo com as suposições dos autores deste relatório, os trabalhos na área de AM irão impulsionar uma grande demanda por profissionais altamente capacitados, além de incentivar pesquisas em diversas áreas do conhecimento, como na forma como compreende-se o cérebro humano. Isto tudo gerando expansões e investimentos, tanto nos Estados Unidos, quanto nos países que compõem o BRIC (Brasil, Rússia, Índia e China). 
 
 //Processos de ML
 
@@ -32,12 +32,54 @@ AM pode ser altamente benéfico para solução de problemas complexos, é possí
 \end{enumerate}
 
 \section{Aquisição dos dados}
-Apesar de parecer trivial definir a aquisição de dados como uma etapa do projeto de AM ela é extremamente importante e alguns cuidados especiais devem ser considerados para que as predições tenham um bom desempenho. Os dados que servem como entrada para os processos de modelagem geralmente estão apresentados na forma de tabelas que possuem colunas e linhas. As colunas representam as caractéristicas dos dados, como se fossem meta-dados, e as linhas representam instâncias dessas características.
+Apesar de parecer trivial, definir a aquisição de dados como uma etapa do projeto de AM é extremamente importante e alguns cuidados especiais devem ser considerados para que as predições tenham um bom desempenho. O primeiro passo antes de começar o projeto de AM é saber qual a necessidade do mundo real que deve ser atendida. Este passo pode ser entendido como a necessidade de encontrar questões que envolvem uma variável de interesse (quem gostaria de comprar este produto, qual o significado deste audio em linguagem natural, onde está a face humana nesta imagem,...) e o caminho pra solução que envolve variáveis independentes (histórico de compras dos usuários, mapeamento de sons para texto, características de faces humanas).
 
-//Colocar um exemplo de tabela aqui
+Nem sempre utilizar Aprendizagem de Máquina é a melhor resposta para solucioanar os problemas do mundo real. É nessário avaliar com cuidado quais os objetivos da solução e qual o contexto do problema. Um grande indício de que o problema pode ser solucionado por AM é se ele possui algumas das seguintes características: Alta complexidade de relaciomento entre entradas e saídas, grande volume de dados, necessidade de generalização e necessidade de adaptabilidade a novos cenários. 
+
+Os dados que servem como entrada para os processos de modelagem geralmente estão apresentados na forma de tabelas que possuem colunas e linhas. As colunas representam as características dos dados, como se fossem meta-dados, e as linhas representam instâncias dessas características. A tabela a seguir representa os tipos de dados que podem aparecer como característica de dados na Aprendizagem de Máquina \cite{guy2010}.
+
+\begin{table}[h]
+\centering
+\caption{Tipos de Dados}
+\vspace{0.5cm}
+\begin{tabular}{r|lr}
+
+\hline 
+Tipo & Exemplo  \\ % Note a separação de col. e a quebra de linhas
+\hline                               % para uma linha horizontal
+Átomo Categórico        & Uma palavra na língua portuguesa \\
+\hline   
+Átomo Numérico & Valor de temperatura \\
+\hline 
+Átomo Ordinário           & Preferência cinematográfica (Número de Estrelas) \\
+\hline 
+Conjunto desordenado de números       & Sinais vitais(pulso, temperatura, pressão sanguínea)\\
+\hline 
+Conjunto desordenado de misturas     & Informação demográfica(raça, sexo, idade, renda)\\
+\hline 
+Sequência unidimensional de categóricos       & Documento de texto\\
+\hline 
+Sequência unidimensional de números       & Série Temporal Financeira\\
+\hline 
+Sequência bidimensional de números      & Imagem\\
+\hline 
+Sequência tridimensional de números       & Filme\\
+\hline 
+Grafo Arbitrário Categórico       & Árvore de Conversões\\
+ \hline 
+\end{tabular}
+\end{table}
 
 Cada coluna da tabela anterior representa uma característica do problema a ser analizado e há vários tipos de dados que podem estar presentes, os tipos de dados são:
 
+\begin{enumerate}
+\item Aquisição dos dados
+\item Engenharia de Características
+\item Construção do modelo
+\item Avaliação do modelo
+\item Otimização do modelo
+\item Predições
+\end{enumerate}
 
 \section{Engenharia de Características}
 \section{Construção do modelo}
