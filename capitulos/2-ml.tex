@@ -1,26 +1,15 @@
 \chapter{Aprendizado de Máquina}
 
-Com o advento do crescimento do uso de Tecnologia da Informação na sociedade moderna, uma enorme quantidade de dados vem sendo gerada diariamente. Big Data é o termo em inglês usado para descrever o fenômeno deste grande volume de informações que a sociedade gera atualmente. Citam-se como exemplos de fontes dessas informações: redes sociais, registros de transações e dados de sensores. Estes conjuntos de elementos tem a característica de serem desestruturados, crescerem muito rapidamente com o tempo e terem alta complexidade. De acordo com o relatório produzido em 2013 pela União Europeia, UE, aproximadamente 90\% de todos os dados gerados pela humanidade em 2013 foram feitos nos dois anos anteriores \cite{eu2013}. Ainda afirma-se neste relatório que o desafio moderno não esta na capacidade de armazenamento dos registros, mas sim em usá-los de forma prática e eficiente, estima-se que apenas um quinto desses registros sejam de origem numérica. De acordo com \cite{lopez2011} em um trabalho que estimou a capacidade tecnológica do mundo de armazenar, comunicar e processar informação: 
-\begin{enumerate}
-\item As telecomunicações foram dominadas pelas tecnologias digitais desde 1999, correspondendo a 99.9\% no ano de 2007. 
-\item A maior parte da informação tecnológica da humanidade está em formato digital desde os anos 2000, correspondendo a 94\% no ano de 2007.
-\item A capacidade de armazenamento de informação tecnológica per-capita vem dobrando a cada 40 meses desde a década de 1980.
-\end{enumerate}
-   
-
-Considerando-se os desafios apresentados, Aprendizado de Máquina, ou comumente conhecido pelo termo em inglês Machine Learning, é um novo campo do conhecimento que é possui elementos  interseccionados entre: Ciência da Computação, Estatística, Teoria da Informação, Filosofia, Biologia, Ciência Cognitiva, Complexidade Computacional e Teoria de Controle \cite{mitch1997}. Tem forte relacionamento  com a Inteligência Artificial, pois se assemelham em objetivos e técnicas. Aprendizado de Máquina se preocupa em habilitar sistemas computacionais a aprender ou desempenhar determinada função sem ser diretamente programdos para aquela tarefa. De acordo com Arthur Lee Samuel, cientista pioneiro do campo de inteligência artificial, Aprendizado de Máquina é: "Campo de estudo que habilita computadores a aprender sem ser explicitamente programados" (A.L.Samuel apud \citeonline{big2013}). Sistemas computacionais baseados em modelagens de AM são necessários para solucionar problemas altamente técnicos e especializados, algumas das tarefas que demandam o uso desses métodos são:aprendizado, raciocínio, planejamento, tomada de decisões, classificações, predições. 
-
-Geralmente sistemas computacionais são feitos para resolver tarefas computacionais de forma explícita, isto é, o programador conhece plenamente o problema que deve ser atacado e comanda o computador a executar passos que correspondem as etapas necessárias para a resolução do problema. Programadores usam algoritmos para habilitar sistemas computacionais a realizar diversas tarefas, um algoritmo é uma coleção bem ordenada de operações computacionais claras e efetivas que quando executadas produzem um resulto e param em uma quantidade finita de tempo \cite{schn1995}. O humano por trás do algoritmo deve conhecer todos os relaciomentos do problema e ser capaz de identificar mentalmente todos os processos envolvidos na resolução. Isso nem sempre é possível, pois existem problemas tão complexos que tornam a abstração de sua resolução impossível para a capacidade humana. São muitos relaciomentos escondidos que tornam a tarefa de programar explicitamente inviável, pois isso requer conhecer todos os passos da resolução do problema.
-
-Para esse tipo de trabalho é que o Aprendizado de Máquina nasceu para solucionar, em vez de programar cada etapa de forma exaustiva a ideia é ensinar o computador a aprender sozinho as etapas de resolução do problema. Isso geralmente se dá quando é aprensentado ao computador um conjunto de dados de determinado contexto, nesses dados estão contidos todos os relaciomentos implícitos que compõem a solução, a tarefa do computador é extrair esses relaciomentos para ser capaz de generalizar uma solução. Sistemas de AM são capazes de aprender, crescer e se modificar quando apresentados a novos conjuntos de dados, por isso muitas definições de AM estão relacionadas aos dados.
-
-Financeiramente, Aprendizado de Máquina é um campo que vem obtendo ascendente crescimento de investimento. Citando novamente o relatório da UE, \citeonline{eu2013}, somente na Europa estima-se que o mercado de sistemas especialistas gerou um total de 700 milhões de euros em 2013 e as previsões são de que esse número chegue a 27 bilhões de euros no ano de 2015. De acordo com as suposições dos autores deste relatório, os trabalhos na área de AM irão impulsionar uma grande demanda por profissionais altamente capacitados, além de incentivar pesquisas em diversas áreas do conhecimento, como na forma como compreende-se o cérebro humano. Isto tudo gerando expansões e investimentos, tanto nos Estados Unidos, quanto nos países que compõem o BRIC (Brasil, Rússia, Índia e China). 
-
-//Processos de ML
 
 AM pode ser altamente benéfico para solução de problemas complexos, é possível observar um ciclo de trabalho bem definido que está presente na solução de problemas por uma abordagem de Aprendizado de Máquina. As etapas gerais de projetos de AM são aquisição de dados, construção de modelo, análise, otimização e predição \cite{real2013}. Com estas cinco etapas é possível sair de um conjunto de dados e chegar as respostas desejadas através de cuidadosa seleção e processamento de dados, passando pela construção e avaliação de um método eficaz até chegar a um modelo consistente com a necessidade do problema. Embora haja uma linearidade na execução desses processos é comum em projetos de AM revisitar estas etapas várias vezes. A imagem a seguir revela um ciclo de AM mais detalhado e que engloba as etapas previamente citadas ressaltando elementos importantes: 
 
-//Colocar a imagem do capítulo cinco aqui
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.50]
+{figuras/workflowml.eps}
+\caption{Workflow de AM}
+\label{workflow_am}
+\end{figure}
 
 \begin{enumerate}
 \item Aquisição dos dados
@@ -70,16 +59,34 @@ Grafo Arbitrário Categórico       & Árvore de Conversões\\
 \end{tabular}
 \end{table}
 
-Cada coluna da tabela anterior representa uma característica do problema a ser analizado e há vários tipos de dados que podem estar presentes, os tipos de dados são:
+A figura a seguir é uma pequena seleção da base de dados que contém informações sobre os passageiros que estavam presentes no naufrágio do Titanic \cite{titanic2012}. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.50]
+{figuras/dataEg.eps}
+\caption{Exemplo de Dados do Titanic}
+\label{data_titatic}
+\end{figure}
+
+Cada linha corresponde as informações de um passageiro e cada coluna representa um tipo de informação deste passageiro. A enumeração a seguir explica o que cada linha significa.
 
 \begin{enumerate}
-\item Aquisição dos dados
-\item Engenharia de Características
-\item Construção do modelo
-\item Avaliação do modelo
-\item Otimização do modelo
-\item Predições
+\item IDPassageiro: Um átomo numérico que identifica unicamente cada passageiro.
+\item Sobreviveu: Um átomo númerico que representa se a pessoa sobreviveu ou não ao naufráfio. Assume valor "1" para sobreviventes e "0" para não sobreviventes.
+\item Pclasse: Átomo numérico que varia de "1" a "3", representa a classe do passageiro. "1" equivale a primeira classe, "2" a segunda classe e "3" a terceira.
+\item Nome: Átomo categórico que representa o nome do passageiro.
+\item Sexo: Átomo categórico que representa o sexo do passageiro.
+\item Idade: Átomo numérico que representa a idade do passageiro.
+\item IrConj: Átomo numérico que representa a soma da quantidade de irmãos e cônjuges do passageiro a bordo.
+\item PaiFilh: Átomo numérico que representa a soma da quantidade de pais e filhos do passageiro a bordo.
+\item Ticket: Átomo categórico que representa o número do ticket de embarque do passageiro.
+\item Taixa: Átomo numérico que representa o preço da passagem paga pelo passageiro.
+\item Cabine: Átomo categórico que representa o número da cabine do passageiro.
+\item Embarcado: Átomo categórico que representa o porto de emabarque do passageiro. "C"  para a cidade de Cherbourg, "Q"  para a cidade de Queesntown e "S"  para Southhampton.
+
 \end{enumerate}
+
 
 \section{Engenharia de Características}
 \section{Construção do modelo}
@@ -87,12 +94,6 @@ Cada coluna da tabela anterior representa uma característica do problema a ser 
 \section{Otimização do modelo}
 \section{Predições}
 
-
-
-Um outro desafio que emerge da grande quantidade de informações que são geradas é, o tempo de validade dos modelos de AM. Atualmente, a maioria dos modelos de aprendizagem possuem uma etapa de treino que acontece antes da etapa de uso efetivo dele. Esta etapa serve para que o sistema aprenda as características do espaço do problema, para depois ser capaz de atuar nos dados que vem sendo gerados em tempo real. 
-O processo de construção de um sistema especialista efetivo geralmente demanda muito tempo e trabalho. É possível que estes sistemas se tornem menos precisos ou ineficazes em pouco tempo, pois a geração de dados no contexto do problema pode ser muito rápida e novas características podem emergir dos registros mais recentes. Se estes modelos de AM só conseguem aprender na etapa de treino, há um problema, pois eles não serão capazes de lidar com conceitos de aprendizagem que apareceram somente nas informações mais novas. 
-
-Para aumentar o tempo de validade dos sistemas de Aprendizagem Máquina é possível usar Aprendizagem Incremental, isto consiste em capacitar modelos de AM a aprender continuamente, conforme novas entradas chegam ao sistema. Desta forma, mesmo que uma característica surja somente nos registros mais recentes, o sistema será capaz de aprender novamente e atuar de forma efetiva neste novo contexto. É importante ressaltar que o agente especialista deve ser capaz de guardar conhecimento na forma de inteligência no sistema, isto é, ele não tem acesso aos dados que já passaram por ele, mas tem em sua morfologia o conhecimento necessário que foi aprendido quando estes dados passaram por ele. Essa necessidade vem do fato de que é muito custoso armazenar todos os dados que já passaram pelo sistema, pois o volume de informçãos neste contexto é enorme. \cite{incremental2011}.
 
 
 
