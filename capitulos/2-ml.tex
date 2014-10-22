@@ -21,9 +21,9 @@ AM pode ser altamente benéfico para solução de problemas complexos, é possí
 \end{enumerate}
 
 \section{Aquisição dos dados}
-Apesar de parecer trivial, definir a aquisição de dados como uma etapa do projeto de AM é extremamente importante e alguns cuidados especiais devem ser considerados para que as predições tenham um bom desempenho. O primeiro passo antes de começar o projeto de AM é saber qual a necessidade do mundo real que deve ser atendida. Este passo pode ser entendido como a necessidade de encontrar questões que envolvem uma variável de interesse (quem gostaria de comprar este produto, qual o significado deste audio em linguagem natural, onde está a face humana nesta imagem,...) e o caminho pra solução que envolve variáveis independentes (histórico de compras dos usuários, mapeamento de sons para texto, características de faces humanas).
+Apesar de parecer trivial, definir a aquisição de dados como uma etapa do projeto de AM é extremamente importante e alguns cuidados especiais devem ser considerados para que as predições tenham um bom desempenho. O primeiro passo antes de começar o projeto de AM é saber qual a necessidade do mundo real que deve ser atendida. Este passo pode ser entendido como a necessidade de encontrar questões que envolvem uma variável de interesse (quem gostaria de comprar este produto, qual o significado deste áudio em linguagem natural, onde está a face humana nesta imagem,...) e o caminho pra solução que envolve variáveis independentes (histórico de compras dos usuários, mapeamento de sons para texto, características de faces humanas).
 
-Nem sempre utilizar Aprendizagem de Máquina é a melhor resposta para solucioanar os problemas do mundo real. É nessário avaliar com cuidado quais os objetivos da solução e qual o contexto do problema. Um grande indício de que o problema pode ser solucionado por AM é se ele possui algumas das seguintes características: Alta complexidade de relaciomento entre entradas e saídas, grande volume de dados, necessidade de generalização e necessidade de adaptabilidade a novos cenários. 
+Nem sempre utilizar Aprendizagem de Máquina é a melhor resposta para solucionar os problemas do mundo real. É necessário avaliar com cuidado quais os objetivos da solução e qual o contexto do problema. Um grande indício de que o problema pode ser solucionado por AM é se ele possui algumas das seguintes características: Alta complexidade entre entradas e saídas, grande volume de dados, necessidade de generalização e necessidade de adaptabilidade a novos cenários. 
 
 Os dados que servem como entrada para os processos de modelagem geralmente estão apresentados na forma de tabelas que possuem colunas e linhas. As colunas representam as características dos dados, como se fossem meta-dados, e as linhas representam instâncias dessas características. A tabela a seguir representa os tipos de dados que podem aparecer como característica de dados na Aprendizagem de Máquina \cite{guy2010}.
 
@@ -73,7 +73,7 @@ Cada linha corresponde as informações de um passageiro e cada coluna represent
 
 \begin{enumerate}
 \item IDPassageiro: Um átomo numérico que identifica unicamente cada passageiro.
-\item Sobreviveu: Um átomo númerico que representa se a pessoa sobreviveu ou não ao naufráfio. Assume valor "1" para sobreviventes e "0" para não sobreviventes.
+\item Sobreviveu: Um átomo numérico que representa se a pessoa sobreviveu ou não ao naufrágio. Assume valor "1" para sobreviventes e "0" para não sobreviventes.
 \item Pclasse: Átomo numérico que varia de "1" a "3", representa a classe do passageiro. "1" equivale a primeira classe, "2" a segunda classe e "3" a terceira.
 \item Nome: Átomo categórico que representa o nome do passageiro.
 \item Sexo: Átomo categórico que representa o sexo do passageiro.
@@ -83,7 +83,7 @@ Cada linha corresponde as informações de um passageiro e cada coluna represent
 \item Ticket: Átomo categórico que representa o número do ticket de embarque do passageiro.
 \item Taixa: Átomo numérico que representa o preço da passagem paga pelo passageiro.
 \item Cabine: Átomo categórico que representa o número da cabine do passageiro.
-\item Embarcado: Átomo categórico que representa o porto de emabarque do passageiro. "C"  para a cidade de Cherbourg, "Q"  para a cidade de Queesntown e "S"  para Southhampton.
+\item Embarcado: Átomo categórico que representa o porto de embarque do passageiro. "C"  para a cidade de Cherbourg, "Q"  para a cidade de Queesntown e "S"  para Southampton.
 
 \end{enumerate}
 
