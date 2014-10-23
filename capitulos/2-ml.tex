@@ -1,15 +1,17 @@
 \chapter{Aprendizado de Máquina}
 
 
-AM pode ser altamente benéfico para solução de problemas complexos, é possível observar um ciclo de trabalho bem definido que está presente na solução de problemas por uma abordagem de Aprendizado de Máquina. As etapas gerais de projetos de AM são aquisição de dados, construção de modelo, análise, otimização e predição \cite{real2013}. Com estas cinco etapas é possível sair de um conjunto de dados e chegar as respostas desejadas através de cuidadosa seleção e processamento de dados, passando pela construção e avaliação de um método eficaz até chegar a um modelo consistente com a necessidade do problema. Embora haja uma linearidade na execução desses processos é comum em projetos de AM revisitar estas etapas várias vezes. A imagem a seguir revela um ciclo de AM mais detalhado e que engloba as etapas previamente citadas ressaltando elementos importantes: 
+AM pode ser altamente benéfico para solução de problemas complexos, é possível observar um ciclo de trabalho bem definido que está presente na solução de problemas por uma abordagem de Aprendizado de Máquina. As etapas gerais de projetos de AM são aquisição de dados, construção de modelo, análise, otimização e predição. Com estas cinco etapas é possível sair de um conjunto de dados e chegar as respostas desejadas através de cuidadosa seleção e processamento de dados. Passando pela construção e avaliação de um método eficaz até chegar a um modelo consistente com a necessidade do problema. Embora haja uma linearidade na execução desses processos é comum em projetos de AM revisitar estas etapas várias vezes. A imagem a seguir revela um ciclo de AM mais detalhado e que engloba as etapas previamente citadas ressaltando elementos importantes  \cite{real2013}: 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.50]
 {figuras/workflowml.eps}
-\caption{Workflow de AM}
+\caption{Fluxo de Trabalho de AM}
 \label{workflow_am}
 \end{figure}
+
+Este capítulo serve para detalhar os processos AM. A figura anterior mostra os ciclos de trabalho que acontecem até que o modelo esteja satisfatório com as expectativas de performance. Várias etapas podem ser repetidas até que o modelo esteja refinado o suficiente. A área central que corresponde a construção do modelo pode levar várias iterações e, as vezes, é necessário rever até mesmo a primeira etapa do ciclo, Aquisição dos Dados. As próximas seções deste capítulo seguem os processos descritos no fluxo de trabalho de AM.
 
 \begin{enumerate}
 \item Aquisição dos dados
@@ -69,7 +71,7 @@ A figura a seguir é uma pequena seleção da base de dados que contém informa�
 \label{data_titatic}
 \end{figure}
 
-Cada linha corresponde as informações de um passageiro e cada coluna representa um tipo de informação deste passageiro. A enumeração a seguir explica o que cada linha significa.
+Cada linha corresponde as informações de um passageiro e cada coluna representa um tipo de informação deste passageiro. Esta base de dados foi criada com objetivo de tentar prever, através das informações de um passageiro, se ele sobreviveu ou não ao naufrágio. A base já contém a informação sobre a sobrevivência do passageiro. Muitos modelos são criados com base nas informações deste conjunto de dados, é possível fazer predições sobre a sobrevivência dos passageiros e comparar estes resultados com a informação real que já esta registrada nas tabelas. Por este motivo o conjunto de dados vem sendo usado de forma didática para AM, muitas pessoas o usam para validadar seus modelos e há competições baseadas em predições com esta base \cite{titanic2011}. A enumeração a seguir explica qual o tipo de informação de cada coluna. 
 
 \begin{enumerate}
 \item IDPassageiro: Um átomo numérico que identifica unicamente cada passageiro.
@@ -84,8 +86,9 @@ Cada linha corresponde as informações de um passageiro e cada coluna represent
 \item Taixa: Átomo numérico que representa o preço da passagem paga pelo passageiro.
 \item Cabine: Átomo categórico que representa o número da cabine do passageiro.
 \item Embarcado: Átomo categórico que representa o porto de embarque do passageiro. "C"  para a cidade de Cherbourg, "Q"  para a cidade de Queesntown e "S"  para Southampton.
-
 \end{enumerate}
+
+
 
 
 \section{Engenharia de Características}
