@@ -65,7 +65,7 @@ A figura a seguir é uma pequena seleção da base de dados que contém informa�
 
 \begin{figure}[!h]
 \centering
-\includegraphics[keepaspectratio=true,scale=0.50]
+\includegraphics[keepaspectratio=true,scale=0.40]
 {figuras/dataEg.eps}
 \caption{Exemplo de Dados do Titanic}
 \label{data_titatic}
@@ -89,6 +89,37 @@ Cada linha corresponde as informações de um passageiro e cada coluna represent
 \end{enumerate}
 
 
+É importante notar que nem todos os dados disponíveis são úteis para a resolução do problema. Qual seria a relevância do atributo \textbf{IDPassageiro} na resolução do problema? Este atributo é gerado automaticamente e está relacionado com a ordem dos registros no computador e não com uma característica real do passageiro. A decisão de escolher que dados são úteis para a solução do problema é um trabalho não trivial, que exige conhecimento do contexto do problema e repetidas iterações de otimização. Conhecendo o problema é possível descartar informações que não são relevantes, e tendo um modelo pronto é possível testar se determinada informação afeta ou não a performance da predição. Diminuir a quantidade de informações que entra no modelo pode ajudar no tempo em que as predições são feitas e também na performance do sistema em geral, isto se deve ao fato de que ter informações que não se relacionam com a variável de interesse aumenta o ruído do sistema, a figura 3 demonstra este fluxo de trabalho \cite{real2013}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.5]
+{figuras/data_workflow.eps}
+\caption{Fluxo de Trabalho da Seleção de Características}
+\label{workflow_data}
+\end{figure}
+
+Se houver dúvida sobre a relação causal entre determinada variável e a saída do sistema é possível realizar duas execuções do modelo: Uma com a variável independente e outra sem. Se não houver melhora na predição esse é um sinal de que a informação pode ser descartada, caso haja queda na precisão, é um indício de que a variável independente tem relação causal com a variável de interesse.
+
+Outro fator relevante na Aquisição de Dados é que a maioria dos modelos só aceitam entradas numéricas ou categóricas. Portanto é necessário transformar outros tipos de dados em entradas ideais por um processo chamado de Engenharia de Características, este processo será descrito a frente \cite{real2013}. 
+
+Como é possível observar na pequena seleção da base de dados do Titanic, coluna 11 (Cabine) da Figura 2, existem algumas linhas que não possuem seu valor preenchido. Esse fenômeno é chamado de Dados Faltantes, do inglês Missing Data. É comum em diversas bases de dados encontrar informações faltantes, isso se deve a diversos motivos, como erro na hora da coleta ou perdas que acontecem com o tempo. Estas informações podem ser decisivas para que o modelo aprenda algum relaciomento novo e de acordo com os autores de \citeonline{anal2003} (em livre tradução) "Um problema relevante na qualidade dos dados é a presença de dados faltantes" e " ... o tratamento de dados faltantes deve ser feito com muito cuidado, de outra forma erro pode ser introduzido no conhecimento aprendido". 
+
+Dados faltantes podem ser encontrados por diversos motivos dentro de uma base de dados, nem todos os motivos estão realaciodos a erros humanos e é importante conhecer a origem de cada tipo de dado faltante para utilizar o método de tratamento correto. A enumeração a seguir demonstra os tipos de Dados Faltantes que podem existir de acordo com \cite{stat1987}.
+
+\begin{enumerate}
+\item Missing completely at random (MCAR):Perda completamente ao acaso. É o maior nível de randomicidade. Acontece quando a probabilidade de perda em um caso pode não depender nem dos valores que esse atributo assume nem do dado perdido em si. É naturalmente randômico e qualquer método de tratamento pode ser utilizado sem o risco de introduzir erro no aprendizado.
+\item Missing at random (MAR): Perda ao acaso. Quando a probabilidade de perda pode depender dos valores que atributo pode assumir, mas não pode depender do dado perdido em si.
+\item Not missing at random (NMAR): Perda ao não acaso. Neste caso pode existir algum motivo real para que a instância esteja perdida. A probabilidade de perde pode depender do valor que a instância do dado assume no momento.
+\end{enumerate}
+
+Muitos métodos são propostos para lidar com este problema, ainda de acordo com  R. J. Little e D. B. Rubin apud \citeonline{anal2003}, os métodos de tratamento para dados faltantes se enquandram em uma das três categorias a seguir:
+
+\begin{enumerate}
+\item Ignorar e descartar o dado: Consiste em descartar o dados faltantes. A primeira forma de fazer isso é descartar toda a tupla que contém algum dado faltante. Outra forma é avaliar a quantidade de dados faltantes em cada tupla e em cada coluna, depois disso eliminar as instâncias(tupla ou coluna) de acordo com extensão dos dados faltantes. Antes de deletar qualquer tupla ou atributo é necessário analisar a importância desse dado na performace geral do modelo. Atributos que são relevantes devem ser mantidos mesmo se seu nível de perda for muito alto. Este método só deve ser usado quando os dados faltantes são do tipo MCAR.
+\item Estimação de Parâmetro: Neste caso todas as instâncias parecidas são analizadas e o dado faltante tem seu valor atribuído com um valor que possui alta similaridade com seus vizinhos.
+\item Imputação: Consiste em uma série de métodos que visam atribuir valores faltantes com estimações. Busca-se encontrar relaciomentos entre o sistema e os dados faltantes, pode-se dizer que um novo processo de AM é empregado para estimar estes valores.
+\end{enumerate}
 
 
 \section{Engenharia de Características}
