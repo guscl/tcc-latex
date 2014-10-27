@@ -123,16 +123,75 @@ Muitos métodos são propostos para lidar com este problema, ainda de acordo com
 
 
 \section{Engenharia de Características}
+
+Características englobam informações de dados brutos que habilitam algoritmos de aprendizado de máquina a classificar um objeto desconhecido ou fazer uma estimativa nova \cite{brain2013}. Características não são simplesmente conjuntos de dados, elas carregam mais informações sobre o contexto do problema. São abstrações que estruturam conjuntos de informação para que estes fiquem mais próximos a conhecimentos do mundo real.   
+
+Engenharia de Características, EC, é o processo de transformar dados nunca trabalhados em características que melhor representam o problema atacado para o modelo preditivo, resultando em uma precisão de modelo melhorada nos dados escondidos \cite{fe2014}. Em uma outra definição, "... engenharia de características é projetar manualmente como os dados de entrada x devem ser" \cite{tomas2014}. Existem tipos de dados que precisam ser trabalhos antes de serem utilizados por modelos. Dados do tipo sequencial e do tipo categórico geralmente precisam ser tratados, pois há modelos que não estão preparados para recebe-los em sua forma inicial. Portanto, dois principais processos são feitos na base de informações inicial: análise dos dados buscando encontrar características que não estão explícitas e tranformações de dados explícitos em formatos que sejam compatíveis com o modelo escolhido. EC visa responder a pergunta: Qual a melhor forma de representar o problema pelos meus dados?
+
+No fluxograma do começo deste capítulo Engenharia de Características aparece como uma etapa anterior a fase de modelagem e como um processo que serve para melhorar a acurácia da modelagem. EC está no centro do Aprendizado de Máquina, pois através dela é possível entender os dados por suas características. Ela ajuda a dominar o contexto do problema, o que agrega conhecimento no modelo de AM, aumentando assim a performance das modelagens. Por esse motivo, EC aparece em vários momentos do fluxo de Aprendizado de Máquina. Inicialmente é necessário tratar os dados para começar a modelagem, e posteriormente Engenharia de Características é usada para melhorar o desempenho do modelo até que se chegue a uma precisão aceitável. 
+
+O fluxo da Engenharia de Características é iterativo por si só. Ele consiste em construir novas características e testar o desempenho do modelo com elas. A seguinte figura descreve este fluxo \cite{fe2014}:
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.32]
+{figuras/ecworflow.eps}
+\caption{Fluxo de Trabalho de Engenharia de Características}
+\label{workflow_ec}
+\end{figure}
+
+\begin{enumerate}
+\item Brainstorm de Características: Nesta etapa um conjunto de possíveis características deve ser gerado.É necessário um aprofundamento no problema, através de meticulosa inspeção dos dados disponíveis e de experiências em casos similares. 
+\item Concepção de Características: Consiste em construir características. É possível utilizar métodos automatizados de extração de características ou é possível criá-las manualmente atráves do conhecimento obtido na etapa anterior.
+\item Seleção de Características: Nesta fase é feita uma escolha de um conjunto de características para serem testadas. É possível utilizar métodos de comparação as características existentes ou é possível escolher o conjunto  manualmente, de acordo com o que se conhesse do problema.
+\item Teste das Características: A última etapa é simples: basta introduzir as características no modelo e medir o desempenho.
+\end{enumerate}
+
+Usar Engenharia de Características sistematicamente pode aumentar a capacidade preditiva dos modelos, pois características novas são conhecimentos que poderiam não ser aprendidos naturalmente pelos algoritmos de AM. EC possibilita criar características que são mais relacionadas com a variável de interesse, permite a adição de informações externas relevantes dentro do modelo, habilita o uso de informações não estruturadas dentro dos modelos de AM e seleciona as características mais relevantes para a solução do problema \cite{real2013}. As próximas subsessões mostram exemplos comuns de EC aplicadas no processo de AM.
+
+\subsection{Decomposição de Atributos Categóricos}
+Atributos categóricos assumem apenas um valor dentro de um conjunto de possibilidades de cada vez. Em uma tabela convencional apenas uma coluna é capaz de descrever este comportamento. Temos do exemplo do Titanic a coluna Sexo: 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.40]
+{figuras/dataEg.eps}
+\caption{Exemplo de Dados do Titanic}
+\label{data_titatic}
+\end{figure}
+
+Cada pessoa pode ter como valor nessa coluna "male" para o sexo masculino e "female" para o sexo feminino. Muitos modelos não estão preparados para lidar com este tipo de dado. Em geral, modelos(algoritmos lineares, árvores de decisão...) precisam de informações numéricas atómicas para atuar de forma eficiente. A solução neste caso é criar mais categorias, uma coluna nova para cada valor de categoria que é possível assumir. No exemplo do Titanic é necessário abolir a coluna sexo e criar duas novas colunas: "émasculino" e "éfeminino". Estas colunas assumem um valor binário e são inversamente complementares. Isto quer dizer que se o registro diz respeito a um homem ele terá o valor "1" na coluna "émasculino" e o valor "0" na coluna "éfeminino". A mesma lógica segue para qualquer tipo de categoria, o valor positivo para a categoria desejada e o valor negativo para todas as outras possibilidades.
+
+\subsection{Decomposição de Características}
+Muitos bancos de dados possuem informação de hora em um formato de sequência de caracteres. Um exemplo de padrão desta forma é o ISO 8601,na forma: 2014-09-20T20:45:40Z. Existe muito conhecimento condensado em apenas uma sequência de letras. Através de EC é possível quebrar esta sequência em muitas outras colunas, tornando o conhecimento mais claro e aumentando a capacidade de aprendizagem do modelo. Este padrão pode ser quebrado em várias outras características, como: Ano, mês, dia, hora, minuto, segundo e turno do dia. Este método é comumente aplicado para vídeso e imagens, que são sequências de informação. Este método consiste na decomposição de uma característica complexa em várias outras mais simples.
+
+
+\subsection{Características Derivadas}
+Outro tipo de conhecimento que pode ser extraído vem da precisão de átomos númericos. Em determinado banco de dados pode haver a informação da massa de um produto. Esta massa pode ser medida em várias casas decimais de gramas ou pode estar arredondada em valores inteiros de kilogramas. Ter estas informações separadas pode servir como catalizador da precisão do modelo, o processo de teste das características dirá se esta é uma boa característica ou não. Também é possível criar um atributo do tipo booleano para um limite de peso, isto é, se o produto possui mais do que cinco quilos recebe valor positivo nesta característica, se a massa for menor, recebe valor negativo.
+
+É necessário ainda o cuidado com a seleção das carcterísticas. Nem sempre uma grande quantidade de características é a melhor opção para o modelo, é  preciso selecionar os atributos mais relevantes para aumentar a acurácia da previsão. Mais características inseridas no modelo dão a capacidade de aprender novos relacionamentos. A maioria dos modelos possui uma etapa de treino, onde o conhecimento é aprendido e absorvido pelo algoritmo, e uma etapa de teste, onde o algoritmo usa o conhecimento aprendido para realizar predições no conjunto de testes. Se muitas características do conjunto de treino forem colocadas no modelo ele poderá ser incapez de generalizar conhecimentos e atuar de forma eficaz no conjunto de testes. O nome deste fenômeno é sobre-ajustamento, do Inglês overfitting. Sobre-ajustamento gera resultados superestimados em modelos: predições que aparecem em um modelo, que é sobre-ajustado com base no conjunto de treinamento, não existem na realidade e por isso não se replicaram no conjunto de testes \cite{what2013}. A figura a seguir mostra um exemplo de sobre-ajuste \cite{real2013}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.40]
+{figuras/overfitting.eps}
+\caption{Exemplo de Sobre-Ajustamento}
+\label{over}
+\end{figure}
+
+No gráfico da esquerda o modelo sobre-ajustou, aprendeu características que são exclusivas do conjunto de treinamento. Provavelmente o modelo abstraiu ruídos do aprendizado. Do lado direito há um exemplo de aprendizado correto, o treinamento serviu para aprender características do mundo real e na aplicação houve generalização correta. É por este motivo que a seleção das características ideais é tão importante,a seguir são apresentados dois métodos sistemáticos de seleção de características.
+
+
+
+
+
+
+
+
 \section{Construção do modelo}
 \section{Avaliação do modelo}
 \section{Otimização do modelo}
 \section{Predições}
 
-
-
-
-
-Contexto de ML
-Justificativa (Número, Big Data, Aprendizado incremental)
-Processos de ML (Tipos de pré-processamento)
 
