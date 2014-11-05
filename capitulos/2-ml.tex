@@ -17,8 +17,7 @@ Este capítulo serve para detalhar os processos AM. A figura anterior mostra os 
 \item Aquisição dos dados
 \item Engenharia de Características
 \item Construção do modelo
-\item Avaliação do modelo
-\item Otimização do modelo
+\item Avaliação e Otimização de Modelo
 \item Predições
 \end{enumerate}
 
@@ -192,10 +191,12 @@ No gráfico da esquerda o modelo sobre-ajustou, aprendeu características que s�
 Seleção de características pode ser usada não apenas para evitar sobre-ajustamento e deixar o modelo mais leve. É possível construir um modelo de AM apenas para chegar a etapa de seleção das características, pois nesta etapa é possível obter conhecimento valioso sobre o mundo real: Quais as características tem maior relacionamento com a variável de interesse. Apenas esse conhecimento já é suficiente para aplicar grandes mudanças no mundo real. Usando uma base que relaciona características com pacientes de câncer é possível descobrir quais as características que são mais decisivas para o desenvolvimento de um tipo de câncer \cite{real2013}.
 
 \section{Construção do modelo}
+Depois de compreender o contexto do problema e passar um tempo definindo características na base de dados é hora de construir um modelo de predição apropriado. AM busca encontrar relacionamentos e padrões que estão dentro do conjunto de dados. Através de métodos matemáticos e computacionais é possível realizar esta tarefa. O processo de descoberta dos conhecimentos ocultos nos dados é atingido através do uso do modelo. Nesta etapa de construção do modelo, é necessário aplicar o que foi descoberto sobre as características dos dados e sobre o os objetivos da solução para escolher o modelo adequado. Existem vários métodos que podem ser utilizados para revelar os relacionamentos ocultos nos dados. Os métodos podem ser simples ou complexos, indo desde de regressões lineares até redes neurais que possuem centenas de neurônios. O objetivo desta seção é descrever características de diversos tipos de modelos, a relação entre necessidades do problema e características dos modelos é que indica os possíveis métodos adequados para atingir a solução. 
+
+A seguinte equação serve muito bem para ilustrar o objetivo de um modelo de AM:\textbf{ Y = f(X) + ε}. \textbf{Y} corresponde as predições, que é o resultado final do uso do modelo. \textbf{X} corresponde a todas as entradas que são usadas no modelo, estas informações vem da base de dados e já passaram pela etapa de pré-processamento e Engenharia de Características nas fases anteriores. O conjunto \textbf{X} são os registros reais, os métodos de AM são capazes de utilizar estas informações e extrair conhecimentos relevantes para a estimação de \textbf{Y}. Estes  métodos são representados por \textbf{f(X)}, onde \textbf{f()} é a técnica de modelagem que gera as predições baseadas nas entradas do sistema. O último elemento da equação é o erro \textbf{ε}. Este erro determina a precisão da predição, de forma que, se o erro chegar a 0 a precisão é total.
 
 
-\section{Avaliação do modelo}
-\section{Otimização do modelo}
+\section{Avaliação e Otimização de Modelo}
 \section{Predições}
 
 
