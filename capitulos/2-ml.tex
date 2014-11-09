@@ -216,9 +216,67 @@ A figura 7 lista os tipos mais comuns de algoritmos de Aprendizado de Máquina e
 \label{over}
 \end{figure}
 
-
-
 \section{Avaliação e Otimização de Modelo}
+
+Encontrar uma solução para um problema através de Aprendizado de Máquina demanda tempo e algumas iterações para ajustes no modelo. É necessário construir um modelo e testar sua performance antes de começar a usá-lo no mundo real. Este capítulo consiste em métodos  de avaliação de acurácia de modelos. É necessário medir a performance dos modelos de AM para saber se se a precisão atingiu nívels aceitáveis, caso não, é necessário continuar o refinamento da modelagem até que o objetivo seja alcançado. 
+
+Modelos de AM são treinados em um conjunto especial de dados, geralmente este conjunto é uma pequena amostra do que se encontra no mundo real. Os algoritmos de AM são capazes de aprender conhecimentos através de um conjunto de dados, o desafio é garantir que este aprendizado seja relevante para todos os dados do mundo real. Avaliar a performance de um modelo de Aprendizado de Máquina é descobrir qual a capacidade desse modelo de generalizar, ou seja, ser útil em fazer previsões quando apresentado a um conjunto de dados que nunca foi visto.
+
+Como já foi citado anteriormente, um problema que pode acontecer com algoritmos de AM é o sobre-ajustamento. Quando isto acontece, o modelo aprende as peculiaridades inerentes ao conjunto de testes tão bem que captura alguns conhecimentos que são exclusivos do conjunto de testes. 
+Logo, o modelo absorveu em sua morfologia características que não existem no mundo real e por isso terá uma precisão ruim quando apresentado a entradas que nunca foram vistas. O primeiro passo para resolver o problema de medição é a definição de uma métrica de performance que seja relevante par ao método aplicado, para controlar algo é necessário medir primeiro \cite{hjames2014}. Em uma abordagem supervisionada o objetivo desta métrica deve ser o de comparar o resultado da previsão com o valor especificado no rótulo. Em abordagens não supervisionadas, o objetivo desta métrica pode ser o de avaliar a coesão dentro e fora dos grupos criados \cite{scikit2014}.  
+
+
+
+ 
+
+
+
+
+
+
+
+  
+
 \section{Predições}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
