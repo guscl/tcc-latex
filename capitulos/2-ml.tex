@@ -304,9 +304,32 @@ O significado de cada elemento dentro da matriz é:
 \item A precisão (P) é a proporção de casos positivos que foram corretamente classificados, pode ser calculada por:
  \[
        P =  \frac{d}{d + b}
-  \]  
+  \] 
 
 \end{enumerate}
+
+É importante notar que a acurácia pode não ser uma boa métrica quando o número de casos negativos é muito maior do que o os casos positivos ou vice e versa. Neste caso, o sistema pode classificar todos os casos como pertencente a apenas uma classe, como a quantidade de casos verdadeiros desta classe é alto a acurácia será alta, porém o sistema falhou em classificar uma classe inteira! Por isso é importante observar as outras métricas em conjunto com a acurácia.
+
+Muitos modelos de AM possuem suas saídas dadas em uma probabilidade, isto é, o modelo afirma com uma porcentagem de certeza que a entrada pertence a uma determinada classe. Existe um outro método de medir a acurácia de um modelo que encapsula todas as informações da matriz de confusão de forma gráfica e toma proveito das probabilidades das saídas.Este método é a Característica Operativa do Receptor, do Inglês Receiver Operating Characteristic (ROC). Um gráfico ROC é uma plotagem com a taxa de falsos positivos no eixo X e taxa de verdadeiros positivos no eixo Y. Os eixos representam probabilidades e vão de zero a um. O ponto (0,1) é o classificador perfeito, que é capaz de classificar corretamente todos os casos, positivos ou negativos.Uma curva ROC é capaz de mostrar a troca entre a habilidade de classificar corretamente os casos positivos e os casos negativos que são incorretamente classificados. É possível  analisar o nível de confiança do modelo de acordo com a curva. A área em baixo da curva ROC pode ser usada para medir a acurácia de vários modelos. A figura 10 é um exemplo de gráfico ROC \cite{howard2012b}. 
+  
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.70]
+{figuras/roc.eps}
+\caption{Curva ROC}
+\label{over}
+\end{figure}
+
+Assim como na matriz de confusão, é possível analisar modelos que produzem como saída mais de uma classe. Para isto basta plotar cada par características no mesmo espaço e avaliar qual a confiança geral de acordo com a média das curvas ROC.
+
+Para modelos que são capazes de realizar regressões não existe o conceito de predição errada ou predição certa. Para estes casos é possível analisar o quão distantes dos rótulos os valores gerados estão. Portanto, utiliza-se métodos de medição de distâncias entre pontos no espaço geométrico. O método mais simples é o cálculo da média das raízes do erro ao quadrado. Este método calcula o erro para cada uma das predições e faz uma média normalizada através da seguinte equação, yi como rótulo e f(xi) como previsão \cite{real2013}: 
+ \[
+       \frac{1}{\sqrt{n}}\sqrt{\sum \left [ y{i} - f\left ( x{i} \right )\right ]^{2} }
+  \] 
+  
+Existem muitos modelos de AM que possuem um número de parâmetros que podem ser alterados, estes parâmetros são capazes de configurar diferentes comportamentos nos algoritmos e são únicos para cada contexto de uso. Existem métodos para escolher o parâmetros de forma ótima, sendo o caso mais comum a utilização de força bruta. 
+
+
 
 
 
