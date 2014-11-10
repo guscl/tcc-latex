@@ -16,7 +16,28 @@ A tendência da necessidade de Aprendizado Incremental é clara, como foi dito n
 
 Para entender aprendizado incremental é necessário compreender a diferença entre duas formar distintas que modelos de AM podem ter, aprendizado online e por fornada. Aprendizado por fornada é o tipo mais comum de algoritmos que são usados atualmente, eles possuem duas fases claramente distintas, treino e uso. Na fase de treino o modelo é capaz de aprender os relacionamentos que estão ocultos nos dados e na fase de uso não há aprendizado, há somente predições. Os algoritmos que possuem aprendizado online não possuem essa distinção em suas etapas, eles são capazes de aprender novos conceitos a todo o tempo e o fazem junto com as predições usuais. É esperado que depois da fase de treinamento os algoritmos que possuem aprendizado por fornada tenham criado em suas estruturas internas uma função hipótese que seja capaz de generalizar corretamente em qualquer conjunto de dados daquele contexto. No aprendizado online não se espera que uma hipótese seja criada para aquele contexto de informações, o algoritmo trata todas as entradas de maneira única, uma por uma, sempre aglomerando os conhecimentos desta entrada \cite{from2009}. 
 
-Existe um terceiro tipo de aprendizagem que deriva da aprendizagem por fornada e é capaz de resolver os problemas acima citados comparando-se com a aprendizagem online, é a abordagem fornada-incremental.  
+Existe um terceiro tipo de aprendizagem que deriva da aprendizagem por fornada. Ela é capaz de resolver os problemas acima citados comparando-se com a aprendizagem online, é a abordagem fornada-incremental. Este método consiste em aplicar a abordagem por fornada de tempos em tempos no conjunto de testes. Este método é uma simples renovação de conhecimentos do modelo. Depois de um determinado período de tempo ou volume de dados acumulado, o modelo é novamente treinado com um novo conjunto de dados que incorpora todos os dados anteriores. Esta abordagem não altera os métodos do algoritmo em si, é uma solução de engenharia em que uma revalidação do modelo é feita rotineiramente para incorporar novos conhecimentos. Este método possui algumas desvantagens, como: Ter que desconsiderar todo o conhecimento que já foi aprendido para aprender novamente e não poder aprender dos dados mais recentes até que uma nova fornada esteja pronta para entrar no sistema \cite{batch2013}.
+
+A aprendizagem fornada-incremental não é um algoritmo de AM em si, ela é uma estratégia de uso de modelos. Portanto, qualquer algoritmo que possua fase de treino e fase de uso pode estar sujeito a este tipo de aprendizagem. A figura 11 ilustra como este método pode ser empregado.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.30]
+{figuras/batch.eps}
+\caption{Fluxo do Aprendizado por Fornada}
+\label{fornada}
+\end{figure}
+
+Os algoritmos online são compostos por uma sequência de iterações. Cada iteração é composta por três etapas: Recebimento da entrada, predição da saída correspondente e recebimento do verdadeiro rótulo da instância. Com a presença do verdadeiro rótulo o algoritmo é capaz de ajustar suas hipóteses de forma a ajustar sua morfologia de acordo com a diferença entre a predição e o rótulo. O objetivo do algoritmo é minimizar o erro entre a previsão e o rótulo \cite{learn1987}. O problema desse tipo de algoritmo é que nem sempre é possível obter os rótulos com a mesma velocidade que as entradas chegam, porém em alguns casos isto é possível. Em problemas que envolvem séries temporais basta esperar o tempo passar para verificar qual o resultado aconteceu no mundo real, este é o rótulo. No caso de abordagens não supervisionadas outras métricas de coesão devem ser constantemente verificadas para gerar os ajustes no modelo. 
+
+A aprendizagem fornada-incremental não se encaixa na definição de aprendizagem incremental defendida por \citeonline{incremental2011}, pois ele necessita de dados anteriores para aprender novamente. A defesa dos autores do artigo acima citado é de que um modelo só pode ser considerado como sendo de aprendizagem incremental se ele não depender dos dados históricos, baseando-se somente nas hipóteses que foram aprendidas anteriormente. Esta defesa é interessante, pois isso dá maior robustez ao modelo. Considerando-se que o contexto para o uso de aprendizagem incremental é uma entrada infinita de dados com recursos computacionais finitos, os algoritmos que dependem de todos os dados históricos incorrem em grande falha, pois o recurso computacional finito neste caso é a capacidade de armazenamento.
+
+A afirmação do parágrafo anterior vem do conhecido dilema de estabilidade/plasticidade. Um classificador totalmente estável é capaz de reter conhecimento, mas não consegue aprender nova informação, enquanto um classificador totalmente plástico pode aprender novos conhecimentos instantaneamente, mas não consegue reter conhecimentos passados \cite{learn2004}.
+
+Porém, é importante ressaltar que algumas experiências da comunidade de Aprendizado de Máquina é de que modelos com aprendizagem online muitas vezes possuem performance inferior e complexidade maior quando compara-se com fornada-incremental. Muitos problemas podem simplesmente ser resolvidos até mesmo por método de fornada. É importante avaliar o contexto com cuidado para escolher o método apropriado a solução do problema. Nas etapas posteriores deste trabalho as duas abordagens serão testadas no mesmo conjunto de dados, tanto aprendizado online quanto fornada-incremental.
+
+
+
 
  
 
