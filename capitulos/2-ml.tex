@@ -228,12 +228,85 @@ Logo, o modelo absorve em sua morfologia características que não existem no mu
 
 Modelos de AM são treinados em um conjunto especial de dados, geralmente este conjunto é uma pequena amostra do que se encontra no mundo real. Os algoritmos de AM são capazes de aprender conhecimentos através de um conjunto de dados, o desafio é garantir que este aprendizado seja relevante para todos os dados do mundo real. Avaliar a performance de um modelo de Aprendizado de Máquina é descobrir qual a capacidade desse modelo de generalizar, ou seja, ser útil em fazer previsões quando apresentado a um conjunto de dados que nunca foi visto.
 
-Para modelos supervisionados, buscando uma solução para o problema da medição de precisão para conjunto de dados que nunca foram vistos pelo sistema existe o método chamado de Validação Cruzada. Este método consiste em não usar todo o conjunto de treino para a construção do modelo, uma parte do conjunto é separada exclusivamente para testar a performance do modelo. Basicamente, utiliza-se a técnica de Residuais com o conjunto que foi separado especificamente para o teste. Isto evita os erros de sobre-ajustamento que seriam encontrados no método de Residuais\cite{jeff1997b}. Existem dois tipos de Validação Cruzada, Holdout e K-partes. 
+Para modelos supervisionados, buscando uma solução para o problema da medição de precisão para conjunto de dados que nunca foram vistos pelo sistema existe o método chamado de Validação Cruzada. Este método consiste em não usar todo o conjunto de treino para a construção do modelo, uma parte do conjunto é separada exclusivamente para testar a performance do modelo. Basicamente, utiliza-se a técnica de Residuais com o conjunto que foi separado especificamente para o teste. Isto evita os erros de sobre-ajustamento que seriam encontrados no método de Residuais \cite{jeff1997b}. Existem dois tipos de Validação Cruzada, Holdout e K-partes. 
 
+O método de Validação Cruzada por Holdout, também conhecido como estimação por conjunto de teste, consiste em dividir a base de dados em dois conjuntos mutuamente excludentes chamados conjunto de treinamento e conjunto de testes, ou conjunto de holdout. É comum separar 2/3 dos dados para o conjunto de testes e 1/3 para o treinamento. O conjunto de treino é usado pelo modelo de AM para aprendizado, é deste conjunto que todo o conhecimento do modelo será retirado. Após o treinamento, o conjunto de testes é utilizado para realizar o teste do tipo Residual sobre o sistema. Quanto maior for o número de dados que são deixados para o teste menor será a capacidade de generalização do modelo, mas um conjunto de testes pequeno diminui a confiança na capacidade preditiva do modelo \cite{astudy1995}. A figura 8 demonstra o processo de holdout \cite{real2013}.
 
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.70]
+{figuras/holdout.eps}
+\caption{Crossover - Holdout}
+\label{over}
+\end{figure}
 
+Uma outra forma de fazer a validação cruzada é através do método de K-partes, também conhecido como estimação rotativa. O conjunto de dados é dividido em K partes mutuamente excludentes de tamanho aproximadamente igual. O modelo é treinado e testado k vezes. O treino é realizado com todos os sub-conjuntos menos um de cada vez. O sub-conjunto que foi deixado de fora é então utilizado como conjunto de teste. Na próxima iteração o modelo será treinado novamente e o próximo sub-conjunto será deixado de fora do treino e utilizado para a realização do teste. Todos as previsões dos testes são guardadas em um vetor e no fim de todas as iterações os rótulos são comparadas com o vetor que possui as previsões \cite{astudy1995}. Este método  é melhor para estimar o erro no conjunto real, porém é computacionalmente mais pesado e nem sempre viável. A figura 9 demostra o processo da validação cruzada utilizando k-partes \cite{real2013}.
 
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.60]
+{figuras/kfolds.eps}
+\caption{Crossover - K partes}
+\label{over}
+\end{figure}
 
+Um outro método eficaz para medição de performance é a Matriz de Confusão. Este método serve para mostrar se um algoritmo está confundindo a classificação das entradas, portanto é um método aplicável a aprendizagem supervisionada. A matriz contém informações sobre os rótulos e sobre as predições realizadas pelo modelo. A performance é medida pelas informações que estão contidas na matriz e ela pode ser usada para qualquer número de classes. A tabela a seguir mostra como funciona uma matriz de confusão para um sistema que possui apenas duas classes, negativo e positivo \cite{howard2012}. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|c|c|}
+\hline
+\multicolumn{2}{|l|}{\multirow{2}{*}{}}                  & \multicolumn{2}{c|}{Previsão}                                 \\ \cline{3-4} 
+\multicolumn{2}{|l|}{}                                   & \multicolumn{1}{l|}{Negativo} & \multicolumn{1}{l|}{Positivo} \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{Rótulo}} & Negativo & a                             & b                             \\ \cline{2-4} 
+\multicolumn{1}{|c|}{}                        & Positivo & c                             & d                             \\ \hline
+\end{tabular}
+\caption{Matriz de Confusão}
+\label{confusion}
+\end{table}
+
+O significado de cada elemento dentro da matriz é:
+\begin{enumerate}
+\item \textit{a} corresponde a quantidade de predições \textbf{corretas} da classe \textbf{negativa}
+\item \textit{b} corresponde a quantidade de predições \textbf{incorretas} da classe \textbf{positiva}
+\item \textit{c} corresponde a quantidade de predições \textbf{incorretas} da classe \textbf{negativa}
+\item \textit{d} corresponde a quantidade de predições \textbf{corretas} da classe \textbf{positiva}
+\end{enumerate}
+
+É possível retirar várias métricas desta matriz, tais como:
+
+\begin{enumerate}
+\item A acurácia (AC) é a quantidade de classificações corretas dividida por todos as possibilidades, pode ser medida através da seguinte fórmula: 
+ \[
+       AC =  \frac{a + d}{a + b + c + d}
+  \]
+
+\item A taxa de verdadeiro positivos (TP) é a proporção de verdadeiros positivos que foram corretamente identificados, pode ser medida por:
+ \[
+       TP =  \frac{d}{ c + d}
+  \]
+
+\item A taxa de falsos positivos (FP) é a proporção de falsos positivos que foram incorretamente identificados, pode ser medida por:
+ \[
+       FP =  \frac{b}{ a + b}
+  \]
+  
+\item A taxa de verdadeiros negativos (VN) é a proporção de verdadeiros negativos que foram corretamente identificados, pode ser medida por:
+ \[
+       VN =  \frac{a}{ a + b}
+  \]
+  
+\item A taxa de falsos negativos (FN) é a proporção de falsos negativos que foram incorretamente identificados, pode ser medida por:
+ \[
+       FN =  \frac{c}{c + d}
+  \]
+
+\item A precisão (P) é a proporção de casos positivos que foram corretamente classificados, pode ser calculada por:
+ \[
+       P =  \frac{d}{d + b}
+  \]  
+
+\end{enumerate}
 
 
 
