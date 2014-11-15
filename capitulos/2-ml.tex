@@ -1,13 +1,13 @@
 \chapter{Aprendizado de Máquina}
 
 
-AM pode ser altamente benéfico para solução de problemas complexos, é possível observar um ciclo de trabalho bem definido que está presente na solução de problemas por uma abordagem de Aprendizado de Máquina. As etapas gerais de projetos de AM são aquisição de dados, construção de modelo, análise, otimização e predição. Com estas cinco etapas é possível sair de um conjunto de dados e chegar as respostas desejadas através de cuidadosa seleção e processamento de dados. Passando pela construção e avaliação de um método eficaz até chegar a um modelo consistente com a necessidade do problema. Embora haja uma linearidade na execução desses processos é comum em projetos de AM revisitar estas etapas várias vezes. A imagem a seguir revela um ciclo de AM mais detalhado e que engloba as etapas previamente citadas ressaltando elementos importantes  \cite{real2013}: 
+AM pode ser altamente benéfico para solução de problemas complexos, é possível observar um ciclo de trabalho bem definido que está presente na solução de problemas por uma abordagem de Aprendizado de Máquina. As etapas gerais de projetos de AM são aquisição de dados, construção de modelo, análise, otimização e predição. Com estas cinco etapas é possível sair de um conjunto de dados e chegar as respostas desejadas através de cuidadosa seleção e processamento de dados. Passando pela construção e avaliação de um método eficaz até chegar a um modelo consistente com a necessidade do problema. Embora haja uma linearidade na execução desses processos é comum em projetos de AM revisitar estas etapas várias vezes. A figura 1 revela um ciclo de AM mais detalhado e que engloba as etapas previamente citadas ressaltando elementos importantes: 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.50]
 {figuras/workflowml.eps}
-\caption{Fluxo de Trabalho de AM}
+\caption{Fluxo de Trabalho de AM - \cite{real2013}}
 \label{workflow_am}
 \end{figure}
 
@@ -59,13 +59,13 @@ Grafo Arbitrário Categórico       & Árvore de Conversões\\
 \end{tabular}
 \end{table}
 
-A figura a seguir é uma pequena seleção da base de dados que contém informações sobre os passageiros que estavam presentes no naufrágio do Titanic \cite{titanic2012}. 
+A figura 2 é uma pequena seleção da base de dados que contém informações sobre os passageiros que estavam presentes no naufrágio do Titanic. 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.40]
 {figuras/dataEg.eps}
-\caption{Exemplo de Dados do Titanic}
+\caption{Exemplo de Dados do Titanic - \cite{titanic2012}}
 \label{data_titatic}
 \end{figure}
 
@@ -93,7 +93,7 @@ Cada linha corresponde as informações de um passageiro e cada coluna represent
 \centering
 \includegraphics[keepaspectratio=true,scale=0.5]
 {figuras/data_workflow.eps}
-\caption{Fluxo de Trabalho da Seleção de Características}
+\caption{Fluxo de Trabalho da Seleção de Características - \cite{real2013}}
 \label{workflow_data}
 \end{figure}
 
@@ -128,14 +128,14 @@ Engenharia de Características, EC, é o processo de transformar dados nunca tra
 
 No fluxograma do começo deste capítulo, Engenharia de Características aparece como uma etapa anterior a fase de modelagem e como um processo que serve para melhorar a acurácia da modelagem. EC está no centro do Aprendizado de Máquina, pois através dela é possível entender os dados por suas características. Ela ajuda a dominar o contexto do problema, o que agrega conhecimento no modelo de AM, aumentando assim a performance das modelagens. Por esse motivo, EC aparece em vários momentos do fluxo de Aprendizado de Máquina. Inicialmente é necessário tratar os dados para começar a modelagem, e posteriormente Engenharia de Características é usada para melhorar o desempenho do modelo até que se chegue a uma precisão aceitável. 
 
-O fluxo da Engenharia de Características é iterativo por si só. Ele consiste em construir novas características e testar o desempenho do modelo com elas. A seguinte figura descreve este fluxo \cite{fe2014}:
+O fluxo da Engenharia de Características é iterativo por si só. Ele consiste em construir novas características e testar o desempenho do modelo com elas. A figura 4 descreve este fluxo:
 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.32]
 {figuras/ecworflow.eps}
-\caption{Fluxo de Trabalho de Engenharia de Características}
+\caption{Fluxo de Trabalho de Engenharia de Características - \cite{fe2014}}
 \label{workflow_ec}
 \end{figure}
 
@@ -155,7 +155,7 @@ Atributos categóricos assumem apenas um valor dentro de um conjunto de possibil
 \centering
 \includegraphics[keepaspectratio=true,scale=0.40]
 {figuras/dataEg.eps}
-\caption{Exemplo de Dados do Titanic}
+\caption{Exemplo de Dados do Titanic - \cite{titanic2012}}
 \label{data_titatic}
 \end{figure}
 
@@ -168,13 +168,13 @@ Muitos bancos de dados possuem informação de hora em um formato de sequência 
 \subsection{Características Derivadas}
 Outro tipo de conhecimento que pode ser extraído vem da precisão de átomos numéricos. Em determinado banco de dados pode haver a informação da massa de um produto. Esta massa pode ser medida em várias casas decimais de gramas ou pode estar arredondada em valores inteiros de quilogramas. Ter estas informações separadas pode servir como catalisador da precisão do modelo, o processo de teste das características dirá se esta é uma boa característica ou não. Também é possível criar um atributo do tipo booliano para um limite de peso, isto é, se o produto possui mais do que cinco quilos recebe valor positivo nesta característica, se a massa for menor, recebe valor negativo.
 
-É necessário ainda o cuidado com a seleção das características. Nem sempre uma grande quantidade de características é a melhor opção para o modelo, é  preciso selecionar os atributos mais relevantes para aumentar a acurácia da previsão. Mais características inseridas no modelo dão a capacidade de aprender novos relacionamentos. A maioria dos modelos possui uma etapa de treino, onde o conhecimento é aprendido e absorvido pelo algoritmo, e uma etapa de teste, onde o algoritmo usa o conhecimento aprendido para realizar predições no conjunto de testes. Se muitas características do conjunto de treino forem colocadas no modelo ele poderá ser incapaz de generalizar conhecimentos e atuar de forma eficaz no conjunto de testes. O nome deste fenômeno é sobre-ajustamento, do Inglês overfitting. Sobre-ajustamento gera resultados superestimados em modelos: predições que aparecem em um modelo, que é sobre-ajustado com base no conjunto de treinamento, não existem na realidade e por isso não se replicaram no conjunto de testes \cite{what2013}. A figura a seguir mostra um exemplo de sobre-ajuste \cite{real2013}.
+É necessário ainda o cuidado com a seleção das características. Nem sempre uma grande quantidade de características é a melhor opção para o modelo, é  preciso selecionar os atributos mais relevantes para aumentar a acurácia da previsão. Mais características inseridas no modelo dão a capacidade de aprender novos relacionamentos. A maioria dos modelos possui uma etapa de treino, onde o conhecimento é aprendido e absorvido pelo algoritmo, e uma etapa de teste, onde o algoritmo usa o conhecimento aprendido para realizar predições no conjunto de testes. Se muitas características do conjunto de treino forem colocadas no modelo ele poderá ser incapaz de generalizar conhecimentos e atuar de forma eficaz no conjunto de testes. O nome deste fenômeno é sobre-ajustamento, do Inglês overfitting. Sobre-ajustamento gera resultados superestimados em modelos: predições que aparecem em um modelo, que é sobre-ajustado com base no conjunto de treinamento, não existem na realidade e por isso não se replicaram no conjunto de testes \cite{what2013}. A figura 6  mostra um exemplo de sobre-ajuste.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.40]
 {figuras/overfitting.eps}
-\caption{Exemplo de Sobre-Ajustamento}
+\caption{Exemplo de Sobre-Ajustamento - \cite{real2013}}
 \label{over}
 \end{figure}
 
@@ -204,14 +204,14 @@ Existem duas principais abordagens para aprendizado não-supervisionado: agrupam
 
 Os modelos de AM realizam predições de duas formas distintas: classificação e regressão. Classificação é quando o resultado final do modelo de AM é um conjunto de saídas categóricas. Neste caso as entradas são analisadas pelo modelo e classificadas de acordo com o que foi aprendido. Um exemplo deste tipo de objetivo é o que se pode fazer com a base de dados do Titanic que foi previamente apresentada. É possível analisar as características de cada passageiro e classificá-los entre sobreviventes e mortos. Quando regressão é o objetivo final da previsão, então o modelo irá resultar em um valor contínuo. Nestes casos o aprendizado do modelo se deu na forma de uma função, e o que ele faz é  computar a entrada X para gerar uma saída Y, na forma Y = f(X) + e. 
 
-A figura 7 lista os tipos mais comuns de algoritmos de Aprendizado de Máquina e suas características \cite{real2013}.
+A figura 7 lista os tipos mais comuns de algoritmos de Aprendizado de Máquina e suas características.
 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.60]
 {figuras/Tipos_de_Modelo.eps}
-\caption{Algoritmos de AM}
+\caption{Algoritmos de AM -  \cite{real2013}}
 \label{over}
 \end{figure}
 
@@ -230,23 +230,23 @@ Modelos de AM são treinados em um conjunto especial de dados, geralmente este c
 
 Para modelos supervisionados, buscando uma solução para o problema da medição de precisão para conjunto de dados que nunca foram vistos pelo sistema existe o método chamado de Validação Cruzada. Este método consiste em não usar todo o conjunto de treino para a construção do modelo, uma parte do conjunto é separada exclusivamente para testar a performance do modelo. Basicamente, utiliza-se a técnica de Residuais com o conjunto que foi separado especificamente para o teste. Isto evita os erros de sobre-ajustamento que seriam encontrados no método de Residuais \cite{jeff1997b}. Existem dois tipos de Validação Cruzada, Holdout e K-partes. 
 
-O método de Validação Cruzada por Holdout, também conhecido como estimação por conjunto de teste, consiste em dividir a base de dados em dois conjuntos mutuamente excludentes chamados conjunto de treinamento e conjunto de testes, ou conjunto de holdout. É comum separar 2/3 dos dados para o conjunto de testes e 1/3 para o treinamento. O conjunto de treino é usado pelo modelo de AM para aprendizado, é deste conjunto que todo o conhecimento do modelo será retirado. Após o treinamento, o conjunto de testes é utilizado para realizar o teste do tipo Residual sobre o sistema. Quanto maior for o número de dados que são deixados para o teste menor será a capacidade de generalização do modelo, mas um conjunto de testes pequeno diminui a confiança na capacidade preditiva do modelo \cite{astudy1995}. A figura 8 demonstra o processo de holdout \cite{real2013}.
+O método de Validação Cruzada por Holdout, também conhecido como estimação por conjunto de teste, consiste em dividir a base de dados em dois conjuntos mutuamente excludentes chamados conjunto de treinamento e conjunto de testes, ou conjunto de holdout. É comum separar 2/3 dos dados para o conjunto de testes e 1/3 para o treinamento. O conjunto de treino é usado pelo modelo de AM para aprendizado, é deste conjunto que todo o conhecimento do modelo será retirado. Após o treinamento, o conjunto de testes é utilizado para realizar o teste do tipo Residual sobre o sistema. Quanto maior for o número de dados que são deixados para o teste menor será a capacidade de generalização do modelo, mas um conjunto de testes pequeno diminui a confiança na capacidade preditiva do modelo \cite{astudy1995}. A figura 8 demonstra o processo de holdout.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.70]
 {figuras/holdout.eps}
-\caption{Crossover - Holdout}
+\caption{Crossover - Holdout - \cite{real2013}}
 \label{over}
 \end{figure}
 
-Uma outra forma de fazer a validação cruzada é através do método de K-partes, também conhecido como estimação rotativa. O conjunto de dados é dividido em K partes mutuamente excludentes de tamanho aproximadamente igual. O modelo é treinado e testado k vezes. O treino é realizado com todos os sub-conjuntos menos um de cada vez. O sub-conjunto que foi deixado de fora é então utilizado como conjunto de teste. Na próxima iteração o modelo será treinado novamente e o próximo sub-conjunto será deixado de fora do treino e utilizado para a realização do teste. Todos as previsões dos testes são guardadas em um vetor e no fim de todas as iterações os rótulos são comparadas com o vetor que possui as previsões \cite{astudy1995}. Este método  é melhor para estimar o erro no conjunto real, porém é computacionalmente mais pesado e nem sempre viável. A figura 9 demostra o processo da validação cruzada utilizando k-partes \cite{real2013}.
+Uma outra forma de fazer a validação cruzada é através do método de K-partes, também conhecido como estimação rotativa. O conjunto de dados é dividido em K partes mutuamente excludentes de tamanho aproximadamente igual. O modelo é treinado e testado k vezes. O treino é realizado com todos os sub-conjuntos menos um de cada vez. O sub-conjunto que foi deixado de fora é então utilizado como conjunto de teste. Na próxima iteração o modelo será treinado novamente e o próximo sub-conjunto será deixado de fora do treino e utilizado para a realização do teste. Todos as previsões dos testes são guardadas em um vetor e no fim de todas as iterações os rótulos são comparadas com o vetor que possui as previsões \cite{astudy1995}. Este método  é melhor para estimar o erro no conjunto real, porém é computacionalmente mais pesado e nem sempre viável. A figura 9 demostra o processo da validação cruzada utilizando k-partes.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.60]
 {figuras/kfolds.eps}
-\caption{Crossover - K partes}
+\caption{Crossover - K partes - \cite{real2013}}
 \label{over}
 \end{figure}
 
@@ -310,15 +310,16 @@ O significado de cada elemento dentro da matriz é:
 
 É importante notar que a acurácia pode não ser uma boa métrica quando o número de casos negativos é muito maior do que o os casos positivos ou vice e versa. Neste caso, o sistema pode classificar todos os casos como pertencente a apenas uma classe, como a quantidade de casos verdadeiros desta classe é alto a acurácia será alta, porém o sistema falhou em classificar uma classe inteira! Por isso é importante observar as outras métricas em conjunto com a acurácia.
 
-Muitos modelos de AM possuem suas saídas dadas em uma probabilidade, isto é, o modelo afirma com uma porcentagem de certeza que a entrada pertence a uma determinada classe. Existe um outro método de medir a acurácia de um modelo que encapsula todas as informações da matriz de confusão de forma gráfica e toma proveito das probabilidades das saídas.Este método é a Característica Operativa do Receptor, do Inglês Receiver Operating Characteristic (ROC). Um gráfico ROC é uma plotagem com a taxa de falsos positivos no eixo X e taxa de verdadeiros positivos no eixo Y. Os eixos representam probabilidades e vão de zero a um. O ponto (0,1) é o classificador perfeito, que é capaz de classificar corretamente todos os casos, positivos ou negativos.Uma curva ROC é capaz de mostrar a troca entre a habilidade de classificar corretamente os casos positivos e os casos negativos que são incorretamente classificados. É possível  analisar o nível de confiança do modelo de acordo com a curva. A área em baixo da curva ROC pode ser usada para medir a acurácia de vários modelos. A figura 10 é um exemplo de gráfico ROC \cite{howard2012b}. 
+Muitos modelos de AM possuem suas saídas dadas em uma probabilidade, isto é, o modelo afirma com uma porcentagem de certeza que a entrada pertence a uma determinada classe. Existe um outro método de medir a acurácia de um modelo que encapsula todas as informações da matriz de confusão de forma gráfica e toma proveito das probabilidades das saídas.Este método é a Característica Operativa do Receptor, do Inglês Receiver Operating Characteristic (ROC). Um gráfico ROC é uma plotagem com a taxa de falsos positivos no eixo X e taxa de verdadeiros positivos no eixo Y. Os eixos representam probabilidades e vão de zero a um. O ponto (0,1) é o classificador perfeito, que é capaz de classificar corretamente todos os casos, positivos ou negativos.Uma curva ROC é capaz de mostrar a troca entre a habilidade de classificar corretamente os casos positivos e os casos negativos que são incorretamente classificados. É possível  analisar o nível de confiança do modelo de acordo com a curva. A área em baixo da curva ROC pode ser usada para medir a acurácia de vários modelos. A figura 10 é um exemplo de gráfico ROC. 
   
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.70]
 {figuras/roc.eps}
-\caption{Curva ROC}
+\caption{Curva ROC - \cite{howard2012b}}
 \label{over}
 \end{figure}
+
 
 Assim como na matriz de confusão, é possível analisar modelos que produzem como saída mais de uma classe. Para isto basta plotar cada par características no mesmo espaço e avaliar qual a confiança geral de acordo com a média das curvas ROC.
 
