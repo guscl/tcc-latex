@@ -1,7 +1,7 @@
 \chapter{Estudo de Caso}
 O estudo de caso que será usado para validar os métodos de Aprendizagem de Máquina com Aprendizagem Incremental é baseado em um problema real do Ministério da Agricultura, Pecuária e Abastecimento (MAPA). Este ministério é responsável  "pela gestão das políticas públicas de estímulo à agropecuária, pelo fomento do agronegócio e pela regulação e normatização de serviços vinculados ao setor" \cite{mapa}. Um dos objetivos do MAPA é garantir a segurança alimentar do povo brasileiro além de suportar a produção de exportação, garantindo o sucesso dos produtos brasileiros no mercado internacional.
 
-Uma das atribuições do Ministério da Agricultura é velar pela segurança dos produtos agropecuários que entram e saem do país. Para isto existe o Sistema de Vigilância Agropecuária Internacional (Vigiagro) que é vinculado a Secretaria de Defesa Agropecuária. O vigiagro "atua na inspeção e fiscalização do trânsito internacional de vegetais, seus produtos e subprodutos. A fiscalização é feita nos portos, aeroportos internacionais, postos de fronteira e aduanas especiais" \cite{vigiagro}.
+Uma das atribuições do Ministério da Agricultura é velar pela segurança dos produtos agropecuários que entram e saem do país. Para isto existe o Sistema de Vigilância Agropecuária Internacional (Vigiagro) que é vinculado a Secretaria de Defesa Agropecuária. O Vigiagro "atua na inspeção e fiscalização do trânsito internacional de vegetais, seus produtos e subprodutos. A fiscalização é feita nos portos, aeroportos internacionais, postos de fronteira e aduanas especiais" \cite{vigiagro}.
 
 Neste contexto o vigiagro tem a atribuição fiscalizar todas as importações e exportações de produtos agropecuários do Brasil. Cada importação/exportação gera um requerimento, um documento onde o exportador/importador informa que realizará uma transação comercial internacional de um produto que está sobre vigilância do Vigiagro. Todos os requerimentos são inseridos no Sistema de Informações Gerenciais (SIGVIG). Os funcionários do Ministério então verificam vários itens, alguns de cunho documental e outros de cunho físico do produto comercializado. Caso haja alguma inconformidade o fiscal que avalia o requerimento gera um Termo de Ocorrência (TO) explicando a natureza e razão do erro encontrado, seja documental ou físico. Caso não haja nenhum erro o TO gerado consta que não houve erro em nenhum dos critérios avaliados.
 
@@ -45,36 +45,7 @@ Todos os atributos que começam com a letra "R" são relativos a informações d
 
 Os atributos que começam com a letra "T" são referentes aos Termos de Ocorrência dos requerimentos. Os atributos "T1", "T2" e "T3" são correspondentes a inconformidades documentais que podem acontecer no processo do requerimento. Os outros atributos do tipo "T" representam inconformidades físicas que se mostram nos produtos.
 
-Este conjunto de dados está em formato bruto e é suscetível a Engenharia de Características. Alguns atributos podem ser transformados para extração de informações e outros podem ser omitidos, pois não possuem relacionamento direto com o contexto do problema. Inicialmente é possível realizar o seguinte pré-processamento no conjunto de dados:
-
-\begin{enumerate}
-\item NR REQUERIMENTO: Pode ser eliminado, pois possui a informação de ano que é redundante e a identificação única não é diretamente relacionado com o mundo real.
-\item DT REQUERIMENTO: É uma sequência unidimensional de categóricos que pode ser decomposta em vários atributos categóricos. Pode ser quebrado em: Dia, mês, ano, hora e minutos. Todos estes novos atributos informam o momento do requerimento.
-\item  R2 NCM: Para este conjunto de dados o atributo pode ser eliminado, pois é igual para todos os registros. Como não há variação neste atributo ele não interfere no resultado final.
-\item  R7 PAIS DESTINO: Pode ser eliminado. Como esta planilha é referente a produtos de importação o destino final de todos é o Brasil.
-\end{enumerate}
-
-A imagem 13 mostra como os atributos da tabela ficam após as transformações inicias de pré-processamento.
-
-\begin{figure}[!h]
-\centering
-\includegraphics[keepaspectratio=true,scale=0.40]
-{figuras/novatabela.eps}
-\caption{Atributos após Pré-Processamento}
-\label{tabelaMapa}
-\end{figure}
-
-Existem modelos que não estão preparados para receber dados categóricos que não sejam binários. Para estes casos é necessário criar uma coluna para cada categoria. Caso uma instância pertença a uma categoria, o valor positivo é colocado nesta categoria e o valor negativo em todas as outras. Esta transformação também pode ser realizada neste conjunto de dados. 
-
-
-
-
-
-
-
-
-
-
+Este conjunto de dados está em formato bruto e é suscetível a Engenharia de Características. Alguns atributos podem ser transformados para extração de informações e outros podem ser omitidos, pois não possuem relacionamento direto com o contexto do problema. 
 
 
 
