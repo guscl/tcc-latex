@@ -13,31 +13,43 @@ A figura 12 é um exemplo de como será o conjunto de dados que deve ser avaliad
 
 \begin{figure}[!h]
 \centering
-\includegraphics[keepaspectratio=true,scale=0.40]
+\includegraphics[keepaspectratio=true,scale=0.30]
 {figuras/tabelaMapa.eps}
 \caption{Dados de Exemplo}
 \label{tabelaMapa}
 \end{figure}
 
-\begin{enumerate}
-\item NR REQUERIMENTO: É um atómo numérico que identifica unicamente o requerimento. Os quatro primeiro dígitos são relativos ao ano em que o requerimento foi feito.
-\item DT REQUERIMENTO: É uma sequência unidimensional de categóricos, um campo texto. Nesta coluna consta o momento no tempo em que este requerimento foi feito.
-\item  R1 REQUERENTE: Sequência textual que identifica unicamente o empresário requerente.
-\item  R2 NCM: NCM siginifica Nomenclatura Comum do Mercosul. Este código identifica o produto ou categorias de produtos para fins de padronizar operações comerciais no mercosul. É uma sequência unidimensional de categóricos.
-\item R3 MERCADORIA: Nome do produto comercializado. É uma sequência unidimensional de categóricos.
-\item  R5 PAIS ORIGEM: Sigla que corresponde ao país de origem do produto importado. É um átomo categórico.
-\item R6 FABRICANTE: Corresponde ao nome da empresa fabricante do produto importado. É uma sequência unidimensional de categóricos.
-\item R7 IMPORTADOR: Corresponde ao importador do produto no país de origem. É uma sequência unidimensional de categóricos.
-\item R9 USO PROPOSTO: Átomo categórico que corresponde ao objetivo de utilização do produto importado.
-\item T1: Átomo categórico que corresponde a falta de autorização.
-\item T2: Átomo categórico que corresponde a problema no Certificado Zoosanitário, Sanitário ou Fitosanitário.
-\item T3: Átomo categórico que corresponde a outras inconformidades documentais.
-\item T4: Átomo categórico que corresponde a problema na embalagem do produto.
-\item T6: Átomo categórico que corresponde a problema no rótulo ou na etiqueta do produto.
-\item T7: Átomo categórico que corresponde a identidade ou quantidade do produto.
-\item T8: Átomo categórico que corresponde a problema de doença, infestação ou praga.
-\item T9: Átomo categórico que corresponde a problema com outras inconformidades físicas.
-\end{enumerate}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\hline
+Nome            & Tipo                     & Conteúdo               & Descrição                                                                                  \\ \hline
+NR REQUERIMENTO & Átomo Numérico           & {[}0 - 999999999999{]} & Identifica unicamente o requerimento. Os quatro primeiro dígitos são o ano do requerimento \\ \hline
+DT REQUERIMENTO & Sequência de Categóricos & Texto                  & Momento no tempo em que este requerimento foi feito                                        \\ \hline
+R1 REQUERENTE   & Sequência de Categóricos & Texto                  & Identifica unicamente o empresário requerente                                              \\ \hline
+R2 NCM          & Sequência de Categóricos & Texto                  & Nomenclatura Comum do Mercosul. Identifica o produto ou categorias de produtos             \\ \hline
+R3 MERCADORIA   & Sequência de Categóricos & Texto                  & Nome do produto comercializado                                                             \\ \hline
+R5 PAIS ORIGEM  & Átomo Categórico         & Um dos 191 Países      & Sigla que corresponde ao país de origem do produto importado                               \\ \hline
+R6 FABRICANTE   & Sequência de Categóricos & Texto                  & Corresponde ao nome da empresa fabricante do produto importado                             \\ \hline
+R7 IMPORTADOR   & Sequência de Categóricos & Texto                  & Corresponde ao exportador do produto no país de origem                                     \\ \hline
+R9 USO PROPOSTO & Sequência de Categóricos & Texto                  & Objetivo de utilização do produto importado                                                \\ \hline
+T1              & Átomo Categórico         & {[}N ou S{]}           & Falta de autorização                                                                       \\ \hline
+T2              & Átomo Categórico         & {[}N ou S{]}           & Problema no Certificado Zoosanitário, Sanitário ou Fitosanitário                           \\ \hline
+T3              & Átomo Categórico         & {[}N ou S{]}           & Outras inconformidades documentais                                                         \\ \hline
+T4              & Átomo Categórico         & {[}N ou S{]}           & Problema na embalagem do produto                                                           \\ \hline
+T5              & Átomo Categórico         & {[}N ou S{]}           & Problema na higiene, armazenamento ou transporte
+\\ \hline
+T6              & Átomo Categórico         & {[}N ou S{]}           & Problema no rótulo ou na etiqueta do produto                                               \\ \hline
+T7              & Átomo Categórico         & {[}N ou S{]}           & Problema na identidade ou quantidade do produto                                            \\ \hline
+T8              & Átomo Categórico         & {[}N ou S{]}           & Problema de doença, infestação ou praga                                                    \\ \hline
+T9              & Átomo Categórico         & {[}N ou S{]}           & Problema com outras inconformidades físicas                                                \\ \hline
+\end{tabular}
+}
+\caption{Descrição dos Dados do MAPA}
+\label{my-label}
+\end{table}
 
 Os dois primeiros atributos, "NR REQUERIMENTO" e "DT REQUERIMENTO" dizem respeito a informações que são da instância do dado em si. Estas informações são geradas na hora do registro dos dados e não possuem relação direta com o contexto do problema.
 
