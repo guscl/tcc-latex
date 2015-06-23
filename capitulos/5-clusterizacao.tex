@@ -1,2 +1,27 @@
 \chapter{Clusterização}
+Para resolver o problema apresentado no estudo de caso do capítulo anterior é necessário organizar as entradas, para que se possa compreender qual o relacionamento entre as características de cada amostra com o resultado da fiscalização feita pelo MAPA. Se for possível encontrar informações que são determinantes para o resultado da análise feita pelo laboratório, será possível aprimorar os critérios de amostragem, que hoje são randômicos, melhorando a eficácia da fiscalização de resíduos contaminantes em aves e suínos consumidos no Brasil.
+
+Para um estudo inicial é interessante observar qual é o agrupamento natural dos dados. Alterando a combinação das variáveis de entrada e agrupando as amostras, é possível analisar cada agrupamento e medir a quantidade de violações em cada conjunto. Dessa forma, pode ser possível constatar quais as características são determinantes, por analisar a morfologia de cada agrupamento em cada combinação de características.
+
+Este tipo de problema cai na categoria de \textit{clusterização}. Clusterização é usar as características de entrada para descobrir agrupamentos naturais nos dados e para dividir os dados nestes grupos \cite{real2013}. Ou ainda, particionar itens em regiões homogêneas. Um exemplo aplicado a redes sociais é: encontrar comunidades dentro de um grande grupo de pessoas \cite{foundations2012}.
+
+Dentre os algoritmos mais conhecidos de clusterização estão: K-médias, modelos de mistura gaussianas e clusterização hierárquicas. Um dos métodos mais interessantes para realizar clusterização é o SOM (Self Organizing Map, Mapa auto-organizável) desenvolvido por Teuvo Kohonen em 1982 \cite{kohonen1982}. Além de realizar a clusterização com robustez, o SOM é capaz de operar uma redução de dimensionalidade nos dados, dessa forma não somente a morfologia dos agrupamentos é interessante, mas também o mapa gerado pelo algoritmo. Entretanto este algoritmo ainda apresenta o modelo de lote, possuindo fase de treino e uso bem distintas.
+
+\section{SOM}
+É possível pensar o algoritmo SOM como uma combinação de dois sistemas menores. Uma parte funciona como uma rede neural competitiva do tipo o vencedor leva tudo. Nesta etapa um dos neurônios da rede é selecionado de acordo com sua semelhança a amostra de entrada, este neurônio é o único vencedor daquela amostra. O segundo sistema acontece depois que o neurônio é escolhido, agora a rede irá se adaptar para incorporar esse novo aprendizado, o peso do neurônio vencedor e de seus vizinhos é alterado, isto é o que dá plasticidade à rede. 
+De acordo com Teuvo em \citeonline{kohonen1982} o processo auto-organizável do algoritmo pode ser simplificado em quatro etapas:
+
+\begin{enumerate}
+\item Um vetor de unidades de processamento que recebem estímulos coerentes de um espaço de eventos e formam funções discriminantes simples com base nas entradas.
+\item Um mecanismo que compara as funções discriminantes e seleciona a unidade que possível o maior valor.
+\item Algum tipo de interação local, que, simultaneamente, ativa a unidade vencedora e seus vizinhos.
+\item Um processo adaptativo que faz os parâmetros das unidades ativadas aumentarem seus valores de função discriminante com base na atual entrada.
+\end{enumerate}
+
+
+
+
+
+
+
 
