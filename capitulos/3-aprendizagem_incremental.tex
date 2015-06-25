@@ -1,6 +1,4 @@
 \chapter{Aprendizado Incremental}
-
-
 Um outro desafio que emerge da grande quantidade de informações que são geradas é, o tempo de validade dos modelos de AM. Atualmente, a maioria dos modelos de aprendizagem possuem uma etapa de treino que acontece antes da etapa de uso efetivo dele. Esta etapa serve para que o sistema aprenda as características do espaço do problema, para depois ser capaz de atuar nos dados que vem sendo gerados em tempo real. 
 O processo de construção de um sistema especialista efetivo geralmente demanda muito tempo e trabalho. É possível que estes sistemas se tornem menos precisos ou ineficazes em pouco tempo, pois a geração de dados no contexto do problema pode ser muito rápida e novas características podem emergir dos registros mais recentes. Se estes modelos de AM só conseguem aprender na etapa de treino, há um problema, pois eles não serão capazes de lidar com conceitos de aprendizagem que apareceram somente nas informações mais novas. 
 
@@ -35,6 +33,12 @@ A aprendizagem lote-incremental não se encaixa na definição de aprendizagem i
 A afirmação do parágrafo anterior vem do conhecido dilema de estabilidade/ plasticidade: Um classificador totalmente estável é capaz de reter conhecimento, mas não consegue aprender nova informação, enquanto um classificador totalmente plástico pode aprender novos conhecimentos instantaneamente, mas não consegue reter conhecimentos passados \cite{learn2004}.
 
 Porém, é importante ressaltar que algumas experiências da comunidade de Aprendizado de Máquina é de que modelos com aprendizagem online muitas vezes possuem performance inferior e complexidade maior quando compara-se com lote-incremental. Muitos problemas podem simplesmente ser resolvidos até mesmo por método de lotes. É importante avaliar o contexto com cuidado para escolher o método apropriado a solução do problema. Nas etapas posteriores deste trabalho, as duas abordagens serão testadas no mesmo conjunto de dados, tanto aprendizado online quanto lote-incremental.
+
+Pelos motivos citados anteriormente, outra característica que deve ser avaliada na hora de escolher algoritmos para solucionar problemas no contexto incremental é a supervisão. Há casos onde é possível encontrar alguma verdade que classifica os dados, neste cenário é possível utilizar soluções da categoria supervisionada. Algoritmos supervisionados utilizam a verdade imposta nos rótulos das amostrar para ajustar seus parâmetros de aprendizado na hora do treinamento. É necessário que alguém gaste um tempo para gerar estas classificações para o conjunto de treinamento.
+
+Em um contexto onde os dados de entrada são infinitos e os recursos computacionais finitos, muitas vezes não é possível utilizar algoritmos supervisionados pelo simples motivo se não se ter rótulos nas amostras. Esta dificuldade em gerar um conjunto de treinamento com rótulos se deve pela grande velocidade de geração dos dados e pelo contexto dinâmico dos problemas. Por este motivo as abordagens não supervisionadas são interessantes. Não é necessário ter uma verdade explícita para que estes modelos gerem algum tipo de conhecimento.
+
+Muitos dos algoritmos não supervisionados são do tipo agrupamento. Estes algoritmos utilizam a natureza dos dados para gerar agrupamentos diversos. O próximo capítulo aborda com mais profundidade esta classe de problemas e mostra algoritmos deste tipo.  
 
 
 
