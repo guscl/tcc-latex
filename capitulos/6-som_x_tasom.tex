@@ -134,20 +134,72 @@ Para comparar os dois algoritmos é necessário estabelecer uma métrica que sej
 \begin{tabular}{c|l|l|}
 \cline{2-3}
                             & SOM      & TASOM    \\ \hline
-\multicolumn{1}{|c|}{1}     & 5.134363 & 4.675699 \\ \hline
-\multicolumn{1}{|c|}{2}     & 5.134363 & 7.970087 \\ \hline
-\multicolumn{1}{|c|}{3}     & 5.134363 & 4.657833 \\ \hline
-\multicolumn{1}{|c|}{4}     & 5.134363 & 4.636273 \\ \hline
-\multicolumn{1}{|c|}{5}     & 5.134363 & 6.346224 \\ \hline
-\multicolumn{1}{|c|}{6}     & 5.134363 & 3.632400 \\ \hline
-\multicolumn{1}{|c|}{7}     & 5.134363 & 3.755198 \\ \hline
-\multicolumn{1}{|c|}{8}     & 5.134363 & 4.669887 \\ \hline
-\multicolumn{1}{|c|}{9}     & 5.134363 & 3.695024 \\ \hline
-\multicolumn{1}{|c|}{10}    & 5.134363 & 4.780292 \\ \hline
-\multicolumn{1}{|l|}{Média} & 5.134363 & 4.881891 \\ \hline
+\multicolumn{1}{|c|}{1}     & 5.134363\% & 4.675699\% \\ \hline
+\multicolumn{1}{|c|}{2}     & 5.134363\% & 7.970087\% \\ \hline
+\multicolumn{1}{|c|}{3}     & 5.134363\% & 4.657833\% \\ \hline
+\multicolumn{1}{|c|}{4}     & 5.134363\% & 4.636273\% \\ \hline
+\multicolumn{1}{|c|}{5}     & 5.134363\% & 6.346224\% \\ \hline
+\multicolumn{1}{|c|}{6}     & 5.134363\% & 3.632400\% \\ \hline
+\multicolumn{1}{|c|}{7}     & 5.134363\% & 3.755198\% \\ \hline
+\multicolumn{1}{|c|}{8}     & 5.134363\% & 4.669887\% \\ \hline
+\multicolumn{1}{|c|}{9}     & 5.134363\% & 3.695024\% \\ \hline
+\multicolumn{1}{|c|}{10}    & 5.134363\% & 4.780292\% \\ \hline
+\multicolumn{1}{|l|}{Média} & 5.134363\% & 4.881891\% \\ \hline
 \end{tabular}
 \end{table}
 
+\section{TASOM em Ambiente Incremental}
+Para medir a eficiência do TASOM em um ambiente incremental de maneira sintética é necessário utilizar um conjunto de entradas que muda bruscamente. Dessa forma é possível verificar se o TASOM é capaz de aprender novos conceitos com rapidez e eficiência. O cálculo de erro neste caso só deve levar em consideração a distância entre o neurônio e a entrada na hora em que o dado é apresentado, pois amostras subsequentes podem introduzir novos conceitos que serão absorvidos por aquele neurônio. O mesmo conjunto de entradas foi utilizado, mas seus agrupamentos são apresentados de maneira sequencial. Para realizar este teste todos os parâmetros da rede TASOM previamente apresentados foram mantidos. As figuras 29, 30 e 31 são representações no começo, meio e fim da apresentação do dados de entrada.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.5]
+{figuras/tsom1.eps}
+\caption{Começo}
+\label{data_titatic}
+\end{figure}  
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.5]
+{figuras/tsom2.eps}
+\caption{Meio}
+\label{data_titatic}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[keepaspectratio=true,scale=0.5]
+{figuras/tsom3.eps}
+\caption{Fim}
+\label{data_titatic}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{TASOM Incremental}
+\label{my-label}
+\begin{tabular}{c|l|}
+\cline{2-2}
+                            & TASOM      \\ \hline
+\multicolumn{1}{|c|}{1}     & 11.454104\%  \\ \hline
+\multicolumn{1}{|c|}{2}     & 11.122445\%  \\ \hline
+\multicolumn{1}{|c|}{3}     & 6.6950870\%  \\ \hline
+\multicolumn{1}{|c|}{4}     & 5.5194768\%  \\ \hline
+\multicolumn{1}{|c|}{5}     & 11.454104\%  \\ \hline
+\multicolumn{1}{|c|}{6}     & 11.563024\% \\ \hline
+\multicolumn{1}{|c|}{7}     & 5.1994760\%  \\ \hline
+\multicolumn{1}{|c|}{8}     & 4.6800620\%  \\ \hline
+\multicolumn{1}{|c|}{9}     & 4.6800621\%  \\ \hline
+\multicolumn{1}{|c|}{10}    & 4.9833902\%   \\ \hline
+\multicolumn{1}{|l|}{Média} & 7.7351230\% \\ \hline
+\end{tabular}
+\end{table} 
+
+É possível observar que cada um dos agrupamentos é marcado por apenas um neurônio. Isso acontece porque o neurônio mais próximo a primeira amostra apresentada de cada conjunto se move até a posição daquele agrupamento. Depois disso ele sempre é o neurônio que está mais próximo daquele grupo. O TASOM é altamente sensível aos pesos randômicos de inicialização, é possível observar esse fenômeno quando a quantidade de neurônios agrupadores muda de execução para execução e na variação de erro que foi observada na comparação entre o SOM e o TASOM. O erro encontrado para este teste pode ser observado na tabela 4.
+
+\section{Resultado da Comparação}
+O TASOM foi capaz de superar o SOM em ambiente estático, apresentando um erro médio de 4.881891\% contra 5.134363\% do SOM. Em um contexto incremental o erro médio foi de 7.7351230\%. Os resultados destes experimentos indicam que o TASOM é uma boa alternativa ao SOM, pois é capaz de gerar um mapa que possui as mesmas características do SOM e é capaz de ser usado em um contexto incremental. Alguns cuidados devem ser tomados no uso do TASOM, a escolha dos parâmetros inicias pode ser ser complicada e ele é muito sensível a semente inicial dos pesos.
 
 
 
