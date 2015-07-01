@@ -1,1 +1,15 @@
 \chapter{Considerações Finais}
+Na introdução deste documento foram levantados os seguintes objetivos: Pesquisa e desenvolvimento de um método de Aprendizagem de Máquina do tipo não supervisionado, de agrupamento e incremental. Um levantamento teórico foi realizado visando compreender os processos de aprendizagem de máquina, os conceitos de aprendizagem incremental e o conhecimento de métodos de agrupamento incremental. As pesquisas levaram a escolha do método TASOM como um algoritmo não-supervisionado de agrupamento incremental. Este método foi escolhido por ser uma variação do SOM que atende aos requisitos do trabalho e por ter um mapa de saída comparável com o SOM. Desta forma é possível avaliar o desempenho dos dois em contexto de aplicação similar.
+
+Os dois algoritmos foram implementados e um protótipo foi criado para a realização dos experimentos. Utilizando um conjunto de dados sintéticos, que incorporava diferentes possibilidades de agrupamentos, e considerando-se uma utilização em ambiente estático, o TASOM obteve desempenho similar ao SOM. Em um contexto dinâmico, onde o SOM clássico não funciona, o TASOM também obteve êxito tendo erro muito baixo. Os parâmetros de análise nestes experimentos foram puramente matemáticos, extraindo assim a essência da ideologia de criação dos métodos.
+
+Para validar os métodos em um contexto de utilização real, três conjuntos de dados foram utilizados. Em todos eles tentou-se observar se os algoritmos seriam capazes de separar seus agrupamentos tendo em vista rótulos pré-estabelecidos. Está não é a aplicação para a qual estes sistemas foram criados, pois eles partem do pré-suposto não supervisionado e agrupam os dados com base em similaridade matemática. Mesmo assim, foi observado no experimento com dados de plantas Iris, que os métodos geraram agrupamentos interessantes tendo em vista a classe das amostras. Neste caso, o TASOM apresentou melhor desempenho que o SOM. 
+
+Os resultados encontrados neste trabalho apontam para o TASOM como uma boa alternativa ao SOM em ambientes estáticos, semi-estáticos e dinâmicos. Os objetivos propostos foram alcançados, tendo-se um método não-supervisionado de agrupamento incremental implementado e testado.
+
+\section{Futuros Trabalhos}
+Como pode-se observar nos experimentos do capítulo de comparação dos métodos, o resultado do TASOM varia muito por causa da inicialização randômica dos pesos. Esta sensibilidade pode influenciar no desempenho, portanto, é necessário pesquisar novos métodos de inicialização dos pesos iniciais da rede que não introduzam viés nos agrupamentos e que otimizem a performance do algoritmo.
+
+O TASOM possui muitos parâmetros de entrada que são difíceis de serem configurados, uma possibilidade de melhoria é criar mecanismos de parametrização automática que otimizem a performance do mapa.    
+
+   

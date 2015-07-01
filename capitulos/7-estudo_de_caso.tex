@@ -1,10 +1,219 @@
-\chapter{Estudo de Caso}
-O estudo de caso que será usado para validar os métodos de Aprendizagem de Máquina com Aprendizagem Incremental é baseado em um problema real do Ministério da Agricultura, Pecuária e Abastecimento (MAPA). Este ministério é responsável  "pela gestão das políticas públicas de estímulo à agropecuária, pelo fomento do agronegócio e pela regulação e normatização de serviços vinculados ao setor" \cite{mapa}. Um dos objetivos do MAPA é garantir a segurança alimentar do povo brasileiro além de suportar a produção de exportação, garantindo o sucesso dos produtos brasileiros no mercado internacional.
+\chapter{Validação com Dados Reais}
+Três problemas reais foram abordados visando testar os algoritmos em ambiente não simulado. O primeiro caso é aplicado à necessidade do Ministério da Agricultura, Pecuária e Abastecimento (MAPA). O segundo é aplicado a uma base de dados que possui informações sobre dígitos escritos e a última é um agrupamento aplicado ao conhecido conjunto de dados sobre as plantas do tipo Iris.  
 
-Para resolver o problema apresentado no estudo de caso do capítulo anterior é necessário organizar as entradas, para que se possa compreender qual o relacionamento entre as características de cada amostra com o resultado da fiscalização feita pelo MAPA. Se for possível encontrar informações que são determinantes para o resultado da análise feita pelo laboratório, será possível aprimorar os critérios de amostragem, que hoje são randômicos, melhorando a eficácia da fiscalização de resíduos contaminantes em aves e suínos consumidos no Brasil.
+\section{MAPA}
+O primeiro estudo que será usado para validar os métodos de Aprendizagem de Máquina com Aprendizagem Incremental é baseado em um problema real do MAPA. Este ministério é responsável  "pela gestão das políticas públicas de estímulo à agropecuária, pelo fomento do agronegócio e pela regulação e normatização de serviços vinculados ao setor" \cite{mapa}. Um dos objetivos do MAPA é garantir a segurança alimentar do povo brasileiro além de suportar a produção de exportação, garantindo o sucesso dos produtos brasileiros no mercado internacional.
 
-Para um estudo inicial é interessante observar qual é o agrupamento natural dos dados. Alterando a combinação das variáveis de entrada e agrupando as amostras, é possível analisar cada agrupamento e medir a quantidade de violações em cada conjunto. Dessa forma, pode ser possível constatar quais as características são determinantes, por analisar a morfologia de cada agrupamento em cada combinação de características. Este tipo de problema cai na categoria de agrupamento.
+No Brasil existe um plano nacional que tem como objetivo garantir a qualidade e segurança dos produtos animais e vegetais que são consumidos no país. O Plano Nacional de Controle de Resíduos e Contaminantes (PNCR), é um programa de inspeção e fiscalização das cadeias produtivas de alimentos. Este plano é dividido em duas grandes áreas, PNCR/Animal e PNCR/Vegetal. Cada um possui regras de monitoramento específicas. Os tipos de animais que são contemplados pela parte animal são: Bovinos, aves, suínos, equinos, avestruz, caprinos e ovinos. Também são verificados no setor animal os seguintes produtos: Leite, mel, ovos e pescados. 
 
+O execução do PNCR ocorre através de medições e análises estatísticas de amostras coletas em Serviços de Inspeção Federais (SIF's). Os produtores de cada região são cadastrados em um SIF específico, este SIF é responsável por coletar e analisar amostras de alimentos produzidos nestes estabelecimentos. As coletas são feitas de maneira randômica de tempos em tempos, e o objetivo das coletas é verificar se a presença de resíduos contaminantes ou substâncias acima de limiar adequado a saúde nos produtos alimentícios. 
+
+Após a análise feita e uma vez identificada uma violação no limite máximo de resíduo ou a presença de contaminante, o MAPA adota medidas regulatórias imediatas visando proteger a saúde da população brasileira. O objetivo da utilização de métodos de agrupamento nas informações referentes a cada produtor é verificar a presença de agrupamentos naturais que sejam classificados como prováveis amostras irregulares. Desta forma seria possível ao MAPA tomar medidas que melhorem a eficácia da fiscalização.
+
+Para realizar esta análise foram disponibilizadas duas planilhas com informações sobre amostras coletas de aves suínos do período de 2002 a 2014. As informações presentes na base de dados de aves e suínos são:
+
+\begin{enumerate}
+\item Ano da Análise: Ano no qual a amostra foi coletada.
+\item Código do Tipo da Análise: Código que identifica o tipo de análise realizada na amostra, isto é, a procura pela presença de determinada substância na amostra.
+\item Resultado da Análise:Quantidade da substância analisada na amostra.
+\item SIF: Código que identifica o SIF que coletou a amostra.
+\item Semana da Analise: Semana do ano em que a amostra foi coletada.
+\item Quantidade de Animais:Quantidade de animais amostrados.
+\item Latitude: Latitude do Município de origem da amostra.
+\item Longitude: Longitude do Município de origem da amostra.
+\item Código de Status: Código que indica o resultado da análise laboratorial. 5 para substância não presente, 6 para substância presente mas no limite aceitável e 7 para substância proibida ou acima do limite aceitável.
+\item Tipo de Tecido(Somente na base de suínos):Código que indica o tipo de tecido animal coletado.
+\end{enumerate}
+
+Ambos algoritmos, SOM e TASOM, foram parametrizados da mesma forma que foram parametrizados no capítulo SOM X TASOM. A única diferença é que os tamanhos dos mapas foram de 2 x 2. Todas as amostras já possuem o rótulo que classifica o resultado da análise, Código de Status. Para verificar a eficácia dos métodos em agrupar as amostrar de acordo com este rótulo, foram registradas a porcentagem da presença de cada classe em cada um dos neurônios das redes. O resultado ideal é que um neurônio possua alta densidade de uma determinada classe e baixa densidade das outras, isto significa que o método de agrupamento é eficaz em determinar o rótulo das amostras. Para um primeiro teste os algoritmos foram alimentados com todas as informações, excluindo o próprio rótulo. A tabela 5 mostra as porcentagens de cada classe em cada um dos neurônios para os dois mapas na base de aves, e a tabela 6 para suínos. 
+
+\begin{table}[h]
+\centering
+\caption{Agrupamentos feitos com todas as informações - Aves}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{3}{c|}{SOM}      & \multicolumn{3}{c|}{TASOM}     \\ \hline
+         & Classe 5 & Classe 6 & Classe7 & Classe 5 & Classe 6 & Classe 7 \\ \hline
+1        & 99.54    & 0.23     & 0.21    & 0        & 0        & 0        \\ \hline
+2        & 0        & 0        & 0       & 99.40    & 0.41     & 0.18     \\ \hline
+3        & 0        & 0        & 0       & 99.54    & 0.29     & 0.16     \\ \hline
+4        & 99.46    & 0.37     & 0.15    & 99.52    & 0.26     & 0.21     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Agrupamentos feitos com todas as informações - Suínos}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{3}{c|}{SOM}      & \multicolumn{3}{c|}{TASOM}     \\ \hline
+         & Classe 5 & Classe 6 & Classe7 & Classe 5 & Classe 6 & Classe 7 \\ \hline
+1        & 0        & 0        & 0       & 97.70    & 1.91     & 0.38     \\ \hline
+2        & 98.60    & 1.09     & 0.30    & 0        & 0        & 0        \\ \hline
+3        & 98.59    & 0.92     & 0.48    & 0        & 0        & 0        \\ \hline
+4        & 97.29    & 2.48     & 0.22    & 97.47    & 2.32     & 0.21     \\ \hline
+\end{tabular}
+\end{table}
+
+É possível constatar pelos dados das tabelas 5 e 6 que a classe predominante nos neurônios dos dois algoritmos foi é a 5, que representa a normalidade. Este fato é também observado nos dados, as classes 6 e 7 representam aproximadamente 10\% do total das amostras de cada um de seus conjuntos. Os métodos não foram capazes de separar os dados em relação ao resultado da análise neste contexto. Visando alcançar melhores resultados um processamento foi realizado nos dados para omitir todas as amostras do tipo 5, desta forma o objetivo agora é verificar se os algoritmos conseguirão agrupar os dados separando as classes 6 e 7. As tabelas 7 e 8 contém estes resultados.
+
+\begin{table}[h]
+\centering
+\caption{Agrupamentos feitos sem a classe 5 - Aves}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
+         & Classe 6    & Classe 7   & Classe 6     & Classe 7    \\ \hline
+1        & 68.15       & 31.84      & 0            & 0           \\ \hline
+2        & 0           & 0          & 43.93        & 56.06       \\ \hline
+3        & 0           & 0          & 76.68        & 23.31       \\ \hline
+4        & 60.20       & 39.79      & 65.64        & 34.35       \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Agrupamentos feitos sem a classe 5 - Suínos}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
+         & Classe 6    & Classe 7   & Classe 6     & Classe 7    \\ \hline
+1        & 80.29       & 19.70      & 0            & 0           \\ \hline
+2        & 0           & 0          & 62.42        & 37.57       \\ \hline
+3        & 0           & 0          & 88.16        & 11.83       \\ \hline
+4        & 91.88       & 39.79      & 95.66        & 4.33        \\ \hline
+\end{tabular}
+\end{table}
+
+Pelos resultados das tabelas 7 e 8 é possível observar que a retirar da classe 5 teve impacto na forma como as classes 6 e 7 são agrupadas. A quantidade de dados que foram analisados para os suínos foi de 4004 amostras e para as aves 490. Os resultados dos agrupamentos de aves são muito mais misturados do que os de suínos, que possuem alta densidade de uma só classe em seus neurônios. Estes resultados não podem ser chamados de satisfatórios, pois os agrupamentos de aves estão misturados entre as classes 6 e 7. E os de suínos, embora possuam alta densidade da classe 6 em seus neurônios, não possuem algum neurônio com alta densidade de classe 7. Os dados de entrada destes experimentos ainda possuem um erro quanto se pensa em uma aplicação prática. O atributo Resultado da Análise, que contém a quantidade da substância analisada na amostra, está presente. Este atributo é o fator determinante para o Código de Status, para uso real, seria ideal que os agrupamentos fossem observados sem a presença desta característica nos dados. As tabelas 8 e 9 mostram os resultados dos mapas sem este atributo presente nas entradas. 
+
+\begin{table}[h]
+\centering
+\caption{Agrupamentos feitos sem a classe 5 e sem o resultado da análise - Aves}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
+         & Classe 6    & Classe 7   & Classe 6     & Classe 7    \\ \hline
+1        & 63.46       & 36.53      & 0            & 0           \\ \hline
+2        & 0           & 0          & 69.28        & 30.73       \\ \hline
+3        & 0           & 0          & 39.29        & 40.70       \\ \hline
+4        & 0           & 8.11       & 0            & 0           \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Agrupamentos feitos sem a classe 5 e sem o resultado da análise - Suínos}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
+         & Classe 6    & Classe 7   & Classe 6     & Classe 7    \\ \hline
+1        & 82.19       & 17.80      & 0            & 0           \\ \hline
+2        & 0           & 0          & 100          & 0           \\ \hline
+3        & 0           & 0          & 85.46        & 14.53       \\ \hline
+4        & 89.24       & 0          & 87.73        & 12.26       \\ \hline
+\end{tabular}
+\end{table}
+
+Os resultados das tabelas 8 e 9 apresentam os mesmos problemas acima citados. Um fato curioso é que na análise de suínos o neurônio 2 do TASOM foi capaz de agrupar 100\% de amostras da classe 6, porém, apenas três entradas. O resultado deste experimento aponta que nenhum dos dois algoritmos é capaz de agrupar os dados do MAPA separando os grupos pelo código de status, ou, não há informação suficiente nos dados pra que esta separação aconteça.
+
+\section{Dígitos}
+Este experimento visa verificar se os algoritmos, SOM e TASOM, são capazes de separar uma base de dados de dígitos manuscritos com relação ao número escrito. Para a realização desta análise foi utilizada a base de dados \textit{Pen-Based Recognition of Handwritten Digits Data Set}, Conjunto de Dados para Reconhecimento de Dígitos escritos a Mão e a Caneta. Este conjunto de dados foi retirado de \citeonline{digits}. 
+
+Para a coleta dos dados deste conjunto 44 pessoas escreveram mais de 250 amostras de dígitos de 0 a 9 em um dispositivo eletrônico. Este dispositivos possui uma janela de 500x500 pixels. Vários pontos são coletados ao curso da escrita de cada amostra, e depois, um filtro de interpolação é aplicado aos pontos para formar uma curva que tem a forma do dígito. Esta curva foi transformada em 64 amostras que correspondem a segmentos de seu corpo. O conjunto analisado possui as 64 características que representam os pontos e um rótulo que representa o número escrito. As redes foram apresentas as 64 colunas de cada amostra de entrada e a porcentagem de cada rótulo foi computada para cada neurônio. Para este experimento todos os parâmetros do SOM e TASOM foram mantidos, com exceção do tamanho do mapas que é de 4x3 e o SOM foi configurado com 100 épocas. Os resultados podem ser observados nas tabelas 10 e 11.
+
+\begin{table}[h]
+\centering
+\caption{Agrupamento dos Dígitos - SOM}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{10}{c|}{SOM}                                                   \\ \hline
+         & 0    & 1     & 2     & 3     & 4     & 5    & 6     & 7     & 8     & 9     \\ \hline
+1        & 0.02 & 19.48 & 19.91 & 18.22 & 0.43  & 4.91 & 0.02  & 19.83 & 3.49  & 13.64 \\ \hline
+2        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+3        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+4        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+5        & 1.29 & 1.29  & 0     & 0     & 2.06  & 5.51 & 57.15 & 0     & 32.15 & 0.51  \\ \hline
+6        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+7        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+8        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+9        & 0    & 0     & 0     & 47.57 & 14.24 & 0.41 & 0     & 0.76  & 10.16 &       \\ \hline
+10       & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+11       & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+12       & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\caption{Agrupamento dos Dígitos - TASOM}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{10}{c|}{TASOM}                                                   \\ \hline
+         & 0     & 1     & 2     & 3     & 4     & 5     & 6     & 7     & 8     & 9     \\ \hline
+1        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+2        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+3        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+4        & 4.18  & 2.63  & 0.18  & 17.16 & 24.13 & 6.89  & 24.76 & 0.55  & 1.07  & 18.39 \\ \hline
+5        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+6        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+7        & 26.89 & 4.29  & 12.11 & 0     & 0     & 18.62 & 0.04  & 20.12 & 17.91 & 0     \\ \hline
+8        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+9        & 0.39  & 27.54 & 22.13 & 10.13 & 3.88  & 3.09  & 0.04  & 12.69 & 11.55 & 8.50  \\ \hline
+10       & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+11       & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+12       & 100   & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
+\end{tabular}
+\end{table}
+
+Como pode ser observado nas tabelas 10 e 11 nem o TASOM e nem o SOM foram capazes de gerar bons agrupamentos com base nos dígitos escritos. Poucos neurônios são ativados e não predominância de uma classe. Os parâmetros de inicialização que foram citados acima foram os que apresentaram melhores resultados, a maioria das combinações resultou em performances parecidas.
+
+\section{Iris} 
+A última análise feita usa o conjunto e dados de plantas do tipo Iris, estes dados são muito famosos sendo citados em vários artigos de aprendizado de máquina. Ele é composto por 3 classes de 50 amostras cada, cada classe refere-se a um tipo de planta Iris. A primeira classe é linearmente separável das, as classes 2 e 3 são linearmente inseparáveis \cite{iris}. O objetivo do experimento é observar se o SOM ou o TASOM são capazes de realizar o agrupamento destes dados separando as classes em diferentes grupos. A descrição do conjunto de dados é:
+
+\begin{enumerate}
+\item Comprimento da cepa.
+\item Largura da cepa.
+\item Comprimento da pétala.
+\item Largura da pétala.
+\item Semana da Analise: Semana do ano em que a amostra foi coletada.
+\item Classe da Iris.0 para Iris Setosa, 1 para  Iris Versicolour e 2 para Iris Virginica.
+\end{enumerate}
+
+Dez execuções de cada algoritmo foram realizadas, elas não apresentaram grande variação entre si. A tabela 12 mostra os melhores resultados da porcentagem de cada classe nos neurônios do SOM e do TASOM e quantidade de amostras que foram agrupadas pro cada neurônio. O tamanho dos mapas foi de 2x2, as parametrizações do TASOM foram as mesmas já utilizadas, com exceção da variável beta que foi configurada para 0.001. O SOM foi executado com 450 épocas. Estas foram as parametrizações que apresentaram melhor resultado.
+
+\begin{table}[h]
+\scalefont{0.7}
+\centering
+\caption{Agrupamentos de Iris}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Neurônio & \multicolumn{4}{c|}{TASOM}                   & \multicolumn{4}{c|}{SOM}                     \\ \hline
+         & Classe 0 & Classe 1 & Classe 2 & Nº Amostras & Classe 0 & Classe 1 & Classe 2 & Nº Amostras \\ \hline
+1        & 100      & 0        & 0        & 2           & 0        & 50       & 50       & 100         \\ \hline
+2        & 0        & 70.42    & 29.71    & 71          & 0        & 0        & 0        & 0           \\ \hline
+3        & 100      & 0        & 0        & 48          & 0        & 0        & 0        & 0           \\ \hline
+4        & 0        & 0        & 100      & 29          & 100      & 0        & 0        & 50          \\ \hline
+\end{tabular}
+\end{table} 
+ 
+Pela tabela 12 é observável que este experimento obteve êxito. As redes foram capazes de separar completamente a classe 0, que é linearmente separável, e quase foram capazes de separar totalmente as classes 1 e 2. O TASOM obteve melhor desempenho na separação das classes 1 e 2.  
+
+
+
+	  
+
+ 
 
 
 
