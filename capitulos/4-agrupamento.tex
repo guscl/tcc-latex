@@ -1,11 +1,11 @@
 \chapter{Agrupamento}
-Agrupamento é usar as características de entrada para descobrir aglomerações naturais nos dados e para dividir os dados nestes grupos \cite{real2013}. Ou ainda, particionar itens em regiões homogêneas. Um exemplo aplicado a redes sociais é: encontrar comunidades dentro de um grande grupo de pessoas \cite{foundations2012}.
+Agrupamento é usar as características de entrada para descobrir aglomerações naturais nos dados e para dividir os dados nestes grupos \cite{real2013}. Ou ainda, particionar itens em regiões homogêneas. Um exemplo aplicado a redes sociais é: encontrar comunidades dentro de um grande grupo de pessoas, \citeonline{foundations2012}.
 
 Dentre os algoritmos mais conhecidos de agrupamento estão: K-médias, modelos de mistura gaussianas e clusterização hierárquicas. Um dos métodos mais interessantes para realizar agrupamento é o SOM (Self Organizing Map, Mapa auto-organizável) desenvolvido por Teuvo Kohonen em 1982 \cite{kohonen1982}. Além de realizar o agrupamento com robustez, o SOM é capaz de operar uma redução de dimensionalidade nos dados, dessa forma não somente a morfologia dos agrupamentos é interessante, mas também o mapa gerado pelo algoritmo. Entretanto este algoritmo ainda apresenta o modelo de lote, possuindo fase de treino e uso bem distintas.
 
 \section{SOM}
 É possível pensar o algoritmo SOM como uma combinação de dois sistemas menores. Uma parte funciona como uma rede neural competitiva do tipo o vencedor leva tudo. Nesta etapa um dos neurônios da rede é selecionado de acordo com sua semelhança a amostra de entrada, este neurônio é o único vencedor daquela amostra. O segundo sistema acontece depois que o neurônio é escolhido, agora a rede irá se adaptar para incorporar esse novo aprendizado, o peso do neurônio vencedor e de seus vizinhos é alterado, isto é o que dá plasticidade à rede. 
-De acordo com Teuvo em \citeonline{kohonen1982} o processo auto-organizável do algoritmo pode ser simplificado em quatro etapas:
+De acordo com Teuvo em, \citeonline{kohonen1982}, o processo auto-organizável do algoritmo pode ser simplificado em quatro etapas:
 
 \begin{enumerate}
 \item Um vetor de unidades de processamento que recebem estímulos coerentes de um espaço de eventos e formam funções discriminantes simples com base nas entradas.
@@ -35,7 +35,7 @@ Na figura 12 pode-se observar a arquitetura de mapa auto-organizado. As variáve
 
 A aplicação SOM pode ser separada em duas etapas, treino e uso. Na etapa de treino as entradas são apresentadas, selecionadas e os parâmetros do mapa são ajustados para incorporar o aprendizado. O processo de treino ocorre até que uma de três condições sejam alcançadas. Ou a quantidade de épocas de treino é atingida, ou o taxa de aprendizado chegue a zero ou a rede atinja algum critério de erro pré-estabelecido que seja aceitável. A etapa de uso é uma variação do treino, as amostras de entrada são apresentadas ao sistema e alguma unidade de processamento será capaz de selecioná-la, a diferença desta etapa para o treino é que não há nenhum aprendizado ou ajuste de parâmetro. O SOM é incapaz de aprender continuamente, pois seus parâmetros internos decaem com tempo, chegando a estabilidade total, onde não há mais aprendizado.
 
-Para compreender cada etapa do algoritmo SOM uma rede bidimensional de neurônios será usada como o mapa auto-organizável. Neste caso cada neurônio possui um conjunto de coordenadas (\textit{x}, \textit{y}) que servem para posicionar os neurônios em um espaço. Em um caso computacional pode-se pensar nesse mapa como uma matriz quadrada que possui coordenadas (\textit{i}, \textit{j}), \textit{i} para linha e \textit{j} para coluna. O conjunto de pesos de cada neurônio possui a mesma dimensionalidade dos dados de entrada. Abaixo serão descritas as etapas do algoritmo em modo de treinamento.
+Para compreender cada etapa do algoritmo SOM uma rede bidimensional de neurônios será usada como o mapa auto-organizável. Neste caso cada neurônio possui um conjunto de coordenadas (\textit{x}, \textit{y}) que servem para posicionar os neurônios em um espaço. Em um caso computacional, pode-se pensar nesse mapa como uma matriz quadrada que possui coordenadas (\textit{i}, \textit{j}), \textit{i} para linha e \textit{j} para coluna. O conjunto de pesos de cada neurônio possui a mesma dimensionalidade dos dados de entrada. Abaixo serão descritas as etapas do algoritmo em modo de treinamento.
 
 \subsection{Criação do Mapa e Inicialização dos Pesos} 
 
@@ -43,56 +43,35 @@ A primeira etapa do algoritmo é a criação do mapa. O tamanho da matriz a ser 
 
 \subsection{Escolha do Neurônio Vencedor} 
 
-Para o cálculo do neurônio vencedor, é necessário comparar o dado de entrada com os pesos de cada um dos neurônios do mapa. Aquele neurônio que for mais parecido com a entrada será escolhido como neurônio vencedor. Para realizar esta comparação é necessário estabelecer um método de medir a distância entre a entrada e os neurônios, o neurônio mais parecido será aquele que apresentar menor distância com a entrada. A figura 14 mostra a equação de comparação utilizando a distância Euclidiana onde, \textbf{V} representa o vetor de entrada e \textbf{W} é o vetor de pesos do neurônio.
+Para o cálculo do neurônio vencedor, é necessário comparar o dado de entrada com os pesos de cada um dos neurônios do mapa. Aquele neurônio que for mais parecido com a entrada será escolhido como neurônio vencedor. Para realizar esta comparação é necessário estabelecer um método de medir a distância entre a entrada e os neurônios, o neurônio mais parecido será aquele que apresentar menor distância com a entrada. A equação 4.1 mostra a equação de comparação utilizando a distância Euclidiana onde, \textbf{V} representa o vetor de entrada e \textbf{W} é o vetor de pesos do neurônio.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[keepaspectratio=true,scale=0.60]
-{figuras/distance.eps}
-\caption{Equação da Escolha do Neurônio Vencedor - \cite{somaijk}}
-\label{data_titatic}
-\end{figure}
-
+\begin{equation}
+    Dist =  \sqrt{\sum_{i=0}^{n} (V - W)^{2}} 
+\end{equation}
+  
 \subsection{Cálculo da Vizinhança}
-Depois de cada iteração é necessário atualizar os pesos de cada neurônio que estão dentro do raio de vizinhança do neurônio vencedor. Este raio é um atributo do mapa todo, e é o mesmo para todos os neurônios. De acordo com o número de iterações este raio vai diminuindo, este efeito diminui a plasticidade do mapa de acordo com o tempo, fazendo com o sistema seja capaz de convergir a um estado ideal. A equação de cálculo do raio é definida na imagem 15 onde, \textit{$\sigma$0} representa a largura inicial do raio que é parametrizado no sistema. \textit{$\lambda$} é uma constante de tempo que determina a velocidade do encolhimento do raio, quanto maior menos o raio diminuirá com o tempo. E \textit{t} é número da atual iteração. 
+Depois de cada iteração é necessário atualizar os pesos de cada neurônio que estão dentro do raio de vizinhança do neurônio vencedor. Este raio é um atributo do mapa todo, e é o mesmo para todos os neurônios. De acordo com o número de iterações este raio vai diminuindo, este efeito diminui a plasticidade do mapa de acordo com o tempo, fazendo com o sistema seja capaz de convergir a um estado ideal. A equação de cálculo do raio é definida na equação 4.2 onde, \textit{$\sigma$0} representa a largura inicial do raio que é parametrizado no sistema. \textit{$\lambda$} é uma constante de tempo que determina a velocidade do encolhimento do raio, quanto maior menos o raio diminuirá com o tempo. E \textit{t} é número da atual iteração. 
 
-\begin{figure}[!h]
-\centering
-\includegraphics[keepaspectratio=true,scale=0.60]
-{figuras/raioviz.eps}
-\caption{Cálculo da Vizinhança - \cite{somaijk}}
-\label{data_titatic}
-\end{figure} 
+\begin{equation}
+ \sigma (t) =  \sigma_{0} \exp   \big(- \frac{t}{\lambda}\big) \quad \quad t=1,2,3...
+\end{equation} 
 
 \subsection{Ajuste dos Pesos}
-Todos os neurônios dentro do raio de vizinhança, incluindo o neurônio vencedor, terão seus pesos atualizados para se parecerem mais com a amostra que acabou de ser apresentada. O grau dessa atualização diminui de acordo com a distância entre o neurônio vencedor e seu vizinho, quanto mais distante menor o efeito da atualização. A figura 16 mostra a equação que torna isso possível onde, \textit{t} representa o número da iteração atual, \textit{L(t)} é o fator de aprendizagem, \textbf{V} representa o vetor de entrada, \textbf{W} é o vetor de pesos do neurônio atual e \textit{$\Theta$(t)} o grau de atualização de acordo com distância do neurônio vencedor. A figura 17 mostra os detalhes da equação \textit{L(t)} e a figura 18 os detalhes da equação \textit{$\Theta$(t)}. É possível observar que a equação \textit{L(t)} decai exponencialmente um fator de aprendizagem que foi parametrizado inicialmente. Em \textit{$\Theta$(t)}, \textit{\textit{$\sigma$(t)}} é a equação que calcula o tamanho da vizinhança, representada na figura 15.
+Todos os neurônios dentro do raio de vizinhança, incluindo o neurônio vencedor, terão seus pesos atualizados para se parecerem mais com a amostra que acabou de ser apresentada. O grau dessa atualização diminui de acordo com a distância entre o neurônio vencedor e seu vizinho, quanto mais distante menor o efeito da atualização. A equação 4.3 torna isso possível onde, \textit{t} representa o número da iteração atual, \textit{L(t)} é o fator de aprendizagem, \textbf{V} representa o vetor de entrada, \textbf{W} é o vetor de pesos do neurônio atual e \textit{$\Theta$(t)} o grau de atualização de acordo com distância do neurônio vencedor. A equação 4.4 mostra os detalhes da equação \textit{L(t)} e a equação 4.5 os detalhes da equação \textit{$\Theta$(t)}. É possível observar que a equação \textit{L(t)} decai exponencialmente um fator de aprendizagem que foi parametrizado inicialmente. Em \textit{$\Theta$(t)}, \textit{\textit{$\sigma$(t)}} é a equação que calcula o tamanho da vizinhança, representada na equação 4.2.
 
 
-\begin{figure}[!h]
-\centering
-\includegraphics[keepaspectratio=true,scale=0.60]
-{figuras/weights.eps}
-\caption{Equação de Atualização de Pesos - \citeonline{somaijk}}
-\label{data_titatic}
-\end{figure}
+\begin{equation}
+W(t + 1) = W(t) +   \theta (t) L(t) (V(t) - W(t))
+\end{equation}
 
 
+\begin{equation}
+L(t) =  L_{0} exp  \big( - \frac{t}{ \lambda } \big) \quad \quad t = 1,2,3...
+\end{equation}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[keepaspectratio=true,scale=0.60]
-{figuras/aprendizagem.eps}
-\caption{Equação do Fator de Aprendizagem - \citeonline{somaijk}}
-\label{data_titatic}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[keepaspectratio=true,scale=0.60]
-{figuras/influencia.eps}
-\caption{Influência da Distância com o Vencedor - \citeonline{somaijk}}
-\label{data_titatic}
-\end{figure}
+\begin{equation} 
+\theta (t) = exp  \big(- \frac{ dist^{2} }{2  \sigma^{2}(t) } \big)  \quad \quad t= 1,2,3...
+\end{equation}
 
 \section{SOM Incremental}
 Embora o método SOM seja robusto e amplamente utilizado ele não possui aplicação em contextos de aprendizagem incremental. O sistema SOM precisa de uma quantidade finita de tempo para receber amostras e absorver as características do espaço de entrada em seu mapa. Em um contexto incremental não é possível reservar um tempo de treinamento, pois a quantidade de informações que entra no sistema é contínua e as características do espaço de entrada podem mudar com o tempo. Pensando nisso foram desenvolvidos modelos baseados no SOM que apresentam aprendizado incremental.

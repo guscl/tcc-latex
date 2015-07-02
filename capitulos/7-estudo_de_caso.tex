@@ -36,8 +36,8 @@ Ambos algoritmos, SOM e TASOM, foram parametrizados da mesma forma que foram par
 Neurônio & \multicolumn{3}{c|}{SOM}      & \multicolumn{3}{c|}{TASOM}     \\ \hline
          & Classe 5 & Classe 6 & Classe7 & Classe 5 & Classe 6 & Classe 7 \\ \hline
 1        & 99.54    & 0.23     & 0.21    & 0        & 0        & 0        \\ \hline
-2        & 0        & 0        & 0       & 99.40    & 0.41     & 0.18     \\ \hline
-3        & 0        & 0        & 0       & 99.54    & 0.29     & 0.16     \\ \hline
+2        & 99.45        & 0.40        & 0.13       & 99.40    & 0.41     & 0.18     \\ \hline
+3        & 99.67       & 0.16        & 0.16       & 99.54    & 0.29     & 0.16     \\ \hline
 4        & 99.46    & 0.37     & 0.15    & 99.52    & 0.26     & 0.21     \\ \hline
 \end{tabular}
 \end{table}
@@ -48,11 +48,11 @@ Neurônio & \multicolumn{3}{c|}{SOM}      & \multicolumn{3}{c|}{TASOM}     \\ \h
 \label{my-label}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-Neurônio & \multicolumn{3}{c|}{SOM}      & \multicolumn{3}{c|}{TASOM}     \\ \hline
-         & Classe 5 & Classe 6 & Classe7 & Classe 5 & Classe 6 & Classe 7 \\ \hline
+Neurônio & \multicolumn{3}{c|}{TASOM}      & \multicolumn{3}{c|}{SOM}     \\ \hline
+         & Classe 5-\% & Classe 6-\% & Classe7-\% & Classe 5-\% & Classe 6-\% & Classe 7-\% \\ \hline
 1        & 0        & 0        & 0       & 97.70    & 1.91     & 0.38     \\ \hline
-2        & 98.60    & 1.09     & 0.30    & 0        & 0        & 0        \\ \hline
-3        & 98.59    & 0.92     & 0.48    & 0        & 0        & 0        \\ \hline
+2        & 98.60    & 1.09     & 0.30    & 99.25        & 0.35        & 0.38        \\ \hline
+3        & 98.59    & 0.92     & 0.48    & 96.37        & 3.28        & 0.24        \\ \hline
 4        & 97.29    & 2.48     & 0.22    & 97.47    & 2.32     & 0.21     \\ \hline
 \end{tabular}
 \end{table}
@@ -66,10 +66,10 @@ Neurônio & \multicolumn{3}{c|}{SOM}      & \multicolumn{3}{c|}{TASOM}     \\ \h
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
-         & Classe 6    & Classe 7   & Classe 6     & Classe 7    \\ \hline
-1        & 68.15       & 31.84      & 0            & 0           \\ \hline
-2        & 0           & 0          & 43.93        & 56.06       \\ \hline
-3        & 0           & 0          & 76.68        & 23.31       \\ \hline
+         & Classe 6-\%    & Classe 7-\%   & Classe 6-\%     & Classe 7-\%   \\ \hline
+1        & 54.09       & 45.90      & 0            & 0           \\ \hline
+2        & 74.28           & 25.71          & 43.93        & 56.06       \\ \hline
+3        & 62.24           & 37.75          & 76.68        & 23.31       \\ \hline
 4        & 60.20       & 39.79      & 65.64        & 34.35       \\ \hline
 \end{tabular}
 \end{table}
@@ -81,10 +81,10 @@ Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
-         & Classe 6    & Classe 7   & Classe 6     & Classe 7    \\ \hline
-1        & 80.29       & 19.70      & 0            & 0           \\ \hline
-2        & 0           & 0          & 62.42        & 37.57       \\ \hline
-3        & 0           & 0          & 88.16        & 11.83       \\ \hline
+         & Classe 6-\%    & Classe 7-\%   & Classe 6-\%     & Classe 7-\%    \\ \hline
+1        & 65.60       & 24.29      & 0            & 0           \\ \hline
+2        & 86.74           & 13.25          & 62.42        & 37.57       \\ \hline
+3        & 91.79           & 8.2          & 88.16        & 11.83       \\ \hline
 4        & 91.88       & 39.79      & 95.66        & 4.33        \\ \hline
 \end{tabular}
 \end{table}
@@ -98,7 +98,7 @@ Pelos resultados das tabelas 7 e 8 é possível observar que a retirar da classe
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
-         & Classe 6    & Classe 7   & Classe 6     & Classe 7    \\ \hline
+         & Classe 6-\%    & Classe 7-\%   & Classe 6-\%     & Classe 7-\%    \\ \hline
 1        & 63.46       & 36.53      & 0            & 0           \\ \hline
 2        & 0           & 0          & 69.28        & 30.73       \\ \hline
 3        & 0           & 0          & 39.29        & 40.70       \\ \hline
@@ -113,110 +113,347 @@ Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
-         & Classe 6    & Classe 7   & Classe 6     & Classe 7    \\ \hline
-1        & 82.19       & 17.80      & 0            & 0           \\ \hline
-2        & 0           & 0          & 100          & 0           \\ \hline
-3        & 0           & 0          & 85.46        & 14.53       \\ \hline
-4        & 89.24       & 0          & 87.73        & 12.26       \\ \hline
+         & Classe 6-\%    & Classe 7-\%   & Classe 6-\%    & Classe 7-\%    \\ \hline
+1        & 91.79       & 8.2      & 0            & 0           \\ \hline
+2        & 91.96           & 8.03          & 100          & 0           \\ \hline
+3        & 65.60           & 34.39          & 85.46        & 14.53       \\ \hline
+4        & 89.24       & 11.03          & 87.73        & 12.26       \\ \hline
 \end{tabular}
 \end{table}
 
-Os resultados das tabelas 8 e 9 apresentam os mesmos problemas acima citados. Um fato curioso é que na análise de suínos o neurônio 2 do TASOM foi capaz de agrupar 100\% de amostras da classe 6, porém, apenas três entradas. O resultado deste experimento aponta que nenhum dos dois algoritmos é capaz de agrupar os dados do MAPA separando os grupos pelo código de status, ou, não há informação suficiente nos dados pra que esta separação aconteça.
-
-\section{Dígitos}
-Este experimento visa verificar se os algoritmos, SOM e TASOM, são capazes de separar uma base de dados de dígitos manuscritos com relação ao número escrito. Para a realização desta análise foi utilizada a base de dados \textit{Pen-Based Recognition of Handwritten Digits Data Set}, Conjunto de Dados para Reconhecimento de Dígitos escritos a Mão e a Caneta. Este conjunto de dados foi retirado de \citeonline{digits}. 
-
-Para a coleta dos dados deste conjunto 44 pessoas escreveram mais de 250 amostras de dígitos de 0 a 9 em um dispositivo eletrônico. Este dispositivos possui uma janela de 500x500 pixels. Vários pontos são coletados ao curso da escrita de cada amostra, e depois, um filtro de interpolação é aplicado aos pontos para formar uma curva que tem a forma do dígito. Esta curva foi transformada em 64 amostras que correspondem a segmentos de seu corpo. O conjunto analisado possui as 64 características que representam os pontos e um rótulo que representa o número escrito. As redes foram apresentas as 64 colunas de cada amostra de entrada e a porcentagem de cada rótulo foi computada para cada neurônio. Para este experimento todos os parâmetros do SOM e TASOM foram mantidos, com exceção do tamanho do mapas que é de 4x3 e o SOM foi configurado com 100 épocas. Os resultados podem ser observados nas tabelas 10 e 11.
-
-\begin{table}[h]
-\centering
-\caption{Agrupamento dos Dígitos - SOM}
-\label{my-label}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-Neurônio & \multicolumn{10}{c|}{SOM}                                                   \\ \hline
-         & 0    & 1     & 2     & 3     & 4     & 5    & 6     & 7     & 8     & 9     \\ \hline
-1        & 0.02 & 19.48 & 19.91 & 18.22 & 0.43  & 4.91 & 0.02  & 19.83 & 3.49  & 13.64 \\ \hline
-2        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-3        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-4        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-5        & 1.29 & 1.29  & 0     & 0     & 2.06  & 5.51 & 57.15 & 0     & 32.15 & 0.51  \\ \hline
-6        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-7        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-8        & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-9        & 0    & 0     & 0     & 47.57 & 14.24 & 0.41 & 0     & 0.76  & 10.16 &       \\ \hline
-10       & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-11       & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-12       & 0    & 0     & 0     & 0     & 0     & 0    & 0     & 0     & 0     & 0     \\ \hline
-\end{tabular}
-\end{table}
-
-
-\begin{table}[h]
-\centering
-\caption{Agrupamento dos Dígitos - TASOM}
-\label{my-label}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-Neurônio & \multicolumn{10}{c|}{TASOM}                                                   \\ \hline
-         & 0     & 1     & 2     & 3     & 4     & 5     & 6     & 7     & 8     & 9     \\ \hline
-1        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-2        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-3        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-4        & 4.18  & 2.63  & 0.18  & 17.16 & 24.13 & 6.89  & 24.76 & 0.55  & 1.07  & 18.39 \\ \hline
-5        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-6        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-7        & 26.89 & 4.29  & 12.11 & 0     & 0     & 18.62 & 0.04  & 20.12 & 17.91 & 0     \\ \hline
-8        & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-9        & 0.39  & 27.54 & 22.13 & 10.13 & 3.88  & 3.09  & 0.04  & 12.69 & 11.55 & 8.50  \\ \hline
-10       & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-11       & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-12       & 100   & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     & 0     \\ \hline
-\end{tabular}
-\end{table}
-
-Como pode ser observado nas tabelas 10 e 11 nem o TASOM e nem o SOM foram capazes de gerar bons agrupamentos com base nos dígitos escritos. Poucos neurônios são ativados e não predominância de uma classe. Os parâmetros de inicialização que foram citados acima foram os que apresentaram melhores resultados, a maioria das combinações resultou em performances parecidas.
+Os resultados das tabelas 8 e 9 apresentam os mesmos problemas acima citados. Um fato curioso é que na análise de suínos o neurônio 2 do TASOM foi capaz de agrupar 100\% de amostras da classe 6, porém, apenas três entradas. O resultado deste experimento aponta que não há informações o suficiente no conjunto de dados para realizar a separabilidade, o espaço de características não foi capaz de realizar separação entre as classes.
 
 \section{Iris} 
-A última análise feita usa o conjunto e dados de plantas do tipo Iris, estes dados são muito famosos sendo citados em vários artigos de aprendizado de máquina. Ele é composto por 3 classes de 50 amostras cada, cada classe refere-se a um tipo de planta Iris. A primeira classe é linearmente separável das, as classes 2 e 3 são linearmente inseparáveis \cite{iris}. O objetivo do experimento é observar se o SOM ou o TASOM são capazes de realizar o agrupamento destes dados separando as classes em diferentes grupos. A descrição do conjunto de dados é:
+A última análise feita usa o conjunto e dados de plantas do tipo Iris, estes dados são muito famosos sendo citados em vários artigos de aprendizado de máquina. Ele é composto por 3 classes de 50 amostras cada, cada classe refere-se a um tipo de planta Iris. A primeira classe é linearmente separável das outras, as classes 2 e 3 são linearmente inseparáveis \cite{iris}. O objetivo do experimento é observar se o SOM ou o TASOM são capazes de realizar o agrupamento destes dados separando as classes em diferentes grupos. A descrição do conjunto de dados é:
 
 \begin{enumerate}
 \item Comprimento da cepa.
 \item Largura da cepa.
 \item Comprimento da pétala.
 \item Largura da pétala.
-\item Semana da Analise: Semana do ano em que a amostra foi coletada.
 \item Classe da Iris.0 para Iris Setosa, 1 para  Iris Versicolour e 2 para Iris Virginica.
 \end{enumerate}
 
-Dez execuções de cada algoritmo foram realizadas, elas não apresentaram grande variação entre si. A tabela 12 mostra os melhores resultados da porcentagem de cada classe nos neurônios do SOM e do TASOM e quantidade de amostras que foram agrupadas pro cada neurônio. O tamanho dos mapas foi de 2x2, as parametrizações do TASOM foram as mesmas já utilizadas, com exceção da variável beta que foi configurada para 0.001. O SOM foi executado com 450 épocas. Estas foram as parametrizações que apresentaram melhor resultado.
+Dez execuções de cada algoritmo foram realizadas, elas não apresentaram grande variação entre si. A tabela 11 mostra os melhores resultados da porcentagem de cada classe nos neurônios do SOM e do TASOM e a quantidade de amostras que foram agrupadas por cada neurônio. O tamanho dos mapas foi de 2x2, as parametrizações do TASOM foram as mesmas já utilizadas, com exceção da variável beta que foi configurada para 0.001. O SOM foi executado com 450 épocas. Estas foram as parametrizações que apresentaram melhor resultado.
 
 \begin{table}[h]
-\scalefont{0.7}
+\scalefont{0.6}
 \centering
 \caption{Agrupamentos de Iris}
 \label{my-label}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
 Neurônio & \multicolumn{4}{c|}{TASOM}                   & \multicolumn{4}{c|}{SOM}                     \\ \hline
-         & Classe 0 & Classe 1 & Classe 2 & Nº Amostras & Classe 0 & Classe 1 & Classe 2 & Nº Amostras \\ \hline
-1        & 100      & 0        & 0        & 2           & 0        & 50       & 50       & 100         \\ \hline
-2        & 0        & 70.42    & 29.71    & 71          & 0        & 0        & 0        & 0           \\ \hline
-3        & 100      & 0        & 0        & 48          & 0        & 0        & 0        & 0           \\ \hline
-4        & 0        & 0        & 100      & 29          & 100      & 0        & 0        & 50          \\ \hline
+         & Setosa-\% & Versicolour-\% & Virginica-\% & Nº Amostras & Setosa-\% & Versicolour-\% & Virginica-\% & Nº Amostras \\ \hline
+1        & 100      & 0        & 0        & 2           & 0       & 93.10        & 6.89       & 29         \\ \hline
+2        & 0        & 70.42    & 29.71    & 71          & 0        & 54.76        & 45.23        & 42           \\ \hline
+3        & 100      & 0        & 0        & 48          & 100        & 0        & 0        & 50           \\ \hline
+4        & 0        & 0        & 100      & 29          & 0      & 0        & 100        & 29          \\ \hline
 \end{tabular}
 \end{table} 
  
-Pela tabela 12 é observável que este experimento obteve êxito. As redes foram capazes de separar completamente a classe 0, que é linearmente separável, e quase foram capazes de separar totalmente as classes 1 e 2. O TASOM obteve melhor desempenho na separação das classes 1 e 2.  
+Pela tabela 11 é observável que este experimento obteve êxito. As redes foram capazes de separar completamente a classe 0, que é linearmente separável, e quase foram capazes de separar totalmente as classes 1 e 2. O TASOM obteve melhor desempenho na separação das classes 1 e 2. Se uma fusão dos neurônios 1 e 3 do TASOM for feita, é possível dizer que as amostras do tipo Setosa foram perfeitamente separadas das outras. 
+ 
+Os algoritmos de agrupamento não foram feitos para gerar aglomerações baseadas em um rótulo, antes, eles agrupam os dados unicamente por critérios matemáticos. Entretanto este tipo de método pode ser usado como um auxiliador dos métodos supervisionados. Observar o agrupamento natural dos dados pode ajudar os analistas de dados a tomar decisões importantes, pois é possível ter indicações a respeito da separabilidade das informações e sobre o nível de ruído presente nas amostras. Se os agrupamentos naturais separam os dados de acordo com os rótulos, isso quer dizer que o espaço de entrada é linearmente separável e possui ruído baixo. Se os agrupamentos matemáticos não seguem as separações das classes, ou os dados são linearmente inseparáveis, ou há ruído no espaço de entrada, ou ambos. 
+
+As próximas tabelas mostram a distribuição natural dos dados de plantas do tipo Iris com diferentes dimensões de mapas, e uma classe de cada vez. Cada tabela possui as informações de apenas uma classe. Cada número representa a quantidade de amostras que foram agrupadas naquele neurônio. A tabela 12, 13 e 14 possui a distribuição dos dados no mapa 5x5 da rede SOM, e as tabelas 15, 16, e 17 para mapas do mesmo tamanho do tipo TASOM.
+
+
+\begin{table}[]
+\centering
+\caption{Setosa - SOM - 5x5}
+\label{my-label}
+\begin{tabular}{|c|ccccc|}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{2}    & \multicolumn{1}{c|}{3}    & \multicolumn{1}{c|}{4}    & 5                         \\ \hline
+1                      & 0                      & \cellcolor[HTML]{34CDF9}4 & \cellcolor[HTML]{34CDF9}9 & \cellcolor[HTML]{34CDF9}6 & \cellcolor[HTML]{34CDF9}7 \\ \cline{1-1}
+2                      & 0                      & \cellcolor[HTML]{34CDF9}1 & \cellcolor[HTML]{34CDF9}5 & \cellcolor[HTML]{34CDF9}4 & \cellcolor[HTML]{34CDF9}2 \\ \cline{1-1}
+3                      & 0                      & 0                         & \cellcolor[HTML]{34CDF9}3 & \cellcolor[HTML]{34CDF9}1 & \cellcolor[HTML]{34CDF9}3 \\ \cline{1-1}
+4                      & 0                      & 0                         & 0                         & \cellcolor[HTML]{34CDF9}1 & \cellcolor[HTML]{34CDF9}2 \\ \cline{1-1}
+5                      & 0                      & 0                         & 0                         & \cellcolor[HTML]{34CDF9}1 & \cellcolor[HTML]{34CDF9}1 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Versicolour - SOM - 5x5}
+\label{my-label}
+\begin{tabular}{|c|ccccc|}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{2}     & \multicolumn{1}{c|}{3}    & \multicolumn{1}{c|}{4} & 5                         \\ \hline
+1                      & 0                          & 0                          & 0                         & 0                      & 0                         \\ \cline{1-1}
+2                      & 0                          & 0                          & 0                         & 0                      & 0                         \\ \cline{1-1}
+3                      & \cellcolor[HTML]{34CDF9}3  & 1                          & 0                         & 0                      & 0                         \\ \cline{1-1}
+4                      & \cellcolor[HTML]{34CDF9}16 & \cellcolor[HTML]{34CDF9}4  & 0                         & 0                      & 0                         \\ \cline{1-1}
+5                      & \cellcolor[HTML]{34CDF9}13 & \cellcolor[HTML]{34CDF9}10 & \cellcolor[HTML]{34CDF9}3 & 0                      & \cellcolor[HTML]{34CDF9}1 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Virginica - SOM - 5x5}
+\label{my-label}
+\begin{tabular}{|c|ccccc|}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{2}    & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{4} & 5 \\ \hline
+1                      & \cellcolor[HTML]{34CDF9}18 & 0                         & 0                      & 0                      & 0 \\ \cline{1-1}
+2                      & \cellcolor[HTML]{34CDF9}11 & 0                         & 0                      & 0                      & 0 \\ \cline{1-1}
+3                      & \cellcolor[HTML]{34CDF9}10 & \cellcolor[HTML]{34CDF9}1 & 0                      & 0                      & 0 \\ \cline{1-1}
+4                      & 0                          & \cellcolor[HTML]{34CDF9}1 & 0                      & 0                      & 0 \\ \cline{1-1}
+5                      & \cellcolor[HTML]{34CDF9}1  & \cellcolor[HTML]{34CDF9}1 & 0                      & 0                      & 0 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Setosa - TASOM - 5x5}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & 5                          \\ \hline
+1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                          \\ \cline{1-1}
+2                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                          \\ \cline{1-1}
+3                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                          \\ \cline{1-1}
+4                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                          \\ \cline{1-1}
+5                      & 0                                              & \cellcolor[HTML]{34CDF9}12                     & \cellcolor[HTML]{34CDF9}1                      & 0                                              & \cellcolor[HTML]{34CDF9}37 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Versicolour - TASOM - 5x5}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & 5 \\ \hline
+1                      & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}3                      & 0 \\ \cline{1-1}
+2                      & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+3                      & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+4                      & \cellcolor[HTML]{34CDF9}46                     & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}1                      & 0 \\ \cline{1-1}
+5                      & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \hline
+\end{tabular}
+\end{table}
 
 
 
+\begin{table}[]
+\centering
+\caption{Virginica - TASOM - 5x5}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & 5 \\ \hline
+1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+2                      & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+3                      & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}29                     & 0                                              & 0 \\ \cline{1-1}
+4                      & \cellcolor[HTML]{34CDF9}21                     & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+5                      & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \hline
+\end{tabular}
+\end{table}
+
+Nas tabelas 18, 19 e 20, são apresentados os dados de plantas do tipo Iris espalhados por um mapa SOM de dimensões 9x9. As tabelas 21, 22 e 23 apresenta mapas TASOM com a mesma dimensionalidade.
+
+
+\begin{table}[]
+\centering
+\caption{Setosa - SOM - 9x9}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}6} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}7} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8} & 9 \\ \hline
+1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+2                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+3                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+4                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+5                      & \cellcolor[HTML]{34CDF9}3                      & \cellcolor[HTML]{34CDF9}1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+6                      & \cellcolor[HTML]{34CDF9}5                      & \cellcolor[HTML]{34CDF9}3                      & \cellcolor[HTML]{34CDF9}1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+7                      & \cellcolor[HTML]{34CDF9}4                      & \cellcolor[HTML]{34CDF9}2                      & \cellcolor[HTML]{34CDF9}4                      & \cellcolor[HTML]{34CDF9}3                      & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+8                      & \cellcolor[HTML]{34CDF9}6                      & \cellcolor[HTML]{34CDF9}4                      & \cellcolor[HTML]{34CDF9}1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+9                      & \cellcolor[HTML]{34CDF9}7                      & \cellcolor[HTML]{34CDF9}2                      & \cellcolor[HTML]{34CDF9}2                      & \cellcolor[HTML]{34CDF9}1                      & \cellcolor[HTML]{34CDF9}1                      & 0                                              & 0                                              & 0                                              & 0 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Versicolour - SOM - 9x9}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{34CDF9}}c 
+>{\columncolor[HTML]{34CDF9}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}6} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}7} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8} & 9                         \\ \hline
+1                      & \cellcolor[HTML]{34CDF9}3                      & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{FFFFFF}0                      & \cellcolor[HTML]{FFFFFF}0                      & 0                                              & 0                         \\ \cline{1-1}
+2                      & \cellcolor[HTML]{34CDF9}2                      & \cellcolor[HTML]{34CDF9}2                      & \cellcolor[HTML]{34CDF9}1                      & 0                                              & \cellcolor[HTML]{34CDF9}1                      & 2                                              & \cellcolor[HTML]{FFFFFF}0                      & 0                                              & 0                         \\ \cline{1-1}
+3                      & \cellcolor[HTML]{34CDF9}2                      & \cellcolor[HTML]{34CDF9}2                      & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}2                      & 2                                              & 3                                              & 0                                              & 0                         \\ \cline{1-1}
+4                      & 0                                              & \cellcolor[HTML]{34CDF9}1                      & \cellcolor[HTML]{34CDF9}1                      & 0                                              & \cellcolor[HTML]{34CDF9}0                      & 3                                              & 2                                              & \cellcolor[HTML]{34CDF9}1                      & 0                         \\ \cline{1-1}
+5                      & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}2                      & \cellcolor[HTML]{34CDF9}2                      & 0                                              & 2                                              & 1                                              & \cellcolor[HTML]{34CDF9}1                      & 0                         \\ \cline{1-1}
+6                      & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}1                      & \cellcolor[HTML]{FFFFFF}0                      & 1                                              & 0                                              & \cellcolor[HTML]{34CDF9}1 \\ \cline{1-1}
+7                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 1                                              & 2                                              & \cellcolor[HTML]{34CDF9}1                      & \cellcolor[HTML]{34CDF9}1 \\ \cline{1-1}
+8                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{FFFFFF}0                      & 1                                              & 0                                              & 0                         \\ \cline{1-1}
+9                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 1                                              & 1                                              & 0                                              & \cellcolor[HTML]{34CDF9}1 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Virginica - SOM - 9x9}
+\label{my-label}
+\begin{tabular}{|c|ccccccccc|}
+\hline
+\rowcolor[HTML]{FFFFFF} 
+$\frac{Linha}{Coluna}$    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}6} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}7} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8} & 9                         \\ \hline
+\rowcolor[HTML]{34CDF9} 
+\cellcolor[HTML]{FFFFFF}1 & \cellcolor[HTML]{FFFFFF}0                      & 1                                              & 5                                              & 3                                              & 4                                              & 9                                              & 2                                              & 2                                              & 3                         \\ \cline{1-1}
+\rowcolor[HTML]{34CDF9} 
+\cellcolor[HTML]{FFFFFF}2 & \cellcolor[HTML]{FFFFFF}0                      & \cellcolor[HTML]{FFFFFF}0                      & 3                                              & 2                                              & 3                                              & \cellcolor[HTML]{FFFFFF}0                      & 1                                              & 2                                              & 2                         \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+3                         & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}4                      & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}1 \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+4                         & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}1                      & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}1 \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+5                         & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}1 \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+6                         & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+7                         & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+8                         & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+9                         & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \hline
+\end{tabular}
+\end{table}
 	  
 
+\begin{table}[]
+\centering
+\caption{Setosa - TASOM - 9x9}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}6} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}7} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8} & 9                         \\ \hline
+1                      & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}1                      & \cellcolor[HTML]{34CDF9}1                      & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+2                      & 0                                              & 0                                              & 8                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}9 \\ \cline{1-1}
+3                      & 0                                              & \cellcolor[HTML]{34CDF9}4                      & 0                                              & \cellcolor[HTML]{34CDF9}13                     & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+4                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+5                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}13                     & 0                                              & 0                         \\ \cline{1-1}
+6                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+7                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+8                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \cline{1-1}
+9                      & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                         \\ \hline
+\end{tabular}
+\end{table}
  
 
+\begin{table}[]
+\centering
+\caption{Versicolour - TASOM - 9x9}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}6} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}7} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8} & 9 \\ \hline
+1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+2                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+3                      & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}45                     & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+4                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+5                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}3                      & 0 \\ \cline{1-1}
+6                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+7                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}20                     & 0                                              & 0 \\ \cline{1-1}
+8                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+9                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \hline
+\end{tabular}
+\end{table}
 
 
+\begin{table}[]
+\centering
+\caption{Virginica - TASOM - 9x9}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}6} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}7} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8} & 9 \\ \hline
+1                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+2                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+3                      & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}21                     & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+4                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+5                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+6                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+7                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \cline{1-1}
+8                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}29                     & 0                                              & 0                                              & 0 \\ \cline{1-1}
+9                      & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \hline
+\end{tabular}
+\end{table}
 
 
 
