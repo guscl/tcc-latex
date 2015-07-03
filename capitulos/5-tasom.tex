@@ -15,10 +15,10 @@ O TASOM foi criado com o intuito de modificar o SOM para retirar a dependência 
  
 
 \section{Inicialização}
-A primeira etapa do TASOM é a criação do mapa. A dimensionalidade do mapa pode ser de qualquer tamanho, para os estudos aqui realizados foi escolhido a criação de um mapa bi-dimensional. Para cada neurônio é necessário a criação de um conjunto de pesos, variável de aprendizado e raio de vizinhança, estes atributos são individuais de cada neurônio. A variável de aprendizado e o raio de vizinhança são parâmetros iniciais da redes e o vetor de pesos deve ser inicializado com valores randômicos e pequenos. Existem algumas restrições que devem ser observadas nos parâmetros iniciais: A taxa de aprendizado inicial de ser inicializada com um valor próximo de 1. As constantes Alfa, Beta, Coeficiente de Aprendizagem e Coeficiente de Vizinhança devem ser valores entre 0 e 1. O raio de vizinhança inicial deve ser maior do que 0. O fator de escalabilidade inicial dever ser positivo, e, preferencialmente, igual a 1. Os valores das funções internas do fator de escalabilidade, Ek e E2k, devem ser inicializados com valores randomicamente pequenos. 
+A primeira etapa do TASOM é a criação do mapa. A dimensionalidade do mapa pode ser de qualquer tamanho, para os estudos aqui realizados foi escolhido a criação de um mapa bi-dimensional. Para cada neurônio é necessário a criação de um conjunto de pesos, variável de aprendizado e raio de vizinhança, estes atributos são individuais de cada neurônio. A variável de aprendizado e o raio de vizinhança são parâmetros iniciais da redes e o vetor de pesos deve ser inicializado com valores randômicos e pequenos. Existem algumas restrições que devem ser observadas nos parâmetros iniciais: A taxa de aprendizado inicial deve ser inicializada com um valor próximo de 1. As constantes Alfa, Beta, Coeficiente de Aprendizagem e Coeficiente de Vizinhança devem ser valores entre 0 e 1. O raio de vizinhança inicial deve ser maior do que 0. O fator de escalabilidade inicial dever ser positivo, e, preferencialmente, igual a 1. Os valores das funções internas do fator de escalabilidade, Ek e E2k, devem ser inicializados com valores randomicamente pequenos. 
 
 \section{Regra de Micro-Coesão}
-Para o cálculo do raio de vizinhança de cada neurônio o TASOM leva em consideração o quão coeso o neurônio está de seus vizinhos. Quanto maior for esta coesão, menor será a atualização no tamanho novo do raio de vizinhança. Para aferir a micro-coesão é necessário determinar qual a regra de vizinhança do mapa. Esta regra varia de acordo com a aplicação da rede e a dimensionalidade do mapa. A figura 21 mostra uma regra de vizinhança para mapas quadrados, onde: \textit{NH} é o conjunto de vizinhos do neurônio \textit{i} e \textit{M} é a dimensionalidade do mapa. 
+Para o cálculo do raio de vizinhança de cada neurônio o TASOM leva em consideração o quão coeso o neurônio está de seus vizinhos. Quanto maior for esta coesão, menor será a atualização no tamanho novo do raio de vizinhança. Para aferir a micro-coesão é necessário determinar qual a regra de vizinhança do mapa. Esta regra varia de acordo com a aplicação da rede e a dimensionalidade do mapa. A figura 16 mostra uma regra de vizinhança para mapas quadrados, onde: \textit{NH} é o conjunto de vizinhos do neurônio \textit{i} e \textit{M} é a dimensionalidade do mapa. 
 
 
 \begin{figure}[!h]
@@ -30,7 +30,7 @@ Para o cálculo do raio de vizinhança de cada neurônio o TASOM leva em conside
 \end{figure}
 
 \section{Escolha do Neurônio Vencedor}
-Para o cálculo do neurônio vencedor, é necessário comparar o dado de entrada com os pesos de cada um dos neurônios do mapa. Aquele neurônio que for mais parecido com a entrada será escolhido como neurônio vencedor. Para realizar esta comparação é necessário estabelecer um método de medir a distância entre a entrada e os neurônios, o neurônio mais parecido será aquele que apresentar menor distância com a entrada. A figura 22 mostra este cálculo utilizando a distância euclidiana, onde: \textit{X(n)} é o vetor de entrada e \textit{W(n)} o vetor de pesos dos neurônios. Esta etapa também é encontrada no SOM.
+Para o cálculo do neurônio vencedor, é necessário comparar o dado de entrada com os pesos de cada um dos neurônios do mapa. Aquele neurônio que for mais parecido com a entrada será escolhido como neurônio vencedor. Para realizar esta comparação é necessário estabelecer um método de medir a distância entre a entrada e os neurônios, o neurônio mais parecido será aquele que apresentar menor distância com a entrada. A figura 17 mostra este cálculo utilizando a distância euclidiana, onde: \textit{X(n)} é o vetor de entrada e \textit{W(n)} o vetor de pesos dos neurônios. Esta etapa também é encontrada no SOM.
 
 \begin{figure}[!h]
 \centering
@@ -41,7 +41,7 @@ Para o cálculo do neurônio vencedor, é necessário comparar o dado de entrada
 \end{figure}
 
 \section{Atualização do Raio de Vizinhança}
-Após a descoberta do neurônio vencedor, é necessário atualizar seu raio de vizinhança de acordo com a equação da figura 23, onde: $\sigma i$ é o raio de vizinhança do neurônio \textit{i}. $\beta$ é o Coeficiente de Vizinhança. \textit{g} é uma função denota por \textit{(M $\sqrt{2}$ - 1)(1 - $\frac{1}{1 + z}$)}, \textit{M} é a dimensionalidade do mapa. \textit{SG} é a constante inicialmente parametrizada. \textit{sl(n)} é o fator de escalabilidade. E, \textit{\#(NHi)} é a cardinalidade do conjunto de vizinhos. Esta cardinalidade dividida pelo somatório das distâncias entre o neurônio vencedor e seus vizinhos é a micro-coesão. 
+Após a descoberta do neurônio vencedor, é necessário atualizar seu raio de vizinhança de acordo com a equação da figura 18, onde: $\sigma i$ é o raio de vizinhança do neurônio \textit{i}. $\beta$ é o Coeficiente de Vizinhança. \textit{g} é uma função denota por \textit{(M $\sqrt{2}$ - 1)(1 - $\frac{1}{1 + z}$)}, \textit{M} é a dimensionalidade do mapa. \textit{SG} é a constante inicialmente parametrizada. \textit{sl(n)} é o fator de escalabilidade. E, \textit{\#(NHi)} é a cardinalidade do conjunto de vizinhos. Esta cardinalidade dividida pelo somatório das distâncias entre o neurônio vencedor e seus vizinhos é a micro-coesão. 
 
 \begin{figure}[!h]
 \centering
@@ -52,7 +52,7 @@ Após a descoberta do neurônio vencedor, é necessário atualizar seu raio de v
 \end{figure}
 
 \section{Atualização da Taxa de Aprendizagem}
-A taxa de aprendizagem de todos os neurônios deve ser atualizada de acordo com a equação da figura 24, onde: $\eta j$(n) é a taxa de aprendizagem do neurônio atual. \textit{$\alpha$} é o Coeficente de Aprendizagem. \textit{f} é uma função denotada por 1 - $\frac{1}{1 + z}$. \textit{SF} é a constante inicialmente parametrizada. \textit{sl(n)} é o fator de escalabilidade. E, $\Vert X(n) - Wj(n)\Vert$ é a norma da distância entre os pesos do neurônio e a entrada. 
+A taxa de aprendizagem de todos os neurônios deve ser atualizada de acordo com a equação da figura 19, onde: $\eta j$(n) é a taxa de aprendizagem do neurônio atual. \textit{$\alpha$} é o Coeficente de Aprendizagem. \textit{f} é uma função denotada por 1 - $\frac{1}{1 + z}$. \textit{SF} é a constante inicialmente parametrizada. \textit{sl(n)} é o fator de escalabilidade. E, $\Vert X(n) - Wj(n)\Vert$ é a norma da distância entre os pesos do neurônio e a entrada. 
 
 \begin{figure}[!h]
 \centering
@@ -63,7 +63,7 @@ A taxa de aprendizagem de todos os neurônios deve ser atualizada de acordo com 
 \end{figure}
 
 \section{Atualização dos Pesos}
-Nesta etapa é necessário atualizar o peso de todos os neurônios seguindo a equação 25, onde: \textit{Wj(n)} é o vetor de pesos do neurônio \textit{n}. $\eta j$(n+1) é a taxa de aprendizado daquele neurônio já atualizada. \textit{$\mathbf{h}_ij(x)$(n+1)} é a mesma equação que determina a influência da atualização de acordo com distância do neurônio vencedor do SOM, pode ser encontrada na figura 18. X(n) - $\mathbf{W}_j$ é a diferença entre a entrada e o peso do neurônio atual.
+Nesta etapa é necessário atualizar o peso de todos os neurônios seguindo a equação 20, onde: \textit{Wj(n)} é o vetor de pesos do neurônio \textit{n}. $\eta j$(n+1) é a taxa de aprendizado daquele neurônio já atualizada. \textit{$\mathbf{h}_ij(x)$(n+1)} é a mesma equação que determina a influência da atualização de acordo com distância do neurônio vencedor do SOM, pode ser encontrada na equação 4.5. X(n) - $\mathbf{W}_j$ é a diferença entre a entrada e o peso do neurônio atual.
 
 \begin{figure}[!h]
 \centering
@@ -75,7 +75,7 @@ Nesta etapa é necessário atualizar o peso de todos os neurônios seguindo a eq
 
 
 \section{Fator de Escalabilidade}
-A atualização do fator de escalabilidade seque a equação da figura 26, que por sua vez segue as equações das figuras 27 e 28, onde: $\mathbf \alpha _s$ é a constante Alfa parametrizada inicialmente. $\mathbf \beta _s$ é a constante Beta parametrizada inicialmente. E, $(z)^+$ = z se z > 0, ou z = 0 caso contrário.
+A atualização do fator de escalabilidade segue a equação da figura 21, que por sua vez segue as equações das figuras 22 e 23, onde: $\mathbf \alpha _s$ é a constante Alfa parametrizada inicialmente. $\mathbf \beta _s$ é a constante Beta parametrizada inicialmente. E, $(z)^+$ = z se z > 0, ou z = 0 caso contrário.
 
 \begin{figure}[!h]
 \centering

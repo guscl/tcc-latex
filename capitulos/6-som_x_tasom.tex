@@ -1,9 +1,9 @@
 \chapter{SOM x TASOM}
 Para verificar a eficácia do TASOM foram escolhidos dois cenários de teste. A primeira forma de comparação é em um ambiente estático, ou seja, não incremental. Assim é possível comparar o desempenho dos mapas gerados pelos dois algoritmos. Neste caso o mesmo conjunto conjunto de dados foi apresentado aos dois algoritmos. O critério de comparação nesse caso é o cálculo da distância média depois que todos os pesos da rede foram ajustados.
 
-O segundo cenário de teste visa testar a eficácia do TASOM em ambientes com alta mutabilidade. Neste cenário o SOM não foi considerado por ser incapaz de funcionar nesse tipo de cenário. O mesmo conjunto de dados é apresentado ao TASOM, só que dessa vez cada agrupamento é apresentado em sequência e não em amostragem randômica, como no primeiro cenário. Como os dados de entrada apresentam mudanças bruscas no espaço de entrada é possível testar a eficácia do TASOM em aprender novos conceitos. O método aferição de erro nesse caso leva em conta somente o erro momentâneo para o cálculo do erro médio da rede, ou seja, a distância entre a entrada e o neurônio vencedor no momento da apresentação.
+O segundo teste visa testar a eficácia do TASOM em ambientes com alta mutabilidade. Neste caso o SOM não foi considerado por ser incapaz de funcionar nesse tipo de cenário. O mesmo conjunto de dados é apresentado ao TASOM, só que dessa vez cada agrupamento é apresentado em sequência, e, não em amostragem randômica, como no primeiro cenário. Como os dados de entrada apresentam mudanças bruscas é possível testar a eficácia do TASOM em aprender novos conceitos. O método de aferição de erro neste caso leva em conta somente o erro momentâneo para o cálculo do erro médio da rede, ou seja, a distância entre a entrada e o neurônio vencedor no momento da apresentação.
 
-O espaço escolhido para realizar estas análises foi o bi-dimensional, esta escolha foi feita  para facilitar a visualização dos agrupamentos. Neste conjunto existem 15 agrupamentos de diferentes tamanhos e formas, dispersos em uma janela que varia de 0 a 100 000 em ambos os eixos. A figura 29 mostra a plotagem destes dados.
+O espaço escolhido para realizar estas análises foi o bi-dimensional, esta escolha foi feita  para facilitar a visualização dos agrupamentos. Neste conjunto existem 15 agrupamentos de diferentes tamanhos e formas, dispersos em uma janela que varia de 0 a 100 000 em ambos os eixos. A figura 24 mostra a plotagem destes dados.
 
 \begin{figure}[!h]
 \centering
@@ -14,7 +14,7 @@ O espaço escolhido para realizar estas análises foi o bi-dimensional, esta esc
 \end{figure}
 
 \section{Protótipo}
-Para realizar os testes comparativos um protótipo foi desenvolvido em C++ utilizando a plataforma \textit{C++ Builder XE2} da Embarcadero. O software carrega um arquivo csv do disco rígido que possui as informações dos dados a serem agrupados. É possível parametrizar ambos algoritmos através da interface, as janelas de parametrização podem ser vistas nas figuras 31 e 32. No centro do protótipo existem duas tabelas, uma para cada algoritmo. Nesta tabela são registrados os valores da entrada, a posição do neurônio vencedor que classificou as amostras e o erro desssa classificação. A visão geral do protótipo está na figura 30. 
+Para realizar os testes comparativos um protótipo foi desenvolvido em C++ utilizando a plataforma \textit{C++ Builder XE2} da Embarcadero. O software carrega um arquivo csv do disco rígido que possui as informações dos dados a serem agrupados. É possível parametrizar ambos algoritmos através da interface, as janelas de parametrização podem ser vistas nas figuras 26 e 27. No centro do protótipo existem duas tabelas, uma para cada algoritmo. Nesta tabela são registrados os valores da entrada, a posição do neurônio vencedor que classificou as amostras e o erro desssa classificação. A visão geral do protótipo está na figura 25. 
 
 \begin{figure}[!h]
 \centering
@@ -54,7 +54,7 @@ O algoritmo SOM foi treinado com 1000 épocas. Os critérios de parada do treina
 \item Decaimento do Raio de Vizinhança: 1\%.
 \end{enumerate}
 
-As figuras 33, 34 e 35 mostram o estado da rede SOM em três momentos diferentes: Começo, metade e final do treino. Os pontos representam as amostras de entrada e os quadrados representam os neurônios da rede. É possível observar o desenvolvimento da aprendizagem ao decorrer do tempo, pois os neurônios se aproximam dos agrupamentos. Na figura 34 os pontos são coloridos de acordo com a cor do neurônio que os classifica.
+As figuras 28, 29 e 30 mostram o estado da rede SOM em três momentos diferentes: Começo, metade e final do treino. Os pontos representam as amostras de entrada e os quadrados representam os neurônios da rede. É possível observar o desenvolvimento da aprendizagem ao decorrer do tempo, pois os neurônios se aproximam dos agrupamentos. Na figura 30 os pontos são coloridos de acordo com a cor do neurônio que os classifica.
 
 \begin{figure}[!h]
 \centering
@@ -98,14 +98,14 @@ Por ser um algoritmo incremental o TASOM não possui fase de treinamento. O mapa
 \end{enumerate}
 
 
-As figuras 36, 37 e 38 mostram o estado da rede TASOM em três momentos diferentes: Começo, metade e final da apresentação. Os pontos representam as amostras de entrada e os quadrados representam os neurônios da rede. É possível observar o desenvolvimento da aprendizagem ao decorrer do tempo, pois os neurônios se aproximam dos agrupamentos. Em todas as etapas as entradas já são coloridas de acordo com os neurônios que as classificam. A execução do TASOM é muito rápida do que a do SOM. Considerando somente o número de vezes que o conjunto de entrada é apresentado, o TASOM se mostrou 1000 vezes mais rápido, pois os dados de entrada são apresentados apenas uma vez.
+As figuras 31, 32 e 33 mostram o estado da rede TASOM em três momentos diferentes: Começo, metade e final da apresentação. Os pontos representam as amostras de entrada e os quadrados representam os neurônios da rede. É possível observar o desenvolvimento da aprendizagem ao decorrer do tempo, pois os neurônios se aproximam dos agrupamentos. Em todas as etapas as entradas já são coloridas de acordo com os neurônios que as classificam. A execução do TASOM é mais rápida do que a do SOM. Considerando somente o número de vezes que o conjunto de entrada é apresentado, o TASOM se mostrou 1000 vezes mais rápido, pois os dados de entrada são apresentados apenas uma vez.
 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.5]
 {figuras/tasom1.eps}
-\caption{Começo}
+\caption{Começo - Estático}
 \label{data_titatic}
 \end{figure}  
 
@@ -113,7 +113,7 @@ As figuras 36, 37 e 38 mostram o estado da rede TASOM em três momentos diferent
 \centering
 \includegraphics[keepaspectratio=true,scale=0.5]
 {figuras/tasom2.eps}
-\caption{Meio}
+\caption{Meio - Estático}
 \label{data_titatic}
 \end{figure}
 
@@ -121,7 +121,7 @@ As figuras 36, 37 e 38 mostram o estado da rede TASOM em três momentos diferent
 \centering
 \includegraphics[keepaspectratio=true,scale=0.5]
 {figuras/tasom3.eps}
-\caption{Fim}
+\caption{Fim - Estático}
 \label{data_titatic}
 \end{figure}  
 
@@ -149,13 +149,13 @@ Para comparar os dois algoritmos é necessário estabelecer uma métrica que sej
 \end{table}
 
 \section{TASOM em Ambiente Incremental}
-Para medir a eficiência do TASOM em um ambiente incremental de maneira sintética é necessário utilizar um conjunto de entradas que muda bruscamente. Dessa forma é possível verificar se o TASOM é capaz de aprender novos conceitos com rapidez e eficiência. O cálculo de erro neste caso só deve levar em consideração a distância entre o neurônio e a entrada na hora em que o dado é apresentado, pois amostras subsequentes podem introduzir novos conceitos que serão absorvidos por aquele neurônio. O mesmo conjunto de entradas foi utilizado, mas seus agrupamentos são apresentados de maneira sequencial. Para realizar este teste todos os parâmetros da rede TASOM previamente apresentados foram mantidos. As figuras 39, 40 e 41 são representações no começo, meio e fim da apresentação do dados de entrada.
+Para medir a eficiência do TASOM em um ambiente incremental de maneira sintética é necessário utilizar um conjunto de entradas que muda bruscamente. Dessa forma é possível verificar se o TASOM é capaz de aprender novos conceitos com rapidez e eficiência. O cálculo de erro neste caso só deve levar em consideração a distância entre o neurônio e a entrada na hora em que o dado é apresentado, pois amostras subsequentes podem introduzir novos conceitos que serão absorvidos por aquele neurônio. O mesmo conjunto de entradas foi utilizado, mas seus agrupamentos são apresentados de maneira sequencial. Para realizar este teste todos os parâmetros da rede TASOM previamente apresentados foram mantidos. As figuras 34, 35 e 36 são representações no começo, meio e fim da apresentação do dados de entrada.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[keepaspectratio=true,scale=0.5]
 {figuras/tsom1.eps}
-\caption{Começo}
+\caption{Começo - Dinâmico}
 \label{data_titatic}
 \end{figure}  
 
@@ -163,7 +163,7 @@ Para medir a eficiência do TASOM em um ambiente incremental de maneira sintéti
 \centering
 \includegraphics[keepaspectratio=true,scale=0.5]
 {figuras/tsom2.eps}
-\caption{Meio}
+\caption{Meio - Dinâmico}
 \label{data_titatic}
 \end{figure}
 
@@ -171,7 +171,7 @@ Para medir a eficiência do TASOM em um ambiente incremental de maneira sintéti
 \centering
 \includegraphics[keepaspectratio=true,scale=0.5]
 {figuras/tsom3.eps}
-\caption{Fim}
+\caption{Fim - Dinâmico}
 \label{data_titatic}
 \end{figure}
 

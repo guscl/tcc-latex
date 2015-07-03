@@ -1,16 +1,16 @@
 \chapter{Validação com Dados Reais}
-Três problemas reais foram abordados visando testar os algoritmos em ambiente não simulado. O primeiro caso é aplicado à necessidade do Ministério da Agricultura, Pecuária e Abastecimento (MAPA). O segundo é aplicado a uma base de dados que possui informações sobre dígitos escritos e a última é um agrupamento aplicado ao conhecido conjunto de dados sobre as plantas do tipo Iris.  
+Dois problemas reais são abordados visando testar os algoritmos em ambiente não simulado. O primeiro caso é aplicado à necessidade do Ministério da Agricultura, Pecuária e Abastecimento (MAPA). O segundo é aplicado a uma base de dados que possui informações sobre as plantas do tipo Iris. O objetivo deste experimentos é utilizar os métodos não supervisionados de agrupamentos de maneira comparativa entre si. A importância da utilização de um método de agrupamento não supervisionado em bases de dados que possuem rótulo é a observação de características ocultas nos dados. Estas características podem validar a integridade dos dados e dar informações sobre presença de ruídos e separabilidade das classes no espaço de análise.  
 
 \section{MAPA}
 O primeiro estudo que será usado para validar os métodos de Aprendizagem de Máquina com Aprendizagem Incremental é baseado em um problema real do MAPA. Este ministério é responsável  "pela gestão das políticas públicas de estímulo à agropecuária, pelo fomento do agronegócio e pela regulação e normatização de serviços vinculados ao setor" \cite{mapa}. Um dos objetivos do MAPA é garantir a segurança alimentar do povo brasileiro além de suportar a produção de exportação, garantindo o sucesso dos produtos brasileiros no mercado internacional.
 
 No Brasil existe um plano nacional que tem como objetivo garantir a qualidade e segurança dos produtos animais e vegetais que são consumidos no país. O Plano Nacional de Controle de Resíduos e Contaminantes (PNCR), é um programa de inspeção e fiscalização das cadeias produtivas de alimentos. Este plano é dividido em duas grandes áreas, PNCR/Animal e PNCR/Vegetal. Cada um possui regras de monitoramento específicas. Os tipos de animais que são contemplados pela parte animal são: Bovinos, aves, suínos, equinos, avestruz, caprinos e ovinos. Também são verificados no setor animal os seguintes produtos: Leite, mel, ovos e pescados. 
 
-O execução do PNCR ocorre através de medições e análises estatísticas de amostras coletas em Serviços de Inspeção Federais (SIF's). Os produtores de cada região são cadastrados em um SIF específico, este SIF é responsável por coletar e analisar amostras de alimentos produzidos nestes estabelecimentos. As coletas são feitas de maneira randômica de tempos em tempos, e o objetivo das coletas é verificar se a presença de resíduos contaminantes ou substâncias acima de limiar adequado a saúde nos produtos alimentícios. 
+O execução do PNCR ocorre através de medições e análises estatísticas de amostras coletadas em Serviços de Inspeção Federais (SIF's). Os produtores de cada região são cadastrados em um SIF específico, este SIF é responsável por coletar e analisar amostras de alimentos produzidos nestes estabelecimentos. As coletas são feitas de maneira randômica de tempos em tempos, e o objetivo das coletas é verificar a presença de resíduos contaminantes ou, substâncias acima de limiar adequado a saúde, nos produtos alimentícios. 
 
-Após a análise feita e uma vez identificada uma violação no limite máximo de resíduo ou a presença de contaminante, o MAPA adota medidas regulatórias imediatas visando proteger a saúde da população brasileira. O objetivo da utilização de métodos de agrupamento nas informações referentes a cada produtor é verificar a presença de agrupamentos naturais que sejam classificados como prováveis amostras irregulares. Desta forma seria possível ao MAPA tomar medidas que melhorem a eficácia da fiscalização.
+Após a análise feita, e uma vez identificada uma violação no limite máximo de resíduo, ou a presença de contaminante, o MAPA adota medidas regulatórias imediatas visando proteger a saúde da população brasileira. O objetivo da utilização de métodos de agrupamento nas informações referentes a cada produtor é verificar a presença de agrupamentos naturais que sejam classificados como prováveis amostras irregulares. Desta forma seria possível ao MAPA tomar medidas que melhorem a eficácia da fiscalização.
 
-Para realizar esta análise foram disponibilizadas duas planilhas com informações sobre amostras coletas de aves suínos do período de 2002 a 2014. As informações presentes na base de dados de aves e suínos são:
+Para realizar esta análise foram disponibilizadas duas planilhas com informações sobre amostras coletas de aves e suínos do período de 2002 a 2014. As informações presentes na base de dados de aves e suínos são:
 
 \begin{enumerate}
 \item Ano da Análise: Ano no qual a amostra foi coletada.
@@ -25,7 +25,7 @@ Para realizar esta análise foram disponibilizadas duas planilhas com informaç�
 \item Tipo de Tecido(Somente na base de suínos):Código que indica o tipo de tecido animal coletado.
 \end{enumerate}
 
-Ambos algoritmos, SOM e TASOM, foram parametrizados da mesma forma que foram parametrizados no capítulo SOM X TASOM. A única diferença é que os tamanhos dos mapas foram de 2 x 2. Todas as amostras já possuem o rótulo que classifica o resultado da análise, Código de Status. Para verificar a eficácia dos métodos em agrupar as amostrar de acordo com este rótulo, foram registradas a porcentagem da presença de cada classe em cada um dos neurônios das redes. O resultado ideal é que um neurônio possua alta densidade de uma determinada classe e baixa densidade das outras, isto significa que o método de agrupamento é eficaz em determinar o rótulo das amostras. Para um primeiro teste os algoritmos foram alimentados com todas as informações, excluindo o próprio rótulo. A tabela 5 mostra as porcentagens de cada classe em cada um dos neurônios para os dois mapas na base de aves, e a tabela 6 para suínos. 
+Ambos algoritmos, SOM e TASOM, foram parametrizados da mesma forma que foram parametrizados no capítulo SOM X TASOM. A única diferença é que os tamanhos dos mapas foram de 2 x 2. Todas as amostras já possuem o rótulo que classifica o resultado da análise, Código de Status. Para verificar a eficácia dos métodos em agrupar as amostrar de acordo com este rótulo, foram registradas a porcentagem da presença de cada classe em cada um dos neurônios das redes. O resultado ideal é que um neurônio possua alta densidade de uma determinada classe e baixa densidade das outras, isto significa que o método de agrupamento é eficaz em determinar o rótulo das amostras. Para um primeiro teste, os algoritmos foram alimentados com todas as informações, excluindo o próprio rótulo. A tabela 5 mostra as porcentagens de cada classe em cada um dos neurônios para os dois mapas na base de aves, e a tabela 6 para suínos. 
 
 \begin{table}[h]
 \centering
@@ -57,7 +57,7 @@ Neurônio & \multicolumn{3}{c|}{TASOM}      & \multicolumn{3}{c|}{SOM}     \\ \h
 \end{tabular}
 \end{table}
 
-É possível constatar pelos dados das tabelas 5 e 6 que a classe predominante nos neurônios dos dois algoritmos foi é a 5, que representa a normalidade. Este fato é também observado nos dados, as classes 6 e 7 representam aproximadamente 10\% do total das amostras de cada um de seus conjuntos. Os métodos não foram capazes de separar os dados em relação ao resultado da análise neste contexto. Visando alcançar melhores resultados um processamento foi realizado nos dados para omitir todas as amostras do tipo 5, desta forma o objetivo agora é verificar se os algoritmos conseguirão agrupar os dados separando as classes 6 e 7. As tabelas 7 e 8 contém estes resultados.
+É possível constatar pelos dados das tabelas 5 e 6 que a classe predominante nos neurônios dos dois algoritmos foi a 5, que representa a normalidade. Este fato é também observado nos dados, as classes 6 e 7 são responsáveis por aproximadamente 10\% do total das amostras de cada um de seus conjuntos. Os métodos não foram capazes de separar os dados em relação ao resultado da análise neste contexto. Visando alcançar melhores resultados, um processamento foi realizado nos dados para omitir todas as amostras do tipo 5, desta forma o objetivo agora é verificar se os algoritmos conseguirão agrupar os dados separando as classes 6 e 7. As tabelas 7 e 8 contém estes resultados.
 
 \begin{table}[h]
 \centering
@@ -89,7 +89,7 @@ Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
 \end{tabular}
 \end{table}
 
-Pelos resultados das tabelas 7 e 8 é possível observar que a retirar da classe 5 teve impacto na forma como as classes 6 e 7 são agrupadas. A quantidade de dados que foram analisados para os suínos foi de 4004 amostras e para as aves 490. Os resultados dos agrupamentos de aves são muito mais misturados do que os de suínos, que possuem alta densidade de uma só classe em seus neurônios. Estes resultados não podem ser chamados de satisfatórios, pois os agrupamentos de aves estão misturados entre as classes 6 e 7. E os de suínos, embora possuam alta densidade da classe 6 em seus neurônios, não possuem algum neurônio com alta densidade de classe 7. Os dados de entrada destes experimentos ainda possuem um erro quanto se pensa em uma aplicação prática. O atributo Resultado da Análise, que contém a quantidade da substância analisada na amostra, está presente. Este atributo é o fator determinante para o Código de Status, para uso real, seria ideal que os agrupamentos fossem observados sem a presença desta característica nos dados. As tabelas 8 e 9 mostram os resultados dos mapas sem este atributo presente nas entradas. 
+Pelos resultados das tabelas 7 e 8 é possível observar que a retirada da classe 5 teve impacto na forma como as classes 6 e 7 são agrupadas. A quantidade de dados que foram analisados para os suínos foi de 4004 amostras e para as aves 490. Os resultados dos agrupamentos de aves são muito mais misturados do que os de suínos, que possuem alta densidade de uma só classe em seus neurônios. Estes resultados não podem ser chamados de satisfatórios, pois os agrupamentos de aves estão misturados entre as classes 6 e 7. E os de suínos, embora possuam alta densidade da classe 6 em seus neurônios, não possuem algum neurônio com alta densidade de classe 7. Os dados de entrada destes experimentos ainda possuem um erro quanto se pensa em uma aplicação prática. O atributo Resultado da Análise, que contém a quantidade da substância analisada na amostra, está presente. Este atributo é o fator determinante para o Código de Status, para uso real, seria ideal que os agrupamentos fossem observados sem a presença desta característica nos dados. As tabelas 9 e 10 mostram os resultados dos mapas sem este atributo presente nas entradas. 
 
 \begin{table}[h]
 \centering
@@ -121,10 +121,218 @@ Neurônio & \multicolumn{2}{c|}{SOM} & \multicolumn{2}{c|}{TASOM} \\ \hline
 \end{tabular}
 \end{table}
 
-Os resultados das tabelas 8 e 9 apresentam os mesmos problemas acima citados. Um fato curioso é que na análise de suínos o neurônio 2 do TASOM foi capaz de agrupar 100\% de amostras da classe 6, porém, apenas três entradas. O resultado deste experimento aponta que não há informações o suficiente no conjunto de dados para realizar a separabilidade, o espaço de características não foi capaz de realizar separação entre as classes.
+Os resultados das tabelas 8 e 9 apresentam os mesmos problemas acima citados. Um fato curioso é que na análise de suínos o neurônio 2 do TASOM foi capaz de agrupar 100\% de amostras da classe 6, porém, apenas três entradas. O resultado deste experimento aponta que não há informações o suficiente no conjunto de dados para realizar a separabilidade, o espaço de características não foi capaz de realizar separação entre as classes. 
+
+Uma outra análise que pode ser feita é a observação da dispersão deste conjunto de dados em mapas maiores. Com a informação da posição de agrupamento de cada classe, é possível observar a região do mapa em que os dados foram agrupados. É possível observar a separabilidade por região. As tabelas 11 e 12 mostram o agrupamento das classes 6 e 7 para um mapa SOM e as tabelas 13 e 14 para um mapa TASOM. Ambos os mapas tem dimensionalidade 5x5, cada neurônio possui o número de amostras daquele classe que foram agrupadas por aquele neurônio. A distribuição dos dados em um mapa 9x9 pode ser observada nas tabelas 15 e 16, para o SOM, e 17 e 18, para o TASOM.
+
+\begin{table}[]
+\centering
+\caption{Classe 6 - SOM - 5x5}
+\label{my-label}
+\begin{tabular}{|c|
+>{\columncolor[HTML]{34CDF9}}c 
+>{\columncolor[HTML]{34CDF9}}c 
+>{\columncolor[HTML]{34CDF9}}c cc|}
+\hline
+\cellcolor[HTML]{FFFFFF}$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & \cellcolor[HTML]{FFFFFF}5  \\ \hline
+1                                              & 7                                              & 1                                              & 30                                             & \cellcolor[HTML]{34CDF9}13                     & \cellcolor[HTML]{34CDF9}20 \\ \cline{1-1}
+2                                              & 39                                             & 14                                             & 8                                              & \cellcolor[HTML]{34CDF9}12                     & \cellcolor[HTML]{34CDF9}14 \\ \cline{1-1}
+3                                              & 34                                             & 14                                             & 15                                             & \cellcolor[HTML]{34CDF9}6                      & 9                          \\ \cline{1-1}
+4                                              & 5                                              & 16                                             & 32                                             & \cellcolor[HTML]{34CDF9}1                      & 0                          \\ \cline{1-1}
+5                                              & 9                                              & 4                                              & 4                                              & 0                                              & 0                          \\ \hline
+\end{tabular}
+\end{table} 
+
+
+
+\begin{table}[]
+\centering
+\caption{Classe 7 - SOM - 5x5}
+\label{my-label}
+\begin{tabular}{|c|
+>{\columncolor[HTML]{34CDF9}}c 
+>{\columncolor[HTML]{34CDF9}}c 
+>{\columncolor[HTML]{FFFFFF}}c cc|}
+\hline
+\cellcolor[HTML]{FFFFFF}$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & \cellcolor[HTML]{FFFFFF}5  \\ \hline
+1                                              & 4                                              & 21                                             & \cellcolor[HTML]{34CDF9}1                      & \cellcolor[HTML]{34CDF9}5                      & \cellcolor[HTML]{34CDF9}16 \\ \cline{1-1}
+2                                              & 24                                             & 17                                             & \cellcolor[HTML]{34CDF9}1                      & \cellcolor[HTML]{FFFFFF}0                      & \cellcolor[HTML]{34CDF9}9  \\ \cline{1-1}
+3                                              & 12                                             & 1                                              & \cellcolor[HTML]{34CDF9}1                      & \cellcolor[HTML]{34CDF9}10                     & \cellcolor[HTML]{34CDF9}8  \\ \cline{1-1}
+4                                              & 10                                             & 2                                              & 0                                              & \cellcolor[HTML]{FFFFFF}0                      & 0                          \\ \cline{1-1}
+5                                              & 12                                             & \cellcolor[HTML]{FFFFFF}0                      & 0                                              & 0                                              & \cellcolor[HTML]{34CDF9}25 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Classe 6 - TASOM - 5x5}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{34CDF9}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & 5                          \\ \hline
+1                      & 0                                              & \cellcolor[HTML]{FFFFFF}0                      & 0                                              & 0                                              & 0                          \\ \cline{1-1}
+2                      & 0                                              & 43                                             & 0                                              & 0                                              & 0                          \\ \cline{1-1}
+3                      & 0                                              & 93                                             & \cellcolor[HTML]{34CDF9}36                     & \cellcolor[HTML]{34CDF9}56                     & \cellcolor[HTML]{34CDF9}22 \\ \cline{1-1}
+4                      & \cellcolor[HTML]{34CDF9}7                      & 12                                             & 0                                              & 3                                              & 0                          \\ \cline{1-1}
+5                      & 0                                              & 27                                             & 0                                              & 5                                              & 0                          \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Classe 7 - TASOM - 5x5}
+\label{my-label}
+\begin{tabular}{|c|ccccc|}
+\hline
+\rowcolor[HTML]{FFFFFF} 
+$\frac{Linha}{Coluna}$    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4} & 5  \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+1                         & 0                                              & 0                                              & 0                                              & 0                                              & 0  \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+2                         & 0                                              & \cellcolor[HTML]{34CDF9}24                     & 0                                              & 0                                              & 0  \\ \cline{1-1}
+\rowcolor[HTML]{34CDF9} 
+\cellcolor[HTML]{FFFFFF}3 & \cellcolor[HTML]{FFFFFF}0                      & 56                                             & 12                                             & 40                                             & 26 \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+4                         & \cellcolor[HTML]{34CDF9}12                     & 0                                              & 0                                              & 3                                              & 0  \\ \cline{1-1}
+\rowcolor[HTML]{FFFFFF} 
+5                         & 0                                              & 0                                              & 0                                              & 5                                              & 0  \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\caption{Classe 6 - SOM - 9x9}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{34CDF9}}c |
+>{\columncolor[HTML]{34CDF9}}c |
+>{\columncolor[HTML]{34CDF9}}c |
+>{\columncolor[HTML]{34CDF9}}c |
+>{\columncolor[HTML]{34CDF9}}c |
+>{\columncolor[HTML]{34CDF9}}c |
+>{\columncolor[HTML]{34CDF9}}c |
+>{\columncolor[HTML]{34CDF9}}c |
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & \cellcolor[HTML]{FFFFFF}1 & \cellcolor[HTML]{FFFFFF}2 & \cellcolor[HTML]{FFFFFF}3 & \cellcolor[HTML]{FFFFFF}4 & \cellcolor[HTML]{FFFFFF}5 & \cellcolor[HTML]{FFFFFF}6 & \cellcolor[HTML]{FFFFFF}7 & \cellcolor[HTML]{FFFFFF}8 & 9                         \\ \hline
+1                      & 14                        & 13                        & 1                         & 7                         & 11                        & 12                        & 6                         & 6                         & \cellcolor[HTML]{34CDF9}6 \\ \hline
+2                      & 15                        & 20                        & 9                         & 8                         & 2                         & 7                         & 5                         & 1                         & \cellcolor[HTML]{34CDF9}8 \\ \hline
+3                      & 10                        & 16                        & 5                         & \cellcolor[HTML]{FFFFFF}0 & 2                         & 2                         & 1                         & 2                         & \cellcolor[HTML]{34CDF9}0 \\ \hline
+4                      & 20                        & 11                        & 3                         & 4                         & 5                         & 1                         & 1                         & 1                         & 0                         \\ \hline
+5                      & 7                         & 3                         & 2                         & 2                         & \cellcolor[HTML]{FFFFFF}0 & 2                         & 2                         & 3                         & 0                         \\ \hline
+6                      & 4                         & 1                         & \cellcolor[HTML]{FFFFFF}0 & \cellcolor[HTML]{FFFFFF}0 & 1                         & 1                         & \cellcolor[HTML]{FFFFFF}0 & 4                         & 0                         \\ \hline
+7                      & 0                         & 3                         & 2                         & \cellcolor[HTML]{FFFFFF}0 & 1                         & 1                         & 2                         & \cellcolor[HTML]{FFFFFF}0 & 0                         \\ \hline
+8                      & 4                         & 1                         & 1                         & 2                         & \cellcolor[HTML]{FFFFFF}0 & \cellcolor[HTML]{FFFFFF}0 & \cellcolor[HTML]{FFFFFF}0 & \cellcolor[HTML]{FFFFFF}0 & 0                         \\ \hline
+9                      & 4                         & \cellcolor[HTML]{FFFFFF}0 & 1                         & 1                         & 2                         & 2                         & \cellcolor[HTML]{FFFFFF}0 & \cellcolor[HTML]{FFFFFF}0 & 0                         \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Classe 7 - SOM - 9x9}
+\label{my-label}
+\begin{tabular}{|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+$\frac{Linha}{Coluna}$ & 1                          & 2                          & 3                          & 4 & 5                          & 6                          & 7 & 8 & 9                         \\ \hline
+1                      & \cellcolor[HTML]{34CDF9}18 & \cellcolor[HTML]{34CDF9}2  & \cellcolor[HTML]{34CDF9}25 & 0 & 0                          & \cellcolor[HTML]{34CDF9}12 & 0 & 0 & 0                         \\ \hline
+2                      & \cellcolor[HTML]{34CDF9}9  & \cellcolor[HTML]{34CDF9}5  & \cellcolor[HTML]{34CDF9}1  & 0 & 0                          & 0                          & 0 & 0 & 0                         \\ \hline
+3                      & \cellcolor[HTML]{34CDF9}5  & \cellcolor[HTML]{34CDF9}1  & \cellcolor[HTML]{34CDF9}4  & 0 & \cellcolor[HTML]{34CDF9}12 & 0                          & 0 & 0 & 0                         \\ \hline
+4                      & \cellcolor[HTML]{34CDF9}16 & \cellcolor[HTML]{34CDF9}1  & \cellcolor[HTML]{34CDF9}1  & 0 & 0                          & \cellcolor[HTML]{34CDF9}12 & 0 & 0 & 0                         \\ \hline
+5                      & 0                          & 0                          & 0                          & 0 & 0                          & 0                          & 0 & 0 & 0                         \\ \hline
+6                      & 0                          & 0                          & \cellcolor[HTML]{34CDF9}1  & 0 & 0                          & 0                          & 0 & 0 & 0                         \\ \hline
+7                      & 0                          & 0                          & 0                          & 9 & 0                          & 0                          & 0 & 0 & 0                         \\ \hline
+8                      & 0                          & \cellcolor[HTML]{34CDF9}21 & 0                          & 0 & 0                          & \cellcolor[HTML]{34CDF9}4  & 0 & 0 & 0                         \\ \hline
+9                      & \cellcolor[HTML]{34CDF9}12 & 0                          & 0                          & 0 & 0                          & 0                          & 0 & 0 & \cellcolor[HTML]{34CDF9}8 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Classe 6 - TASOM - 9x9}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor[HTML]{FFFFFF} 
+$\frac{Linha}{Coluna}$    & 1                         & 2                         & 3                         & 4                         & 5  & 6                          & 7                          & 8                          & 9                         \\ \hline
+\rowcolor[HTML]{34CDF9} 
+\cellcolor[HTML]{FFFFFF}1 & \cellcolor[HTML]{FFFFFF}0 & 5                         & 56                        & 12                        & 30 & 12                         & 23                         & 9                          & 38                        \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+2                         & \cellcolor[HTML]{34CDF9}7 & 0                         & 4                         & 0                         & 0  & 0                          & 0                          & \cellcolor[HTML]{34CDF9}25 & \cellcolor[HTML]{34CDF9}1 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+3                         & \cellcolor[HTML]{34CDF9}1 & 0                         & 0                         & \cellcolor[HTML]{34CDF9}1 & 0  & \cellcolor[HTML]{34CDF9}1  & \cellcolor[HTML]{34CDF9}1  & 0                          & 0                         \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+4                         & \cellcolor[HTML]{34CDF9}1 & \cellcolor[HTML]{34CDF9}5 & \cellcolor[HTML]{34CDF9}7 & 0                         & 0  & 6                          & \cellcolor[HTML]{34CDF9}25 & 0                          & 0                         \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+5                         & 0                         & 0                         & 0                         & 0                         & 0  & 0                          & 0                          & 0                          & 0                         \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+6                         & 0                         & \cellcolor[HTML]{34CDF9}1 & 0                         & 0                         & 0  & \cellcolor[HTML]{34CDF9}40 & 0                          & 0                          & 0                         \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+7                         & 0                         & 0                         & 0                         & 9                         & 0  & 0                          & 0                          & 0                          & 0                         \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+8                         & 0                         & 0                         & 0                         & 0                         & 0  & 0                          & 0                          & 0                          & 0                         \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+9                         & 0                         & 0                         & 0                         & 0                         & 0  & 0                          & 0                          & 0                          & 0                         \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[]
+\centering
+\caption{Classe 7 - TASOM - 9x9}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor[HTML]{FFFFFF} 
+$\frac{Linha}{Coluna}$    & 1                          & 2                          & 3                          & 4  & 5  & 6                          & 7  & 8                         & 9 \\ \hline
+\rowcolor[HTML]{34CDF9} 
+\cellcolor[HTML]{FFFFFF}1 & \cellcolor[HTML]{FFFFFF}0  & \cellcolor[HTML]{FFFFFF}0  & 16                         & 31 & 12 & 1                          & 22 & 5                         & 2 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+2                         & 0                          & 0                          & 0                          & 0  & 0  & 0                          & 0  & \cellcolor[HTML]{34CDF9}8 & 0 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+3                         & \cellcolor[HTML]{34CDF9}25 & 0                          & 0                          & 0  & 0  & 0                          & 0  & 0                         & 0 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+4                         & 0                          & \cellcolor[HTML]{34CDF9}10 & \cellcolor[HTML]{34CDF9}12 & 0  & 0  & 0                          & 0  & 0                         & 0 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+5                         & 0                          & 0                          & 0                          & 0  & 0  & 0                          & 0  & 0                         & 0 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+6                         & 0                          & 0                          & 0                          & 0  & 0  & \cellcolor[HTML]{34CDF9}24 & 0  & 0                         & 0 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+7                         & 0                          & 0                          & 0                          & 9  & 0  & 0                          & 0  & 0                         & 0 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+8                         & 0                          & 0                          & 0                          & 0  & 0  & 0                          & 0  & 0                         & 0 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+9                         & 0                          & 0                          & 0                          & 0  & 0  & 0                          & 0  & 0                         & 0 \\ \hline
+\end{tabular}
+\end{table}
+
+
+Como pode-se observar nas tabelas 11 a 18, este conjunto de dados apresenta grande mesclagem. Isto pode significar duas coisas, ou há grande inseparabilidade linear nos dados ou há grande presença de ruído. Não há características suficientes na base de dados para gerar agrupamentos que separam os dados pelas classes 5, 6 ou 7. Como também foi constatado em \cite{hialo2014}.
 
 \section{Iris} 
-A última análise feita usa o conjunto e dados de plantas do tipo Iris, estes dados são muito famosos sendo citados em vários artigos de aprendizado de máquina. Ele é composto por 3 classes de 50 amostras cada, cada classe refere-se a um tipo de planta Iris. A primeira classe é linearmente separável das outras, as classes 2 e 3 são linearmente inseparáveis \cite{iris}. O objetivo do experimento é observar se o SOM ou o TASOM são capazes de realizar o agrupamento destes dados separando as classes em diferentes grupos. A descrição do conjunto de dados é:
+A última análise feita usa o conjunto e dados de plantas do tipo Iris, estes dados são muito famosos, sendo citados em vários artigos de aprendizado de máquina. Ele é composto por 3 classes de 50 amostras cada, cada classe refere-se a um tipo de planta Iris. A primeira classe é linearmente separável das outras, as classes 2 e 3 são linearmente inseparáveis \cite{iris}. O objetivo do experimento é observar se o SOM ou o TASOM são capazes de realizar o agrupamento destes dados separando as classes em diferentes grupos. A descrição do conjunto de dados é:
 
 \begin{enumerate}
 \item Comprimento da cepa.
@@ -134,7 +342,7 @@ A última análise feita usa o conjunto e dados de plantas do tipo Iris, estes d
 \item Classe da Iris.0 para Iris Setosa, 1 para  Iris Versicolour e 2 para Iris Virginica.
 \end{enumerate}
 
-Dez execuções de cada algoritmo foram realizadas, elas não apresentaram grande variação entre si. A tabela 11 mostra os melhores resultados da porcentagem de cada classe nos neurônios do SOM e do TASOM e a quantidade de amostras que foram agrupadas por cada neurônio. O tamanho dos mapas foi de 2x2, as parametrizações do TASOM foram as mesmas já utilizadas, com exceção da variável beta que foi configurada para 0.001. O SOM foi executado com 450 épocas. Estas foram as parametrizações que apresentaram melhor resultado.
+Dez execuções de cada algoritmo foram realizadas, elas não apresentaram grande variação entre si. A tabela 19 mostra os melhores resultados da porcentagem de cada classe nos neurônios do SOM e do TASOM e a quantidade de amostras que foram agrupadas por cada neurônio. O tamanho dos mapas foi de 2x2, as parametrizações do TASOM foram as mesmas já utilizadas, com exceção da variável beta que foi configurada para 0.001. O SOM foi executado com 450 épocas. Estas foram as parametrizações que apresentaram melhor resultado.
 
 \begin{table}[h]
 \scalefont{0.6}
@@ -152,11 +360,15 @@ Neurônio & \multicolumn{4}{c|}{TASOM}                   & \multicolumn{4}{c|}{S
 \end{tabular}
 \end{table} 
  
-Pela tabela 11 é observável que este experimento obteve êxito. As redes foram capazes de separar completamente a classe 0, que é linearmente separável, e quase foram capazes de separar totalmente as classes 1 e 2. O TASOM obteve melhor desempenho na separação das classes 1 e 2. Se uma fusão dos neurônios 1 e 3 do TASOM for feita, é possível dizer que as amostras do tipo Setosa foram perfeitamente separadas das outras. 
+Pela tabela 19 é observável que este experimento obteve êxito. As redes foram capazes de separar completamente a classe 0, que é linearmente separável, e quase foram capazes de separar totalmente as classes 1 e 2. O TASOM obteve melhor desempenho na separação das classes 1 e 2. Se uma fusão dos neurônios 1 e 3 do TASOM for feita, é possível dizer que as amostras do tipo Setosa foram perfeitamente separadas das outras. 
  
 Os algoritmos de agrupamento não foram feitos para gerar aglomerações baseadas em um rótulo, antes, eles agrupam os dados unicamente por critérios matemáticos. Entretanto este tipo de método pode ser usado como um auxiliador dos métodos supervisionados. Observar o agrupamento natural dos dados pode ajudar os analistas de dados a tomar decisões importantes, pois é possível ter indicações a respeito da separabilidade das informações e sobre o nível de ruído presente nas amostras. Se os agrupamentos naturais separam os dados de acordo com os rótulos, isso quer dizer que o espaço de entrada é linearmente separável e possui ruído baixo. Se os agrupamentos matemáticos não seguem as separações das classes, ou os dados são linearmente inseparáveis, ou há ruído no espaço de entrada, ou ambos. 
 
-As próximas tabelas mostram a distribuição natural dos dados de plantas do tipo Iris com diferentes dimensões de mapas, e uma classe de cada vez. Cada tabela possui as informações de apenas uma classe. Cada número representa a quantidade de amostras que foram agrupadas naquele neurônio. A tabela 12, 13 e 14 possui a distribuição dos dados no mapa 5x5 da rede SOM, e as tabelas 15, 16, e 17 para mapas do mesmo tamanho do tipo TASOM.
+As próximas tabelas mostram a distribuição natural dos dados de plantas do tipo Iris com diferentes dimensões de mapas, e uma classe de cada vez. Cada tabela possui as informações de apenas uma classe. Cada número representa a quantidade de amostras que foram agrupadas naquele neurônio. A tabela 20, 21 e 22 possui a distribuição dos dados no mapa 5x5 da rede SOM, e as tabelas 23, 24, e 25 para mapas do mesmo tamanho do tipo TASOM.
+
+Nas tabelas 26, 27 e 28, são apresentados os dados de plantas do tipo Iris espalhados por um mapa SOM de dimensões 9x9. As tabelas 30, 31 e 32 apresentam mapas TASOM com a mesma dimensionalidade.
+
+Pelos resultados das tabelas de distribuição dos dados em mapas de dimensionalidade 5x5 e 9x9, é possível observar regiões para a classe Setosa separadas das outras classes. As classes Virginica e Versivolour dividem espaço nos mapas. Estes agrupamentos ajudam a compreender a natureza dos dados e podem servir como instrumento na escolha de métodos supervisionados para serem aplicados neste conjunto de dados. O TASOM tem a características de ativar apenas alguns neurônios para cada agrupamentos, enquanto o SOM distribui seus neurônios por todo o conjunto de dados. É possível observar esta característica nos mapas de distribuição, pois o SOM sempre ativa uma região maior de neurônios para cada classe.
 
 
 \begin{table}[]
@@ -272,9 +484,6 @@ $\frac{Linha}{Coluna}$ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1} & \multi
 5                      & 0                                              & 0                                              & 0                                              & 0                                              & 0 \\ \hline
 \end{tabular}
 \end{table}
-
-Nas tabelas 18, 19 e 20, são apresentados os dados de plantas do tipo Iris espalhados por um mapa SOM de dimensões 9x9. As tabelas 21, 22 e 23 apresenta mapas TASOM com a mesma dimensionalidade.
-
 
 \begin{table}[]
 \centering
